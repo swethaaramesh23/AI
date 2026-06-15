@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Dashboard - NeuraMind AI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="logo.webp" alt="NeuraMind AI" style="height: 30px; margin-right: 10px;">
+      <span style="font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: var(--secondary);">Dev Hub</span>
+    </div>
+    
+    <div class="sidebar-menu">
+      <div class="menu-label">DEVELOPMENT</div>
+      <a href="#" class="menu-item active">
+        <span class="menu-icon">⚡</span> API Keys
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">📚</span> Documentation
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">🧪</span> API Playground
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">🪝</span> Webhooks
+      </a>
+      
+      <div class="menu-label mt-4">MONITORING</div>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">📈</span> Metrics
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">📋</span> Request Logs
+      </a>
+    </div>
+
+    <!-- User Profile Snippet at bottom -->
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; border-top: 1px solid var(--glass-border); display: flex; align-items: center; gap: 10px;">
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">DEV</div>
+      <div>
+        <div style="font-size: 0.9rem; font-weight: 600; color: white;" id="userNameDisplay">Developer User</div>
+        <div style="font-size: 0.8rem; color: #22C55E;">● API Connected</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    
+    <!-- Topbar -->
+    <header class="topbar flex-between">
+      <div class="flex" style="align-items: center; gap: 15px;">
+        <button class="hamburger-dashboard" id="mobileSidebarToggle" style="display: none; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer;">☰</button>
+        <h2 class="m-0" style="font-size: 1.5rem;">API Management</h2>
+      </div>
+      
+      <div class="topbar-actions">
+        <a href="#" class="text-sm text-muted hover-text-white mr-3">Read Docs ↗</a>
+        <button class="btn btn-primary btn-sm">+ Create New Key</button>
+      </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-content page-enter">
+      
+      <!-- API Keys Section -->
+      <div class="glass-card mb-5" style="padding: 0; overflow: hidden;">
+        <div style="padding: 1.5rem; border-bottom: 1px solid var(--glass-border);">
+          <h3 class="m-0">Active API Keys</h3>
+          <p class="text-muted text-sm mt-1 m-0">Manage your secret keys for accessing the NeuraMind API.</p>
+        </div>
+        
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Key</th>
+                <th>Created</th>
+                <th>Last Used</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Production App</strong></td>
+                <td><code style="background: rgba(0,0,0,0.3); padding: 4px 8px; border-radius: 4px; color: var(--secondary);">nm_prod_8x9a...2k1p</code></td>
+                <td class="text-muted">Jan 15, 2026</td>
+                <td class="text-muted">2 mins ago</td>
+                <td>
+                  <button class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 0.8rem;">Revoke</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Staging Environment</strong></td>
+                <td><code style="background: rgba(0,0,0,0.3); padding: 4px 8px; border-radius: 4px; color: var(--secondary);">nm_test_4m2b...9q5x</code></td>
+                <td class="text-muted">Mar 22, 2026</td>
+                <td class="text-muted">5 hours ago</td>
+                <td>
+                  <button class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 0.8rem;">Revoke</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Quick Start / Integration Grid -->
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+        
+        <!-- Code Snippet -->
+        <div class="glass-card">
+          <h3 class="mb-3">Quick Integration</h3>
+          <p class="text-muted text-sm mb-4">Initialize the NeuraMind client in your application.</p>
+          
+          <div style="display: flex; border-bottom: 1px solid var(--glass-border); margin-bottom: 15px;">
+            <button style="background: transparent; border: none; border-bottom: 2px solid var(--primary); color: white; padding: 5px 15px; cursor: pointer;">Python</button>
+            <button style="background: transparent; border: none; color: var(--text-muted); padding: 5px 15px; cursor: pointer;">Node.js</button>
+            <button style="background: transparent; border: none; color: var(--text-muted); padding: 5px 15px; cursor: pointer;">cURL</button>
+          </div>
+          
+          <pre style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.85rem; color: #E2E8F0; overflow-x: auto; margin: 0;"><code><span style="color: #A855F7;">import</span> neuramind
+
+client = neuramind.Client(
+    api_key=<span style="color: #22C55E;">"your-api-key"</span>
+)
+
+response = client.chat.create(
+    model=<span style="color: #22C55E;">"neuramind-v4"</span>,
+    messages=[
+        {<span style="color: #22C55E;">"role"</span>: <span style="color: #22C55E;">"user"</span>, <span style="color: #22C55E;">"content"</span>: <span style="color: #22C55E;">"Analyze this dataset"</span>}
+    ]
+)
+
+<span style="color: #6C63FF;">print</span>(response.choices[0].message)</code></pre>
+          <button class="btn btn-outline btn-sm mt-3" style="width: 100%;">Copy Code</button>
+        </div>
+
+        <!-- API Stats -->
+        <div class="glass-card">
+          <h3 class="mb-4">Recent API Status</h3>
+          
+          <div class="flex-between mb-4 pb-3 border-bottom" style="border-color: var(--glass-border);">
+            <div>
+              <div class="text-sm text-muted mb-1">Total Requests (7d)</div>
+              <div style="font-size: 1.5rem; font-weight: bold;">42,891</div>
+            </div>
+            <div style="text-align: right;">
+              <div class="text-sm text-muted mb-1">Error Rate</div>
+              <div style="font-size: 1.5rem; font-weight: bold; color: #22C55E;">0.02%</div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-sm text-muted mb-3">Top Endpoints</h4>
+            <div class="flex-between mb-2">
+              <span class="text-sm font-family-mono">/v1/chat/completions</span>
+              <span class="text-sm font-weight-600">85%</span>
+            </div>
+            <div style="width: 100%; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-bottom: 12px;">
+              <div style="width: 85%; height: 100%; background: var(--primary);"></div>
+            </div>
+
+            <div class="flex-between mb-2">
+              <span class="text-sm font-family-mono">/v1/images/generate</span>
+              <span class="text-sm font-weight-600">12%</span>
+            </div>
+            <div style="width: 100%; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-bottom: 12px;">
+              <div style="width: 12%; height: 100%; background: var(--secondary);"></div>
+            </div>
+            
+            <div class="flex-between mb-2">
+              <span class="text-sm font-family-mono">/v1/embeddings</span>
+              <span class="text-sm font-weight-600">3%</span>
+            </div>
+            <div style="width: 100%; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px;">
+              <div style="width: 3%; height: 100%; background: var(--accent);"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

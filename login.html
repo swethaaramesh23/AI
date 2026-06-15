@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - NeuraMind AI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="auth-page" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(10,14,39,1) 0%, rgba(6,9,24,1) 100%); position: relative; overflow: hidden; padding: 2rem;">
+
+  <!-- Abstract Background Particles (Simulated with CSS for brevity) -->
+  <div style="position: absolute; top: -20%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none;"></div>
+  <div style="position: absolute; bottom: -20%; right: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none;"></div>
+
+  <!-- Back Home Link -->
+  <a href="index.html" style="position: absolute; top: 30px; left: 30px; z-index: 10; color: var(--text-muted); display: flex; align-items: center; gap: 8px; transition: var(--transition);" class="hover-text-primary">
+    <span>←</span> Back to Home
+  </a>
+
+  <!-- Auth Card -->
+  <div class="auth-card glass-card page-enter" style="width: 100%; max-width: 480px; padding: 3rem; z-index: 1; position: relative;">
+    
+    <div class="text-center mb-4">
+      <a href="index.html" style="display: inline-block;">
+        <img src="logo.webp" alt="NeuraMind AI" style="height: 45px; margin-bottom: 1.5rem;">
+      </a>
+      <h2 class="auth-title m-0" style="font-size: 1.8rem;">Welcome Back</h2>
+      <p class="text-muted text-sm mt-2">Sign in to access your NeuraMind dashboard.</p>
+    </div>
+
+    <!-- Error Message Container -->
+    <div id="loginError" style="display: none; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); color: #EF4444; padding: 10px 15px; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.85rem; text-align: center;"></div>
+
+    <form class="auth-form" id="loginForm">
+      
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="email" class="form-label" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Email Address</label>
+        <div class="input-group" style="position: relative;">
+          <span class="input-icon" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);">✉</span>
+          <input type="email" id="email" required placeholder="name@company.com" style="width: 100%; padding: 14px 14px 14px 45px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: var(--border-radius-sm); color: white; outline: none; transition: var(--transition);">
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <div class="flex-between" style="margin-bottom: 8px;">
+          <label for="password" class="form-label m-0" style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Password</label>
+          <a href="#" class="text-sm hover-text-primary" style="color: var(--primary);">Forgot Password?</a>
+        </div>
+        <div class="input-group" style="position: relative;">
+          <span class="input-icon" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);">🔒</span>
+          <input type="password" id="password" required placeholder="••••••••" style="width: 100%; padding: 14px 45px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: var(--border-radius-sm); color: white; outline: none; transition: var(--transition);">
+          <span class="password-toggle" id="togglePassword" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); cursor: pointer; font-size: 0.9rem;">👁</span>
+        </div>
+      </div>
+
+      <div class="form-row flex-between mb-4">
+        <label class="flex" style="align-items: center; gap: 8px; cursor: pointer;">
+          <input type="checkbox" id="rememberMe" style="accent-color: var(--primary); width: 16px; height: 16px;">
+          <span class="text-sm text-muted">Remember me for 30 days</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="loginBtn" style="width: 100%; position: relative;">
+        <span id="btnText">Sign In</span>
+        <span id="btnLoader" style="display: none; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 1s linear infinite;"></span>
+      </button>
+
+      <div class="text-center mt-4 pt-3 border-top" style="border-color: var(--glass-border);">
+        <p class="text-muted text-sm m-0">Don't have an account? <a href="signup.html" style="color: var(--primary); font-weight: 600;">Create an account</a></p>
+      </div>
+
+    </form>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

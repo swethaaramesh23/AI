@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Insights - NeuraMind AI</title>
+  <meta name="description" content="Stay updated with the latest trends, tutorials, and insights in the world of Artificial Intelligence.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <img src="logo.webp" alt="NeuraMind AI" class="preloader-logo pulse" style="max-width: 200px;">
+      <div class="preloader-spinner" style="width: 40px; height: 40px; border: 3px solid rgba(108, 99, 255, 0.3); border-top-color: #6C63FF; border-radius: 50%; animation: spin 1s linear infinite; margin: 20px auto;"></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.webp" alt="NeuraMind AI" class="nav-logo-img" style="max-height: 40px;">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions" style="display: flex; gap: 1rem;">
+        <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+        <a href="signup.html" class="btn btn-primary btn-sm nav-cta">Get Started</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="signup.html" class="btn btn-primary" style="margin-top: 1rem;">Get Started</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="blog-hero hero" style="min-height: 40vh; padding-top: 120px; display: flex; flex-direction: column; justify-content: center; text-align: center; background: linear-gradient(to bottom, rgba(10,14,39,1) 0%, rgba(6,9,24,1) 100%);">
+      <div class="container page-enter">
+        <span class="section-subtitle">OUR BLOG</span>
+        <h1 class="mt-2 mb-3 gradient-text" style="font-size: clamp(2.5rem, 5vw, 4rem);">Latest Insights & Articles</h1>
+        <p class="text-muted mx-auto mb-4" style="max-width: 700px; font-size: 1.2rem;">Expert perspectives on AI trends, deep learning tutorials, and industry use cases.</p>
+        <div class="breadcrumb text-sm text-muted">
+          <a href="index.html" class="hover-text-primary">Home</a> <span style="margin: 0 10px;">></span> <span style="color: white;">Blog</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Layout Area -->
+    <section class="section" style="padding-top: 2rem;">
+      <div class="container">
+        
+        <!-- Filters & Search Row -->
+        <div class="flex-between mb-5" style="flex-wrap: wrap; gap: 1.5rem;" data-aos="fade-up">
+          <div class="blog-filters flex" style="gap: 10px; overflow-x: auto; padding-bottom: 5px;">
+            <button class="btn btn-outline btn-sm active" style="border-radius: 50px; white-space: nowrap;">All Posts</button>
+            <button class="btn btn-outline btn-sm" style="border-radius: 50px; white-space: nowrap;">AI Trends</button>
+            <button class="btn btn-outline btn-sm" style="border-radius: 50px; white-space: nowrap;">Machine Learning</button>
+            <button class="btn btn-outline btn-sm" style="border-radius: 50px; white-space: nowrap;">Deep Learning</button>
+            <button class="btn btn-outline btn-sm" style="border-radius: 50px; white-space: nowrap;">Industry</button>
+            <button class="btn btn-outline btn-sm" style="border-radius: 50px; white-space: nowrap;">Tutorials</button>
+          </div>
+          <div class="blog-search" style="position: relative; min-width: 250px;">
+            <input type="text" placeholder="Search articles..." style="width: 100%; padding: 10px 40px 10px 15px; border-radius: 50px; background: var(--glass-bg); border: 1px solid var(--glass-border); color: white; outline: none;">
+            <span style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);">🔍</span>
+          </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start;">
+          
+          <!-- Blog Posts -->
+          <div class="blog-main grid-2" style="gap: 2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+            
+            <!-- Post 1 -->
+            <a href="#" class="blog-card glass-card hover-lift" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up">
+              <div class="blog-card-image" style="height: 200px; position: relative;">
+                <img src="images/12.webp" alt="AI Trends" style="width: 100%; height: 100%; object-fit: cover;">
+                <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">AI Trends</span>
+              </div>
+              <div class="blog-card-content" style="padding: 1.5rem;">
+                <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
+                  <span>📅 June 10, 2026</span>
+                  <span>👤 Sarah Chen</span>
+                </div>
+                <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">The Future of Generative AI in Enterprise</h3>
+                <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Discover how large language models are transitioning from novelties to core infrastructure in Fortune 500 companies.</p>
+              </div>
+            </a>
+            
+            <!-- Post 2 -->
+            <a href="#" class="blog-card glass-card hover-lift" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up" data-aos-delay="100">
+              <div class="blog-card-image" style="height: 200px; position: relative;">
+                <img src="images/13.webp" alt="Machine Learning" style="width: 100%; height: 100%; object-fit: cover;">
+                <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">Machine Learning</span>
+              </div>
+              <div class="blog-card-content" style="padding: 1.5rem;">
+                <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
+                  <span>📅 June 5, 2026</span>
+                  <span>👤 James Wilson</span>
+                </div>
+                <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">AutoML: Democratizing Machine Learning</h3>
+                <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">How automated machine learning pipelines are allowing non-experts to build and deploy sophisticated models.</p>
+              </div>
+            </a>
+            
+            <!-- Post 3 -->
+            <a href="#" class="blog-card glass-card hover-lift" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up">
+              <div class="blog-card-image" style="height: 200px; position: relative;">
+                <img src="images/7.webp" alt="Industry" style="width: 100%; height: 100%; object-fit: cover;">
+                <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">Industry</span>
+              </div>
+              <div class="blog-card-content" style="padding: 1.5rem;">
+                <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
+                  <span>📅 May 28, 2026</span>
+                  <span>👤 Dr. Priya Patel</span>
+                </div>
+                <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">AI Applications Transforming Healthcare</h3>
+                <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">From predictive diagnostics to personalized treatment plans, see how computer vision is saving lives.</p>
+              </div>
+            </a>
+            
+            <!-- Post 4 -->
+            <a href="#" class="blog-card glass-card hover-lift" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up" data-aos-delay="100">
+              <div class="blog-card-image" style="height: 200px; position: relative;">
+                <img src="images/4.webp" alt="Deep Learning" style="width: 100%; height: 100%; object-fit: cover;">
+                <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">Deep Learning</span>
+              </div>
+              <div class="blog-card-content" style="padding: 1.5rem;">
+                <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
+                  <span>📅 May 20, 2026</span>
+                  <span>👤 Alex Kim</span>
+                </div>
+                <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">Understanding Transformer Architectures</h3>
+                <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">A deep dive into the attention mechanism that powers modern language models like GPT and BERT.</p>
+              </div>
+            </a>
+            
+            <!-- Post 5 -->
+            <a href="#" class="blog-card glass-card hover-lift" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up">
+              <div class="blog-card-image" style="height: 200px; position: relative;">
+                <img src="images/8.webp" alt="Tutorials" style="width: 100%; height: 100%; object-fit: cover;">
+                <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">Tutorials</span>
+              </div>
+              <div class="blog-card-content" style="padding: 1.5rem;">
+                <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
+                  <span>📅 May 15, 2026</span>
+                  <span>👤 Mike Rodriguez</span>
+                </div>
+                <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">Building Your First AI Chatbot</h3>
+                <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">A step-by-step guide to creating a custom conversational agent using Python and the NeuraMind API.</p>
+              </div>
+            </a>
+            
+            <!-- Post 6 -->
+            <a href="#" class="blog-card glass-card hover-lift" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up" data-aos-delay="100">
+              <div class="blog-card-image" style="height: 200px; position: relative;">
+                <img src="images/15.webp" alt="AI Trends" style="width: 100%; height: 100%; object-fit: cover;">
+                <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">AI Trends</span>
+              </div>
+              <div class="blog-card-content" style="padding: 1.5rem;">
+                <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
+                  <span>📅 May 10, 2026</span>
+                  <span>👤 Emily Zhang</span>
+                </div>
+                <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">The Rise of AI Agents in Business</h3>
+                <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Moving beyond passive chatbots to autonomous agents that can execute complex multi-step workflows.</p>
+              </div>
+            </a>
+
+            <!-- Pagination -->
+            <div class="pagination flex-center mt-4" style="grid-column: 1 / -1; gap: 10px;">
+              <button class="btn btn-outline" style="padding: 8px 16px;">Previous</button>
+              <button class="btn btn-primary" style="padding: 8px 16px; min-width: 40px;">1</button>
+              <button class="btn btn-outline" style="padding: 8px 16px; min-width: 40px;">2</button>
+              <button class="btn btn-outline" style="padding: 8px 16px; min-width: 40px;">3</button>
+              <button class="btn btn-outline" style="padding: 8px 16px;">Next</button>
+            </div>
+
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="blog-sidebar" style="position: sticky; top: 100px;">
+            
+            <!-- Popular Posts -->
+            <div class="glass-card mb-4" style="padding: 1.5rem;" data-aos="fade-left">
+              <h4 class="mb-3 border-bottom pb-2" style="border-color: var(--glass-border);">Popular Posts</h4>
+              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">
+                <li>
+                  <a href="#" class="hover-text-primary" style="display: flex; gap: 10px;">
+                    <img src="images/12.webp" alt="Thumb" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+                    <div>
+                      <h5 class="m-0" style="font-size: 0.9rem; line-height: 1.3;">The Future of Generative AI in Enterprise</h5>
+                      <span class="text-xs text-muted">June 10, 2026</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="hover-text-primary" style="display: flex; gap: 10px;">
+                    <img src="images/4.webp" alt="Thumb" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+                    <div>
+                      <h5 class="m-0" style="font-size: 0.9rem; line-height: 1.3;">Understanding Transformer Architectures</h5>
+                      <span class="text-xs text-muted">May 20, 2026</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="hover-text-primary" style="display: flex; gap: 10px;">
+                    <img src="images/7.webp" alt="Thumb" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+                    <div>
+                      <h5 class="m-0" style="font-size: 0.9rem; line-height: 1.3;">AI Applications Transforming Healthcare</h5>
+                      <span class="text-xs text-muted">May 28, 2026</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Categories -->
+            <div class="glass-card mb-4" style="padding: 1.5rem;" data-aos="fade-left" data-aos-delay="100">
+              <h4 class="mb-3 border-bottom pb-2" style="border-color: var(--glass-border);">Categories</h4>
+              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+                <li class="flex-between">
+                  <a href="#" class="text-muted hover-text-primary">AI Trends</a>
+                  <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">12</span>
+                </li>
+                <li class="flex-between">
+                  <a href="#" class="text-muted hover-text-primary">Machine Learning</a>
+                  <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">8</span>
+                </li>
+                <li class="flex-between">
+                  <a href="#" class="text-muted hover-text-primary">Deep Learning</a>
+                  <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">15</span>
+                </li>
+                <li class="flex-between">
+                  <a href="#" class="text-muted hover-text-primary">Industry News</a>
+                  <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">6</span>
+                </li>
+                <li class="flex-between">
+                  <a href="#" class="text-muted hover-text-primary">Tutorials</a>
+                  <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">10</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Tags -->
+            <div class="glass-card" style="padding: 1.5rem;" data-aos="fade-left" data-aos-delay="200">
+              <h4 class="mb-3 border-bottom pb-2" style="border-color: var(--glass-border);">Tags</h4>
+              <div class="tag-cloud flex" style="flex-wrap: wrap; gap: 8px;">
+                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">GPT-4</a>
+                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Computer Vision</a>
+                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">NLP</a>
+                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Python</a>
+                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">TensorFlow</a>
+                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Ethics</a>
+                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Automation</a>
+                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Data Science</a>
+              </div>
+            </div>
+
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="section text-center bg-darker mt-4">
+      <div class="container">
+        <h2 class="section-title mb-3 gradient-text">Never Miss an Update</h2>
+        <p class="text-lg text-muted mb-5 mx-auto" style="max-width: 600px;">Get the latest AI insights, tutorials, and product updates delivered straight to your inbox.</p>
+        <form class="newsletter-form mx-auto" style="display: flex; max-width: 500px; box-shadow: var(--shadow-card); border-radius: 50px; background: var(--glass-bg); border: 1px solid var(--glass-border);">
+          <input type="email" placeholder="Your email address" required style="flex: 1; padding: 16px 24px; border: none; background: transparent; color: white; outline: none; border-radius: 50px 0 0 50px;">
+          <button type="submit" class="btn btn-primary" style="border-radius: 0 50px 50px 0; padding: 16px 32px;">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer bg-darker" style="padding: 5rem 0 2rem; border-top: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 4rem;">
+        <div class="footer-about">
+          <a href="index.html" class="footer-logo mb-3" style="display: inline-block;">
+            <img src="logo.webp" alt="NeuraMind AI" class="footer-logo-img" style="height: 40px;">
+          </a>
+          <p class="footer-description text-muted mt-3 mb-4">Empowering businesses with cutting-edge AI solutions. Transform your operations with intelligent automation and data-driven insights.</p>
+          <div class="footer-social" style="display: flex; gap: 15px;">
+            <a href="#" class="social-icon flex-center hover-glow" aria-label="Twitter" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">𝕏</a>
+            <a href="#" class="social-icon flex-center hover-glow" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">in</a>
+            <a href="#" class="social-icon flex-center hover-glow" aria-label="GitHub" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">⌨</a>
+            <a href="#" class="social-icon flex-center hover-glow" aria-label="YouTube" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">▶</a>
+          </div>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-title mb-3" style="color: white; position: relative; padding-bottom: 10px;">Quick Links<span style="position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--gradient-btn);"></span></h4>
+          <ul class="footer-links" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+            <li><a href="about.html" class="text-muted hover-text-primary">About Us</a></li>
+            <li><a href="services.html" class="text-muted hover-text-primary">Services</a></li>
+            <li><a href="solutions.html" class="text-muted hover-text-primary">Solutions</a></li>
+            <li><a href="pricing.html" class="text-muted hover-text-primary">Pricing</a></li>
+            <li><a href="blog.html" class="text-muted hover-text-primary">Blog</a></li>
+            <li><a href="contact.html" class="text-muted hover-text-primary">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-title mb-3" style="color: white; position: relative; padding-bottom: 10px;">Services<span style="position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--gradient-btn);"></span></h4>
+          <ul class="footer-links" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+            <li><a href="services.html" class="text-muted hover-text-primary">Machine Learning</a></li>
+            <li><a href="services.html" class="text-muted hover-text-primary">Deep Learning</a></li>
+            <li><a href="services.html" class="text-muted hover-text-primary">Generative AI</a></li>
+            <li><a href="services.html" class="text-muted hover-text-primary">Computer Vision</a></li>
+            <li><a href="services.html" class="text-muted hover-text-primary">NLP</a></li>
+            <li><a href="services.html" class="text-muted hover-text-primary">AI Automation</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact-col">
+          <h4 class="footer-title mb-3" style="color: white; position: relative; padding-bottom: 10px;">Contact Info<span style="position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--gradient-btn);"></span></h4>
+          <ul class="footer-contact text-muted" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+            <li><span style="margin-right: 10px;">📧</span> hello@neuramind.ai</li>
+            <li><span style="margin-right: 10px;">📞</span> +1 (555) 123-4567</li>
+            <li><span style="margin-right: 10px;">📍</span> 123 AI Blvd, San Francisco, CA</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom flex-between pt-4 border-top text-muted text-sm" style="border-color: var(--glass-border); flex-wrap: wrap; gap: 1rem;">
+        <p class="m-0">© 2026 NeuraMind AI. All rights reserved.</p>
+        <div class="footer-bottom-links" style="display: flex; gap: 20px;">
+          <a href="#" class="hover-text-primary">Privacy Policy</a>
+          <a href="#" class="hover-text-primary">Terms of Service</a>
+          <a href="#" class="hover-text-primary">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI Chatbot Widget -->
+  <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open AI Chat" style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); border: none; font-size: 24px; color: white; cursor: pointer; box-shadow: var(--shadow-glow); z-index: 1000; transition: var(--transition);">
+    💬
+  </button>
+  <div class="chatbot-window hidden glass-card" id="chatbotWindow" style="position: fixed; bottom: 100px; right: 30px; width: 380px; max-width: calc(100vw - 40px); height: 500px; display: flex; flex-direction: column; padding: 0; overflow: hidden; z-index: 1000; transform-origin: bottom right; transition: all 0.3s ease;">
+    <div class="chatbot-header" style="background: var(--gradient-btn); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; color: white;">
+      <div class="chatbot-header-info flex" style="gap: 10px; align-items: center;">
+        <span class="chatbot-avatar" style="font-size: 24px;">🤖</span>
+        <div>
+          <h4 style="margin: 0; font-size: 1rem;">NeuraMind Assistant</h4>
+          <span class="chatbot-status" style="font-size: 0.8rem; opacity: 0.8;">● Online</span>
+        </div>
+      </div>
+      <button class="chatbot-close" id="chatbotClose" style="background: transparent; border: none; color: white; cursor: pointer; font-size: 1.2rem;">✕</button>
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages" style="flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; background: rgba(10, 14, 39, 0.5);">
+      <!-- Messages will be injected by JS -->
+    </div>
+    <div class="chatbot-input" style="display: flex; padding: 15px; border-top: 1px solid var(--glass-border); background: var(--glass-bg);">
+      <input type="text" id="chatbotInput" placeholder="Type a message..." autocomplete="off" style="flex: 1; background: transparent; border: none; color: white; outline: none;">
+      <button id="chatbotSend" class="btn btn-primary" style="padding: 8px 15px; border-radius: 8px;">➤</button>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top hidden" id="backToTop" aria-label="Back to top" style="position: fixed; bottom: 30px; left: 30px; width: 50px; height: 50px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); color: white; font-size: 20px; cursor: pointer; z-index: 999; backdrop-filter: blur(10px); transition: var(--transition);">
+    ↑
+  </button>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>

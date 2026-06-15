@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Dashboard - NeuraMind AI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-body">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="logo.webp" alt="NeuraMind AI" style="height: 30px; margin-right: 10px;">
+      <span style="font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: var(--accent);">Enterprise</span>
+    </div>
+    
+    <div class="sidebar-menu">
+      <div class="menu-label">INSIGHTS</div>
+      <a href="#" class="menu-item active">
+        <span class="menu-icon">📈</span> Executive Summary
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">🎯</span> Predictive Models
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">👥</span> Customer Intel
+      </a>
+      
+      <div class="menu-label mt-4">MANAGEMENT</div>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">📊</span> Custom Reports
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">🔗</span> Integrations
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">⚙️</span> Team Settings
+      </a>
+    </div>
+
+    <!-- User Profile Snippet at bottom -->
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; border-top: 1px solid var(--glass-border); display: flex; align-items: center; gap: 10px;">
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">BU</div>
+      <div>
+        <div style="font-size: 0.9rem; font-weight: 600; color: white;" id="userNameDisplay">Business Lead</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted);">Acme Corp</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    
+    <!-- Topbar -->
+    <header class="topbar flex-between">
+      <div class="flex" style="align-items: center; gap: 15px;">
+        <button class="hamburger-dashboard" id="mobileSidebarToggle" style="display: none; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer;">☰</button>
+        <h2 class="m-0" style="font-size: 1.5rem;">Business Intelligence</h2>
+      </div>
+      
+      <div class="topbar-actions">
+        <button class="btn btn-outline btn-sm">Export PDF</button>
+        <button class="btn btn-primary btn-sm">Generate Report</button>
+      </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-content page-enter">
+      
+      <!-- AI Insight Banner -->
+      <div class="glass-card mb-4" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(108, 99, 255, 0.1)); border-color: rgba(168, 85, 247, 0.3);">
+        <div class="flex" style="align-items: flex-start; gap: 15px;">
+          <div style="font-size: 2rem;">✨</div>
+          <div>
+            <h3 class="mb-1" style="font-size: 1.1rem; color: white;">AI Insight Generated</h3>
+            <p class="m-0 text-muted text-sm" style="line-height: 1.5;">Based on recent sales data, our prediction engine anticipates a <strong>15% surge in demand</strong> for the upcoming holiday weekend. We recommend increasing inventory for SKUs in the "Electronics" category by Thursday to prevent stockouts.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="kpi-grid mb-4">
+        <div class="glass-card kpi-card hover-lift">
+          <div class="text-muted text-sm text-uppercase mb-2">Revenue Predicted (Q3)</div>
+          <div class="kpi-value" style="color: white;">$2.4M</div>
+          <div class="kpi-trend trend-up">↑ 8% vs Actual Q2</div>
+        </div>
+        <div class="glass-card kpi-card hover-lift">
+          <div class="text-muted text-sm text-uppercase mb-2">Customer Churn Risk</div>
+          <div class="kpi-value" style="color: #22C55E;">2.1%</div>
+          <div class="kpi-trend trend-down">↓ 0.5% (Improved)</div>
+        </div>
+        <div class="glass-card kpi-card hover-lift">
+          <div class="text-muted text-sm text-uppercase mb-2">AI Automation ROI</div>
+          <div class="kpi-value" style="color: var(--accent);">340%</div>
+          <div class="kpi-trend text-muted">Trailing 12 months</div>
+        </div>
+        <div class="glass-card kpi-card hover-lift">
+          <div class="text-muted text-sm text-uppercase mb-2">Support Tickets</div>
+          <div class="kpi-value" style="color: white;">-45%</div>
+          <div class="kpi-trend text-muted">Since AI bot launch</div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+        
+        <!-- Main Chart: Forecast -->
+        <div class="glass-card">
+          <div class="flex-between mb-4">
+            <h3 class="m-0">Sales Forecast (AI Model)</h3>
+            <select class="form-input" style="width: auto; padding: 5px 10px;">
+              <option>Next 30 Days</option>
+              <option>Next Quarter</option>
+            </select>
+          </div>
+          <div class="chart-container">
+            <canvas id="businessChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Sentiment Analysis -->
+        <div class="glass-card">
+          <h3 class="mb-4">Brand Sentiment (NLP)</h3>
+          
+          <div class="flex-center mb-4">
+            <div style="position: relative; width: 120px; height: 120px;">
+              <!-- Simulated Donut Chart -->
+              <svg viewBox="0 0 36 36" style="width: 100%; height: 100%; transform: rotate(-90deg);">
+                <circle cx="18" cy="18" r="16" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4"></circle>
+                <circle cx="18" cy="18" r="16" fill="none" stroke="#22C55E" stroke-width="4" stroke-dasharray="100" stroke-dashoffset="30"></circle>
+              </svg>
+              <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                <span style="font-size: 1.5rem; font-weight: bold;">70%</span><br>
+                <span style="font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase;">Positive</span>
+              </div>
+            </div>
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div class="flex-between text-sm">
+              <span style="color: #22C55E;">● Positive</span>
+              <span>70%</span>
+            </div>
+            <div class="flex-between text-sm">
+              <span style="color: var(--text-muted);">● Neutral</span>
+              <span>20%</span>
+            </div>
+            <div class="flex-between text-sm">
+              <span style="color: #EF4444;">● Negative</span>
+              <span>10%</span>
+            </div>
+          </div>
+          
+          <div class="mt-4 pt-3 border-top text-xs text-muted" style="border-color: var(--glass-border);">
+            Based on analysis of 15,420 social mentions and reviews in the last 7 days.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

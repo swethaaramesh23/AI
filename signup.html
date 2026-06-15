@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - NeuraMind AI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="auth-page" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(10,14,39,1) 0%, rgba(6,9,24,1) 100%); position: relative; overflow: hidden; padding: 2rem;">
+
+  <!-- Abstract Background Particles (Simulated with CSS for brevity) -->
+  <div style="position: absolute; top: -20%; right: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none;"></div>
+  <div style="position: absolute; bottom: -20%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none;"></div>
+
+  <!-- Back Home Link -->
+  <a href="index.html" style="position: absolute; top: 30px; left: 30px; z-index: 10; color: var(--text-muted); display: flex; align-items: center; gap: 8px; transition: var(--transition);" class="hover-text-primary">
+    <span>←</span> Back to Home
+  </a>
+
+  <!-- Auth Card -->
+  <div class="auth-card glass-card page-enter" style="width: 100%; max-width: 550px; padding: 3rem; z-index: 1; position: relative;">
+    
+    <div class="text-center mb-4">
+      <a href="index.html" style="display: inline-block;">
+        <img src="logo.webp" alt="NeuraMind AI" style="height: 45px; margin-bottom: 1.5rem;">
+      </a>
+      <h2 class="auth-title m-0" style="font-size: 1.8rem;">Create an Account</h2>
+      <p class="text-muted text-sm mt-2">Join NeuraMind AI and transform your workflow today.</p>
+    </div>
+
+    <!-- Error/Success Message Container -->
+    <div id="signupMsg" style="display: none; padding: 10px 15px; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.85rem; text-align: center;"></div>
+
+    <form class="auth-form" id="signupForm">
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+        <div class="form-group">
+          <label for="firstName" class="form-label" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">First Name</label>
+          <input type="text" id="firstName" required style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: var(--border-radius-sm); color: white; outline: none; transition: var(--transition);">
+        </div>
+        <div class="form-group">
+          <label for="lastName" class="form-label" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Last Name</label>
+          <input type="text" id="lastName" required style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: var(--border-radius-sm); color: white; outline: none; transition: var(--transition);">
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 1rem;">
+        <label for="email" class="form-label" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Work Email Address</label>
+        <div class="input-group" style="position: relative;">
+          <span class="input-icon" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);">✉</span>
+          <input type="email" id="email" required placeholder="name@company.com" style="width: 100%; padding: 12px 14px 12px 45px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: var(--border-radius-sm); color: white; outline: none; transition: var(--transition);">
+        </div>
+        <span class="text-xs text-muted" id="emailError" style="color: #EF4444; display: none; margin-top: 5px;">Please enter a valid email.</span>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 1rem;">
+        <label for="role" class="form-label" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Select Role</label>
+        <select id="role" required style="width: 100%; padding: 12px 14px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: var(--border-radius-sm); color: white; outline: none; transition: var(--transition); appearance: none; cursor: pointer;">
+          <option value="" disabled selected style="background: var(--bg-dark);">Select your primary role</option>
+          <option value="admin" style="background: var(--bg-dark);">Admin</option>
+          <option value="customer" style="background: var(--bg-dark);">Customer</option>
+          <option value="developer" style="background: var(--bg-dark);">Developer</option>
+          <option value="business" style="background: var(--bg-dark);">Business User</option>
+        </select>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="password" class="form-label m-0" style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">Create Password</label>
+        <div class="input-group" style="position: relative;">
+          <span class="input-icon" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);">🔒</span>
+          <input type="password" id="password" required placeholder="••••••••" style="width: 100%; padding: 12px 45px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: var(--border-radius-sm); color: white; outline: none; transition: var(--transition);">
+          <span class="password-toggle" id="togglePassword" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); cursor: pointer; font-size: 0.9rem;">👁</span>
+        </div>
+        <div style="margin-top: 8px; font-size: 0.75rem;">
+          <span id="reqLength" style="color: #EF4444; margin-right: 10px;">✗ 8+ characters</span>
+          <span id="reqUpper" style="color: #EF4444; margin-right: 10px;">✗ 1 uppercase</span>
+          <span id="reqSpecial" style="color: #EF4444;">✗ 1 special character</span>
+        </div>
+      </div>
+
+      <div class="form-row mb-4">
+        <label class="flex" style="align-items: flex-start; gap: 10px; cursor: pointer;">
+          <input type="checkbox" id="terms" required style="accent-color: var(--primary); width: 16px; height: 16px; margin-top: 3px;">
+          <span class="text-sm text-muted" style="line-height: 1.4;">I agree to the <a href="#" style="color: var(--primary);">Terms of Service</a> and <a href="#" style="color: var(--primary);">Privacy Policy</a>.</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="signupBtn" style="width: 100%; position: relative;">
+        <span id="btnText">Create Account</span>
+        <span id="btnLoader" style="display: none; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 1s linear infinite;"></span>
+      </button>
+
+      <div class="text-center mt-4 pt-3 border-top" style="border-color: var(--glass-border);">
+        <p class="text-muted text-sm m-0">Already have an account? <a href="login.html" style="color: var(--primary); font-weight: 600;">Sign in here</a></p>
+      </div>
+
+    </form>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

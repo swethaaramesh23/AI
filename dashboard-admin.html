@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - NeuraMind AI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/animations.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-body">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="logo.webp" alt="NeuraMind AI" style="height: 30px; margin-right: 10px;">
+      <span style="font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Admin</span>
+    </div>
+    
+    <div class="sidebar-menu">
+      <div class="menu-label">CORE</div>
+      <a href="#" class="menu-item active">
+        <span class="menu-icon">📊</span> Overview
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">👥</span> Users & Roles
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">🏢</span> Tenants
+      </a>
+      
+      <div class="menu-label mt-4">SYSTEM</div>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">🖥️</span> Infrastructure
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">⚠️</span> Error Logs
+      </a>
+      <a href="#" class="menu-item">
+        <span class="menu-icon">⚙️</span> Settings
+      </a>
+    </div>
+
+    <!-- User Profile Snippet at bottom -->
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; border-top: 1px solid var(--glass-border); display: flex; align-items: center; gap: 10px;">
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--gradient-btn); display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">SA</div>
+      <div>
+        <div style="font-size: 0.9rem; font-weight: 600; color: white;" id="userNameDisplay">System Admin</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted);">admin@neuramind.ai</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    
+    <!-- Topbar -->
+    <header class="topbar flex-between">
+      <div class="flex" style="align-items: center; gap: 15px;">
+        <button class="hamburger-dashboard" id="mobileSidebarToggle" style="display: none; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer;">☰</button>
+        <h2 class="m-0" style="font-size: 1.5rem;">System Overview</h2>
+      </div>
+      
+      <div class="topbar-actions">
+        <button class="btn btn-outline btn-sm" id="logoutBtn">Logout</button>
+      </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-content page-enter">
+      
+      <!-- KPI Cards -->
+      <div class="kpi-grid">
+        <div class="glass-card kpi-card hover-lift">
+          <div class="text-muted text-sm text-uppercase mb-2">Total Users</div>
+          <div class="kpi-value" style="color: var(--primary);">124.5K</div>
+          <div class="kpi-trend trend-up">↑ 12% vs last month</div>
+        </div>
+        <div class="glass-card kpi-card hover-lift">
+          <div class="text-muted text-sm text-uppercase mb-2">Active Tenants</div>
+          <div class="kpi-value" style="color: var(--secondary);">8,204</div>
+          <div class="kpi-trend trend-up">↑ 5% vs last month</div>
+        </div>
+        <div class="glass-card kpi-card hover-lift">
+          <div class="text-muted text-sm text-uppercase mb-2">API Requests (24h)</div>
+          <div class="kpi-value" style="color: var(--accent);">45.2M</div>
+          <div class="kpi-trend trend-up">↑ 8% vs yesterday</div>
+        </div>
+        <div class="glass-card kpi-card hover-lift">
+          <div class="text-muted text-sm text-uppercase mb-2">System Health</div>
+          <div class="kpi-value" style="color: #22C55E;">99.99%</div>
+          <div class="kpi-trend text-muted">Uptime (30 days)</div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+        
+        <!-- Main Chart -->
+        <div class="glass-card">
+          <div class="flex-between mb-4">
+            <h3 class="m-0">Global API Traffic</h3>
+            <select class="form-input" style="width: auto; padding: 5px 10px;">
+              <option>Last 7 Days</option>
+              <option>Last 30 Days</option>
+              <option>This Year</option>
+            </select>
+          </div>
+          <div class="chart-container">
+            <canvas id="mainChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Secondary Chart -->
+        <div class="glass-card">
+          <h3 class="mb-4">Compute Resources</h3>
+          <div class="chart-container">
+            <canvas id="secondaryChart"></canvas>
+          </div>
+          
+          <div class="mt-4">
+            <div class="flex-between text-sm mb-2">
+              <span class="text-muted">GPU Cluster A</span>
+              <span style="color: var(--primary);">85% Utilized</span>
+            </div>
+            <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; margin-bottom: 15px;">
+              <div style="width: 85%; height: 100%; background: var(--primary);"></div>
+            </div>
+            
+            <div class="flex-between text-sm mb-2">
+              <span class="text-muted">GPU Cluster B</span>
+              <span style="color: var(--secondary);">62% Utilized</span>
+            </div>
+            <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+              <div style="width: 62%; height: 100%; background: var(--secondary);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Table -->
+      <div class="glass-card" style="padding: 0; overflow: hidden;">
+        <div class="flex-between" style="padding: 1.5rem; border-bottom: 1px solid var(--glass-border);">
+          <h3 class="m-0">Recent Alerts & Errors</h3>
+          <button class="btn btn-outline btn-sm">View All Logs</button>
+        </div>
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>Service</th>
+                <th>Severity</th>
+                <th>Message</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-muted text-sm">Today, 10:45 AM</td>
+                <td>Model Gateway (US-East)</td>
+                <td><span class="badge" style="background: rgba(239, 68, 68, 0.2); color: #EF4444;">CRITICAL</span></td>
+                <td>Latency spike > 500ms detected</td>
+                <td><span class="text-sm" style="color: #22C55E;">Resolved</span></td>
+              </tr>
+              <tr>
+                <td class="text-muted text-sm">Today, 08:12 AM</td>
+                <td>Auth Service</td>
+                <td><span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B;">WARNING</span></td>
+                <td>Elevated rate of 401 Unauthorized responses</td>
+                <td><span class="text-sm" style="color: #F59E0B;">Investigating</span></td>
+              </tr>
+              <tr>
+                <td class="text-muted text-sm">Yesterday, 11:30 PM</td>
+                <td>Database Cluster 2</td>
+                <td><span class="badge" style="background: rgba(108, 99, 255, 0.2); color: var(--primary);">INFO</span></td>
+                <td>Automated backup completed successfully</td>
+                <td><span class="text-sm text-muted">Closed</span></td>
+              </tr>
+              <tr>
+                <td class="text-muted text-sm">Yesterday, 04:22 PM</td>
+                <td>Vision API Node</td>
+                <td><span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B;">WARNING</span></td>
+                <td>GPU memory utilization > 90%</td>
+                <td><span class="text-sm" style="color: #22C55E;">Resolved (Auto-scaled)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

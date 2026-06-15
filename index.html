@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuraMind AI - Premium Artificial Intelligence Solutions</title>
+  <meta name="description" content="Empowering businesses with cutting-edge AI solutions. Transform your operations with intelligent automation and data-driven insights.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <img src="logo.webp" alt="NeuraMind AI" class="preloader-logo pulse" style="max-width: 200px;">
+      <div class="preloader-spinner" style="width: 40px; height: 40px; border: 3px solid rgba(108, 99, 255, 0.3); border-top-color: #6C63FF; border-radius: 50%; animation: spin 1s linear infinite; margin: 20px auto;"></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.webp" alt="NeuraMind AI" class="nav-logo-img" style="max-height: 40px;">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions" style="display: flex; gap: 1rem;">
+        <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+        <a href="signup.html" class="btn btn-primary btn-sm nav-cta">Get Started</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="signup.html" class="btn btn-primary" style="margin-top: 1rem;">Get Started</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="particles">
+        <span class="particle" style="left: 10%; width: 10px; height: 10px; animation-duration: 8s; animation-delay: 0s;"></span>
+        <span class="particle" style="left: 30%; width: 15px; height: 15px; animation-duration: 12s; animation-delay: 2s;"></span>
+        <span class="particle" style="left: 50%; width: 8px; height: 8px; animation-duration: 6s; animation-delay: 1s;"></span>
+        <span class="particle" style="left: 70%; width: 20px; height: 20px; animation-duration: 15s; animation-delay: 4s;"></span>
+        <span class="particle" style="left: 85%; width: 12px; height: 12px; animation-duration: 10s; animation-delay: 3s;"></span>
+        <span class="particle" style="left: 95%; width: 18px; height: 18px; animation-duration: 14s; animation-delay: 5s;"></span>
+      </div>
+      <div class="container hero-content grid-2">
+        <div class="hero-text page-enter">
+          <h1>Building the Future with <br><span class="typing-container"><span class="typing-text gradient-text" id="typingText">Artificial Intelligence</span><span class="typing-cursor" style="animation: blink 1s step-end infinite;">|</span></span></h1>
+          <p class="hero-tagline text-muted mt-2 mb-4">Empower your business with next-generation AI solutions. From predictive analytics to generative models, we turn data into your ultimate competitive advantage.</p>
+          <div class="hero-buttons flex mt-4" style="gap: 15px;">
+            <a href="solutions.html" class="btn btn-primary btn-lg hover-lift">Explore Solutions</a>
+            <a href="#demo" class="btn btn-secondary btn-lg hover-lift">Watch Demo</a>
+          </div>
+          <div class="hero-stats flex mt-5" style="gap: 3rem;">
+            <div>
+              <div class="stat-number gradient-text" data-count="500" data-suffix="+">500+</div>
+              <div class="stat-label">Clients</div>
+            </div>
+            <div>
+              <div class="stat-number gradient-text" data-count="99" data-suffix=".9%">99.9%</div>
+              <div class="stat-label">Uptime</div>
+            </div>
+            <div>
+              <div class="stat-number gradient-text" data-count="50" data-suffix="M+">50M+</div>
+              <div class="stat-label">API Calls</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image page-enter" style="animation-delay: 0.2s;">
+          <img src="images/1.webp" alt="AI Brain and Circuit" class="floating glow-effect" style="border-radius: var(--border-radius-lg);">
+        </div>
+      </div>
+    </section>
+
+    <!-- Company Intro Section -->
+    <section class="section intro-section bg-darker" id="about">
+      <div class="container grid-2" style="align-items: center; gap: 4rem;">
+        <div class="intro-image" data-aos="fade-right">
+          <img src="images/9.webp" alt="Hands holding AI brain" class="glow-effect" style="border-radius: var(--border-radius-lg);">
+        </div>
+        <div class="intro-content" data-aos="fade-left">
+          <span class="section-subtitle">Who We Are</span>
+          <h2 class="section-title mt-1 mb-3 gradient-text">Pioneering the Future of Artificial Intelligence</h2>
+          <p class="text-muted mb-4">NeuraMind AI is a team of visionary data scientists, engineers, and strategists dedicated to democratizing artificial intelligence. We build scalable, secure, and intelligent systems that solve complex enterprise challenges.</p>
+          <ul class="intro-features-list mb-4" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;">
+            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--secondary);">✓</span> State-of-the-art Neural Networks</li>
+            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--secondary);">✓</span> Ethical & Transparent AI Models</li>
+            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--secondary);">✓</span> Enterprise-grade Security protocols</li>
+            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--secondary);">✓</span> Seamless API Integrations</li>
+          </ul>
+          <a href="about.html" class="btn btn-outline hover-lift mt-2">Read Our Story</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Features Section -->
+    <section class="section" id="features">
+      <div class="container text-center mb-5">
+        <span class="section-subtitle">Core Capabilities</span>
+        <h2 class="section-title mt-1 gradient-text">Unleash the Power of AI</h2>
+        <p class="section-description mx-auto mt-2 text-muted" style="max-width: 600px;">Our comprehensive suite of artificial intelligence tools is designed to optimize every aspect of your business operations.</p>
+      </div>
+      <div class="container features-grid grid-3" style="gap: 2rem;">
+        <div class="feature-card glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">🧠</div>
+          <h3 class="card-title mb-2">Neural Networks</h3>
+          <p class="card-description text-muted">Advanced deep learning architectures tailored for complex pattern recognition and decision making.</p>
+        </div>
+        <div class="feature-card glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">💬</div>
+          <h3 class="card-title mb-2">Natural Language</h3>
+          <p class="card-description text-muted">Sophisticated NLP models that understand, interpret, and generate human-like text with context awareness.</p>
+        </div>
+        <div class="feature-card glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">👁️</div>
+          <h3 class="card-title mb-2">Computer Vision</h3>
+          <p class="card-description text-muted">Real-time image and video analysis for automated visual inspection and facial recognition.</p>
+        </div>
+        <div class="feature-card glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="400">
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">📊</div>
+          <h3 class="card-title mb-2">Predictive Analytics</h3>
+          <p class="card-description text-muted">Forecast market trends and customer behavior using historical data and statistical algorithms.</p>
+        </div>
+        <div class="feature-card glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="500">
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">⚙️</div>
+          <h3 class="card-title mb-2">AI Automation</h3>
+          <p class="card-description text-muted">Streamline repetitive workflows with intelligent bots that learn and adapt to your processes.</p>
+        </div>
+        <div class="feature-card glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="600">
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">📈</div>
+          <h3 class="card-title mb-2">Data Intelligence</h3>
+          <p class="card-description text-muted">Transform raw data into actionable insights through automated ETL pipelines and smart dashboards.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section why-choose bg-darker">
+      <div class="container grid-2" style="gap: 4rem; align-items: center;">
+        <div class="why-choose-content" data-aos="fade-right">
+          <span class="section-subtitle">The NeuraMind Advantage</span>
+          <h2 class="section-title mt-1 mb-3 gradient-text">Why Industry Leaders Trust Us</h2>
+          <p class="text-muted mb-4">We don't just provide software; we provide a strategic partnership. Our proven methodologies ensure smooth integration, rapid deployment, and measurable ROI for your AI initiatives.</p>
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1.5rem;">
+            <li style="display: flex; gap: 1rem;">
+              <div style="background: rgba(108, 99, 255, 0.2); padding: 10px; border-radius: 10px; color: var(--primary);">🚀</div>
+              <div>
+                <strong style="color: white; display: block; margin-bottom: 5px;">Rapid Deployment</strong>
+                <span class="text-muted text-sm">Go from concept to production in weeks, not months.</span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 1rem;">
+              <div style="background: rgba(0, 212, 255, 0.2); padding: 10px; border-radius: 10px; color: var(--secondary);">🔒</div>
+              <div>
+                <strong style="color: white; display: block; margin-bottom: 5px;">Enterprise Security</strong>
+                <span class="text-muted text-sm">SOC2 Type II certified with end-to-end encryption.</span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 1rem;">
+              <div style="background: rgba(168, 85, 247, 0.2); padding: 10px; border-radius: 10px; color: var(--accent);">💡</div>
+              <div>
+                <strong style="color: white; display: block; margin-bottom: 5px;">Continuous Innovation</strong>
+                <span class="text-muted text-sm">Models that learn and improve automatically over time.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="stats-grid grid-2" style="gap: 1.5rem;" data-aos="fade-left">
+          <div class="stat-card glass-card text-center hover-lift" style="padding: 2.5rem 1.5rem;">
+            <div style="font-size: 2.5rem; margin-bottom: 10px;">⭐</div>
+            <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;" data-count="15" data-suffix="+">15+</div>
+            <div class="stat-label text-muted text-sm text-uppercase">Years Experience</div>
+          </div>
+          <div class="stat-card glass-card text-center hover-lift" style="padding: 2.5rem 1.5rem; transform: translateY(30px);">
+            <div style="font-size: 2.5rem; margin-bottom: 10px;">🌍</div>
+            <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;" data-count="500" data-suffix="+">500+</div>
+            <div class="stat-label text-muted text-sm text-uppercase">Global Clients</div>
+          </div>
+          <div class="stat-card glass-card text-center hover-lift" style="padding: 2.5rem 1.5rem;">
+            <div style="font-size: 2.5rem; margin-bottom: 10px;">⚡</div>
+            <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;" data-count="99" data-suffix=".9%">99.9%</div>
+            <div class="stat-label text-muted text-sm text-uppercase">Uptime SLA</div>
+          </div>
+          <div class="stat-card glass-card text-center hover-lift" style="padding: 2.5rem 1.5rem; transform: translateY(30px);">
+            <div style="font-size: 2.5rem; margin-bottom: 10px;">🎧</div>
+            <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;">24/7</div>
+            <div class="stat-label text-muted text-sm text-uppercase">Expert Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="section tech-stack">
+      <div class="container text-center mb-5">
+        <span class="section-subtitle">Powered By</span>
+        <h2 class="section-title mt-1 gradient-text">Industry Leading Technology</h2>
+      </div>
+      <div class="container">
+        <div class="tech-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.5rem;">
+          <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="100">
+            <span style="font-size: 2rem; color: #FF6F00;">🧮</span>
+            <span class="text-sm font-weight-500">TensorFlow</span>
+          </div>
+          <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="200">
+            <span style="font-size: 2rem; color: #EE4C2C;">🔥</span>
+            <span class="text-sm font-weight-500">PyTorch</span>
+          </div>
+          <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="300">
+            <span style="font-size: 2rem; color: #10A37F;">🟢</span>
+            <span class="text-sm font-weight-500">OpenAI</span>
+          </div>
+          <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="400">
+            <span style="font-size: 2rem; color: #4285F4;">🇬</span>
+            <span class="text-sm font-weight-500">Google AI</span>
+          </div>
+          <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="500">
+            <span style="font-size: 2rem; color: #FF9900;">☁️</span>
+            <span class="text-sm font-weight-500">AWS</span>
+          </div>
+          <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="600">
+            <span style="font-size: 2rem; color: #0078D4;">🟦</span>
+            <span class="text-sm font-weight-500">Azure</span>
+          </div>
+          <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="700">
+            <span style="font-size: 2rem; color: #3776AB;">🐍</span>
+            <span class="text-sm font-weight-500">Python</span>
+          </div>
+          <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="800">
+            <span style="font-size: 2rem; color: #326CE5;">☸️</span>
+            <span class="text-sm font-weight-500">Kubernetes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section bg-darker">
+      <div class="container text-center mb-5">
+        <span class="section-subtitle">Our Capabilities</span>
+        <h2 class="section-title mt-1 gradient-text">Comprehensive AI Solutions</h2>
+      </div>
+      <div class="container grid-3" style="gap: 1.5rem;">
+        <!-- Card 1 -->
+        <a href="services.html" class="service-card glass-card hover-lift" data-aos="fade-up" style="display: block; text-decoration: none;">
+          <div class="flex-between mb-3">
+            <span style="font-size: 2rem;">🧠</span>
+            <span style="color: var(--primary); font-size: 1.2rem;">→</span>
+          </div>
+          <h3 class="card-title mb-2" style="color: white;">Machine Learning</h3>
+          <p class="text-muted text-sm">Custom algorithms that identify patterns and make data-driven decisions automatically.</p>
+        </a>
+        <!-- Card 2 -->
+        <a href="services.html" class="service-card glass-card hover-lift" data-aos="fade-up" data-aos-delay="100" style="display: block; text-decoration: none;">
+          <div class="flex-between mb-3">
+            <span style="font-size: 2rem;">✨</span>
+            <span style="color: var(--primary); font-size: 1.2rem;">→</span>
+          </div>
+          <h3 class="card-title mb-2" style="color: white;">Generative AI</h3>
+          <p class="text-muted text-sm">Create novel content, designs, and code using advanced LLMs and diffusion models.</p>
+        </a>
+        <!-- Card 3 -->
+        <a href="services.html" class="service-card glass-card hover-lift" data-aos="fade-up" data-aos-delay="200" style="display: block; text-decoration: none;">
+          <div class="flex-between mb-3">
+            <span style="font-size: 2rem;">👁️</span>
+            <span style="color: var(--primary); font-size: 1.2rem;">→</span>
+          </div>
+          <h3 class="card-title mb-2" style="color: white;">Computer Vision</h3>
+          <p class="text-muted text-sm">Extract meaningful information from digital images, videos, and other visual inputs.</p>
+        </a>
+      </div>
+      <div class="container text-center mt-5">
+        <a href="services.html" class="btn btn-outline hover-lift">View All 10+ Services</a>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="section use-cases">
+      <div class="container text-center mb-5">
+        <span class="section-subtitle">Real-World Applications</span>
+        <h2 class="section-title mt-1 gradient-text">Transforming Industries</h2>
+      </div>
+      <div class="container grid-3" style="gap: 2rem;">
+        <div class="usecase-card glass-card" style="padding: 0; overflow: hidden; position: relative;" data-aos="zoom-in">
+          <img src="images/10.webp" alt="Healthcare AI" style="width: 100%; height: 250px; object-fit: cover; transition: var(--transition);">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(to top, rgba(10,14,39,1), transparent);">
+            <h3 style="color: white; margin-bottom: 5px;">Healthcare</h3>
+            <p class="text-muted text-sm m-0">Accelerating diagnostics and personalizing patient care pathways.</p>
+          </div>
+        </div>
+        <div class="usecase-card glass-card" style="padding: 0; overflow: hidden; position: relative;" data-aos="zoom-in" data-aos-delay="100">
+          <img src="images/12.webp" alt="Marketing AI" style="width: 100%; height: 250px; object-fit: cover; transition: var(--transition);">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(to top, rgba(10,14,39,1), transparent);">
+            <h3 style="color: white; margin-bottom: 5px;">Digital Marketing</h3>
+            <p class="text-muted text-sm m-0">Hyper-personalization, automated campaign optimization, and sentiment analysis.</p>
+          </div>
+        </div>
+        <div class="usecase-card glass-card" style="padding: 0; overflow: hidden; position: relative;" data-aos="zoom-in" data-aos-delay="200">
+          <img src="images/7.webp" alt="Industrial AI" style="width: 100%; height: 250px; object-fit: cover; transition: var(--transition);">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(to top, rgba(10,14,39,1), transparent);">
+            <h3 style="color: white; margin-bottom: 5px;">Industry & Logistics</h3>
+            <p class="text-muted text-sm m-0">Predictive maintenance, supply chain optimization, and automated quality control.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section bg-darker overflow-hidden">
+      <div class="container text-center mb-5">
+        <span class="section-subtitle">Client Success</span>
+        <h2 class="section-title mt-1 gradient-text">What Our Partners Say</h2>
+      </div>
+      <div class="container">
+        <div class="testimonials-slider" style="position: relative; max-width: 900px; margin: 0 auto; overflow: hidden;">
+          <div class="testimonial-track flex" id="testimonialTrack" style="transition: transform 0.5s ease; gap: 2rem;">
+            <!-- Slide 1 -->
+            <div class="testimonial-card glass-card text-center" style="min-width: 100%; padding: 3rem;">
+              <div style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1rem;">★★★★★</div>
+              <p class="text-lg mb-4" style="font-style: italic;">"NeuraMind's predictive analytics models have completely transformed our supply chain. We've reduced inventory holding costs by 34% within the first six months of implementation."</p>
+              <div class="flex-center flex-column">
+                <div class="testimonial-avatar mb-2" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-hero); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem;">MC</div>
+                <h4 class="mb-1">Michael Chen</h4>
+                <span class="text-muted text-sm">COO, Global Logistics Tech</span>
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="testimonial-card glass-card text-center" style="min-width: 100%; padding: 3rem;">
+              <div style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1rem;">★★★★★</div>
+              <p class="text-lg mb-4" style="font-style: italic;">"The NLP chatbot they built for our customer service department handles 60% of tier-1 inquiries automatically, with a higher CSAT score than our previous human-only setup."</p>
+              <div class="flex-center flex-column">
+                <div class="testimonial-avatar mb-2" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem;">SJ</div>
+                <h4 class="mb-1">Sarah Jenkins</h4>
+                <span class="text-muted text-sm">VP Customer Success, FinServe</span>
+              </div>
+            </div>
+          </div>
+          <!-- Slider Nav -->
+          <div class="flex-center mt-4" style="gap: 1rem;">
+            <button class="btn btn-icon btn-outline" id="prevTestimonial" style="width:40px;height:40px;padding:0;border-radius:50%">←</button>
+            <div class="dots flex" style="gap: 8px;">
+              <span class="dot active" style="width:10px;height:10px;border-radius:50%;background:var(--primary);cursor:pointer"></span>
+              <span class="dot" style="width:10px;height:10px;border-radius:50%;background:var(--text-muted);cursor:pointer"></span>
+            </div>
+            <button class="btn btn-icon btn-outline" id="nextTestimonial" style="width:40px;height:40px;padding:0;border-radius:50%">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Preview -->
+    <section class="section" id="pricing">
+      <div class="container text-center mb-5">
+        <span class="section-subtitle">Transparent Pricing</span>
+        <h2 class="section-title mt-1 gradient-text">Choose Your Plan</h2>
+      </div>
+      <div class="container pricing-grid grid-3" style="gap: 2rem;">
+        <!-- Starter -->
+        <div class="pricing-card glass-card flex-column" data-aos="fade-up">
+          <div class="pricing-header border-bottom mb-4" style="padding-bottom: 1.5rem; border-color: var(--glass-border);">
+            <h3 class="mb-2">Starter</h3>
+            <div class="price"><span style="font-size: 3rem; font-weight: 800; color: white;">$49</span><span class="text-muted">/mo</span></div>
+            <p class="text-muted text-sm mt-2">Perfect for startups and small projects</p>
+          </div>
+          <ul class="pricing-features mb-4 flex-1" style="list-style:none; padding:0; display:flex; flex-direction:column; gap:12px;">
+            <li><span style="color:var(--primary); margin-right:8px">✓</span> 10,000 API Calls</li>
+            <li><span style="color:var(--primary); margin-right:8px">✓</span> 5 Pre-trained Models</li>
+            <li><span style="color:var(--primary); margin-right:8px">✓</span> Basic Analytics</li>
+            <li><span style="color:var(--primary); margin-right:8px">✓</span> Email Support</li>
+            <li class="text-muted"><span style="margin-right:8px">✗</span> Custom Model Training</li>
+          </ul>
+          <a href="pricing.html" class="btn btn-outline" style="width: 100%; text-align: center;">Get Started</a>
+        </div>
+        
+        <!-- Pro -->
+        <div class="pricing-card glass-card flex-column featured gradient-border hover-scale" style="transform: scale(1.05);" data-aos="fade-up" data-aos-delay="100">
+          <div style="position:absolute; top:-15px; left:50%; transform:translateX(-50%); background:var(--gradient-btn); padding:5px 15px; border-radius:20px; font-size:0.8rem; font-weight:bold;">RECOMMENDED</div>
+          <div class="pricing-header border-bottom mb-4" style="padding-bottom: 1.5rem; border-color: var(--glass-border);">
+            <h3 class="mb-2">Professional</h3>
+            <div class="price"><span style="font-size: 3rem; font-weight: 800; color: white;">$149</span><span class="text-muted">/mo</span></div>
+            <p class="text-muted text-sm mt-2">Ideal for growing businesses and teams</p>
+          </div>
+          <ul class="pricing-features mb-4 flex-1" style="list-style:none; padding:0; display:flex; flex-direction:column; gap:12px;">
+            <li><span style="color:var(--primary); margin-right:8px">✓</span> 100,000 API Calls</li>
+            <li><span style="color:var(--primary); margin-right:8px">✓</span> 25 Pre-trained Models</li>
+            <li><span style="color:var(--primary); margin-right:8px">✓</span> Advanced Analytics</li>
+            <li><span style="color:var(--primary); margin-right:8px">✓</span> Priority 24/7 Support</li>
+            <li><span style="color:var(--primary); margin-right:8px">✓</span> Custom Model Training</li>
+          </ul>
+          <a href="pricing.html" class="btn btn-primary" style="width: 100%; text-align: center;">Start Free Trial</a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card glass-card flex-column" data-aos="fade-up" data-aos-delay="200">
+          <div class="pricing-header border-bottom mb-4" style="padding-bottom: 1.5rem; border-color: var(--glass-border);">
+            <h3 class="mb-2">Enterprise</h3>
+            <div class="price"><span style="font-size: 3rem; font-weight: 800; color: white;">Custom</span></div>
+            <p class="text-muted text-sm mt-2">For large-scale mission-critical ops</p>
+          </div>
+          <ul class="pricing-features mb-4 flex-1" style="list-style:none; padding:0; display:flex; flex-direction:column; gap:12px;">
+            <li><span style="color:var(--primary); margin-right:8px">✓</span> Unlimited API Calls</li>
+            <li><span style="color:var(--primary); margin-right:8px">✓</span> Unlimited Models</li>
+            <li><span style="color:var(--primary); margin-right:8px">✓</span> Enterprise Analytics</li>
+            <li><span style="color:var(--primary); margin-right:8px">✓</span> Dedicated Success Manager</li>
+            <li><span style="color:var(--primary); margin-right:8px">✓</span> On-Premise Deployment</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline" style="width: 100%; text-align: center;">Contact Sales</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Blog Posts -->
+    <section class="section bg-darker">
+      <div class="container flex-between mb-5">
+        <div>
+          <span class="section-subtitle">Insights</span>
+          <h2 class="section-title mt-1 gradient-text">Latest AI News</h2>
+        </div>
+        <a href="blog.html" class="btn btn-outline hidden-mobile">View All Articles</a>
+      </div>
+      <div class="container blog-grid grid-3" style="gap: 2rem;">
+        <!-- Post 1 -->
+        <a href="blog.html" class="blog-card glass-card hover-lift" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up">
+          <div class="blog-card-image" style="height: 200px; position: relative;">
+            <img src="images/12.webp" alt="AI Trends" style="width: 100%; height: 100%; object-fit: cover;">
+            <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">AI Trends</span>
+          </div>
+          <div class="blog-card-content" style="padding: 1.5rem;">
+            <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
+              <span>📅 June 10, 2026</span>
+              <span>👤 Sarah Chen</span>
+            </div>
+            <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">The Future of Generative AI in Enterprise</h3>
+            <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Discover how large language models are transitioning from novelties to core infrastructure in Fortune 500 companies.</p>
+          </div>
+        </a>
+        <!-- Post 2 -->
+        <a href="blog.html" class="blog-card glass-card hover-lift" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up" data-aos-delay="100">
+          <div class="blog-card-image" style="height: 200px; position: relative;">
+            <img src="images/13.webp" alt="Deep Learning" style="width: 100%; height: 100%; object-fit: cover;">
+            <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">Deep Learning</span>
+          </div>
+          <div class="blog-card-content" style="padding: 1.5rem;">
+            <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
+              <span>📅 June 5, 2026</span>
+              <span>👤 James Wilson</span>
+            </div>
+            <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">AutoML: Democratizing Machine Learning</h3>
+            <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">How automated machine learning pipelines are allowing non-experts to build and deploy sophisticated models.</p>
+          </div>
+        </a>
+        <!-- Post 3 -->
+        <a href="blog.html" class="blog-card glass-card hover-lift" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up" data-aos-delay="200">
+          <div class="blog-card-image" style="height: 200px; position: relative;">
+            <img src="images/7.webp" alt="Industry Applications" style="width: 100%; height: 100%; object-fit: cover;">
+            <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">Industry</span>
+          </div>
+          <div class="blog-card-content" style="padding: 1.5rem;">
+            <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
+              <span>📅 May 28, 2026</span>
+              <span>👤 Dr. Priya Patel</span>
+            </div>
+            <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">AI Applications Transforming Healthcare</h3>
+            <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">From predictive diagnostics to personalized treatment plans, see how computer vision is saving lives.</p>
+          </div>
+        </a>
+      </div>
+      <div class="container text-center mt-4 visible-mobile" style="display: none;">
+        <a href="blog.html" class="btn btn-outline">View All Articles</a>
+      </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="section cta-section" style="position: relative; overflow: hidden;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%); z-index: -1;"></div>
+      <div class="container text-center">
+        <h2 class="section-title mb-3 gradient-text" style="font-size: clamp(2rem, 4vw, 3.5rem);">Ready to Transform Your Business?</h2>
+        <p class="text-lg text-muted mb-5 mx-auto" style="max-width: 600px;">Join 10,000+ forward-thinking organizations using NeuraMind AI to drive growth and innovation.</p>
+        
+        <form class="newsletter-form mx-auto" id="newsletterForm" style="display: flex; max-width: 500px; box-shadow: var(--shadow-card); border-radius: 50px; background: var(--glass-bg); backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-border);">
+          <input type="email" placeholder="Enter your business email" class="newsletter-input" required style="flex: 1; padding: 16px 24px; border: none; background: transparent; color: white; outline: none; border-radius: 50px 0 0 50px;">
+          <button type="submit" class="btn btn-primary" style="border-radius: 0 50px 50px 0; padding: 16px 32px;">Get Started</button>
+        </form>
+        <p class="text-sm text-muted mt-3">Free 14-day trial. No credit card required.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer bg-darker" style="padding: 5rem 0 2rem; border-top: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 4rem;">
+        <div class="footer-about">
+          <a href="index.html" class="footer-logo mb-3" style="display: inline-block;">
+            <img src="logo.webp" alt="NeuraMind AI" class="footer-logo-img" style="height: 40px;">
+          </a>
+          <p class="footer-description text-muted mt-3 mb-4">Empowering businesses with cutting-edge AI solutions. Transform your operations with intelligent automation and data-driven insights.</p>
+          <div class="footer-social" style="display: flex; gap: 15px;">
+            <a href="#" class="social-icon flex-center hover-glow" aria-label="Twitter" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">𝕏</a>
+            <a href="#" class="social-icon flex-center hover-glow" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">in</a>
+            <a href="#" class="social-icon flex-center hover-glow" aria-label="GitHub" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">⌨</a>
+            <a href="#" class="social-icon flex-center hover-glow" aria-label="YouTube" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">▶</a>
+          </div>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-title mb-3" style="color: white; position: relative; padding-bottom: 10px;">Quick Links<span style="position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--gradient-btn);"></span></h4>
+          <ul class="footer-links" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+            <li><a href="about.html" class="text-muted hover-text-primary">About Us</a></li>
+            <li><a href="services.html" class="text-muted hover-text-primary">Services</a></li>
+            <li><a href="solutions.html" class="text-muted hover-text-primary">Solutions</a></li>
+            <li><a href="pricing.html" class="text-muted hover-text-primary">Pricing</a></li>
+            <li><a href="blog.html" class="text-muted hover-text-primary">Blog</a></li>
+            <li><a href="contact.html" class="text-muted hover-text-primary">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-title mb-3" style="color: white; position: relative; padding-bottom: 10px;">Services<span style="position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--gradient-btn);"></span></h4>
+          <ul class="footer-links" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+            <li><a href="services.html" class="text-muted hover-text-primary">Machine Learning</a></li>
+            <li><a href="services.html" class="text-muted hover-text-primary">Deep Learning</a></li>
+            <li><a href="services.html" class="text-muted hover-text-primary">Generative AI</a></li>
+            <li><a href="services.html" class="text-muted hover-text-primary">Computer Vision</a></li>
+            <li><a href="services.html" class="text-muted hover-text-primary">NLP</a></li>
+            <li><a href="services.html" class="text-muted hover-text-primary">AI Automation</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact-col">
+          <h4 class="footer-title mb-3" style="color: white; position: relative; padding-bottom: 10px;">Contact Info<span style="position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--gradient-btn);"></span></h4>
+          <ul class="footer-contact text-muted" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+            <li><span style="margin-right: 10px;">📧</span> hello@neuramind.ai</li>
+            <li><span style="margin-right: 10px;">📞</span> +1 (555) 123-4567</li>
+            <li><span style="margin-right: 10px;">📍</span> 123 AI Blvd, San Francisco, CA</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom flex-between pt-4 border-top text-muted text-sm" style="border-color: var(--glass-border); flex-wrap: wrap; gap: 1rem;">
+        <p class="m-0">© 2026 NeuraMind AI. All rights reserved.</p>
+        <div class="footer-bottom-links" style="display: flex; gap: 20px;">
+          <a href="#" class="hover-text-primary">Privacy Policy</a>
+          <a href="#" class="hover-text-primary">Terms of Service</a>
+          <a href="#" class="hover-text-primary">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI Chatbot Widget -->
+  <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open AI Chat" style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); border: none; font-size: 24px; color: white; cursor: pointer; box-shadow: var(--shadow-glow); z-index: 1000; transition: var(--transition);">
+    💬
+  </button>
+  <div class="chatbot-window hidden glass-card" id="chatbotWindow" style="position: fixed; bottom: 100px; right: 30px; width: 380px; max-width: calc(100vw - 40px); height: 500px; display: flex; flex-direction: column; padding: 0; overflow: hidden; z-index: 1000; transform-origin: bottom right; transition: all 0.3s ease;">
+    <div class="chatbot-header" style="background: var(--gradient-btn); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; color: white;">
+      <div class="chatbot-header-info flex" style="gap: 10px; align-items: center;">
+        <span class="chatbot-avatar" style="font-size: 24px;">🤖</span>
+        <div>
+          <h4 style="margin: 0; font-size: 1rem;">NeuraMind Assistant</h4>
+          <span class="chatbot-status" style="font-size: 0.8rem; opacity: 0.8;">● Online</span>
+        </div>
+      </div>
+      <button class="chatbot-close" id="chatbotClose" style="background: transparent; border: none; color: white; cursor: pointer; font-size: 1.2rem;">✕</button>
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages" style="flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; background: rgba(10, 14, 39, 0.5);">
+      <!-- Messages will be injected by JS -->
+    </div>
+    <div class="chatbot-input" style="display: flex; padding: 15px; border-top: 1px solid var(--glass-border); background: var(--glass-bg);">
+      <input type="text" id="chatbotInput" placeholder="Type a message..." autocomplete="off" style="flex: 1; background: transparent; border: none; color: white; outline: none;">
+      <button id="chatbotSend" class="btn btn-primary" style="padding: 8px 15px; border-radius: 8px;">➤</button>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top hidden" id="backToTop" aria-label="Back to top" style="position: fixed; bottom: 30px; left: 30px; width: 50px; height: 50px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); color: white; font-size: 20px; cursor: pointer; z-index: 999; backdrop-filter: blur(10px); transition: var(--transition);">
+    ↑
+  </button>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
