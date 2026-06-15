@@ -1,5 +1,5 @@
 /* ============================================================
-   NeuraMind AI — Dashboard JavaScript
+   STACKLY AI — Dashboard JavaScript
    Version: 1.0.0
    Features: Sidebar, Theme Toggle, Profile Dropdown, Charts,
    Data Tables, Tabs, API Keys, Responsive Layout
@@ -87,7 +87,7 @@ function initThemeToggle() {
   const moonIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
 
   // Load stored preference, default to dark
-  const storedTheme = localStorage.getItem('neuramind_theme') || 'dark';
+  const storedTheme = localStorage.getItem('stackly_theme') || 'dark';
   applyTheme(storedTheme);
 
   function applyTheme(theme) {
@@ -102,7 +102,7 @@ function initThemeToggle() {
       themeToggle.setAttribute('aria-label', 'Switch to light mode');
     }
 
-    localStorage.setItem('neuramind_theme', theme);
+    localStorage.setItem('stackly_theme', theme);
 
     // Update chart colors if charts exist
     updateChartTheme(theme);
@@ -187,8 +187,8 @@ function initProfileDropdown() {
   if (logoutBtn) {
     logoutBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      localStorage.removeItem('neuramind_logged_in');
-      localStorage.removeItem('neuramind_user_email');
+      localStorage.removeItem('stackly_logged_in');
+      localStorage.removeItem('stackly_user_email');
       window.location.href = 'login.html';
     });
   }
@@ -201,7 +201,7 @@ function initCharts() {
   if (typeof Chart === 'undefined') return;
 
   // Set global defaults for dark theme
-  const currentTheme = localStorage.getItem('neuramind_theme') || 'dark';
+  const currentTheme = localStorage.getItem('stackly_theme') || 'dark';
   const textColor = currentTheme === 'light' ? '#334155' : '#94A3B8';
   const gridColor = currentTheme === 'light' ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.05)';
 

@@ -1,5 +1,5 @@
 /* ============================================================
-   NeuraMind AI — Authentication JavaScript
+   STACKLY AI — Authentication JavaScript
    Version: 1.0.0
    Features: Login, Signup, Password Toggle, Social Login,
    Remember Me, Toast System, Real-time Validation
@@ -248,9 +248,9 @@ function initLoginForm() {
     // Handle Remember Me
     const rememberMe = form.querySelector('#remember-me, [name="remember"]');
     if (rememberMe && rememberMe.checked && emailField) {
-      localStorage.setItem('neuramind_remembered_email', emailField.value.trim());
+      localStorage.setItem('stackly_remembered_email', emailField.value.trim());
     } else {
-      localStorage.removeItem('neuramind_remembered_email');
+      localStorage.removeItem('stackly_remembered_email');
     }
 
     // Show loading state
@@ -265,18 +265,18 @@ function initLoginForm() {
         const email = emailField.value.trim();
 
         // Store login state
-        localStorage.setItem('neuramind_logged_in', 'true');
-        localStorage.setItem('neuramind_user_email', email);
+        localStorage.setItem('stackly_logged_in', 'true');
+        localStorage.setItem('stackly_user_email', email);
 
         showToast('Login successful! Redirecting...', 'success');
 
         // Determine redirect based on email domain
         let redirectPage = 'dashboard-customer.html';
-        if (email === 'admin@neuramind.ai') {
+        if (email === 'admin@stackly.ai') {
           redirectPage = 'dashboard-admin.html';
-        } else if (email === 'dev@neuramind.ai') {
+        } else if (email === 'dev@stackly.ai') {
           redirectPage = 'dashboard-developer.html';
-        } else if (email === 'biz@neuramind.ai') {
+        } else if (email === 'biz@stackly.ai') {
           redirectPage = 'dashboard-business.html';
         }
 
@@ -564,7 +564,7 @@ function initRememberMe() {
   if (!emailField) return;
 
   // On page load, populate saved email
-  const savedEmail = localStorage.getItem('neuramind_remembered_email');
+  const savedEmail = localStorage.getItem('stackly_remembered_email');
   if (savedEmail) {
     emailField.value = savedEmail;
     if (rememberCheckbox) {

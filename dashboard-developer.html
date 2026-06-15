@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developer Dashboard - NeuraMind AI</title>
+  <title>Developer Dashboard - STACKLY AI</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-header">
-      <img src="logo.webp" alt="NeuraMind AI" style="height: 30px; margin-right: 10px;">
+      <img src="logo.webp" alt="STACKLY AI" style="height: 30px; margin-right: 10px;">
       <span style="font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: var(--secondary);">Dev Hub</span>
     </div>
     
@@ -79,7 +79,7 @@
       <div class="glass-card mb-5" style="padding: 0; overflow: hidden;">
         <div style="padding: 1.5rem; border-bottom: 1px solid var(--glass-border);">
           <h3 class="m-0">Active API Keys</h3>
-          <p class="text-muted text-sm mt-1 m-0">Manage your secret keys for accessing the NeuraMind API.</p>
+          <p class="text-muted text-sm mt-1 m-0">Manage your secret keys for accessing the STACKLY AI API.</p>
         </div>
         
         <div style="overflow-x: auto;">
@@ -123,7 +123,7 @@
         <!-- Code Snippet -->
         <div class="glass-card">
           <h3 class="mb-3">Quick Integration</h3>
-          <p class="text-muted text-sm mb-4">Initialize the NeuraMind client in your application.</p>
+          <p class="text-muted text-sm mb-4">Initialize the STACKLY AI client in your application.</p>
           
           <div style="display: flex; border-bottom: 1px solid var(--glass-border); margin-bottom: 15px;">
             <button style="background: transparent; border: none; border-bottom: 2px solid var(--primary); color: white; padding: 5px 15px; cursor: pointer;">Python</button>
@@ -131,14 +131,14 @@
             <button style="background: transparent; border: none; color: var(--text-muted); padding: 5px 15px; cursor: pointer;">cURL</button>
           </div>
           
-          <pre style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.85rem; color: #E2E8F0; overflow-x: auto; margin: 0;"><code><span style="color: #A855F7;">import</span> neuramind
+          <pre style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.85rem; color: #E2E8F0; overflow-x: auto; margin: 0;"><code><span style="color: #A855F7;">import</span> stackly
 
-client = neuramind.Client(
+client = stackly.Client(
     api_key=<span style="color: #22C55E;">"your-api-key"</span>
 )
 
 response = client.chat.create(
-    model=<span style="color: #22C55E;">"neuramind-v4"</span>,
+    model=<span style="color: #22C55E;">"stackly-v4"</span>,
     messages=[
         {<span style="color: #22C55E;">"role"</span>: <span style="color: #22C55E;">"user"</span>, <span style="color: #22C55E;">"content"</span>: <span style="color: #22C55E;">"Analyze this dataset"</span>}
     ]

@@ -1,5 +1,5 @@
 /* ============================================================
-   NeuraMind AI — Main Website JavaScript
+   STACKLY AI — Main Website JavaScript
    Version: 1.0.0
    All features: Preloader, Sticky Nav, Scroll Reveal, Counter,
    Typing Effect, Testimonial Slider, FAQ, Newsletter, Blog Filter,
@@ -438,14 +438,14 @@ function initChatbot() {
   if (!chatToggle || !chatWindow) return;
 
   const botResponses = {
-    'hello': 'Hello! Welcome to NeuraMind AI. How can I help you today?',
-    'hi': 'Hi there! I\'m NeuraMind\'s AI assistant. What would you like to know?',
+    'hello': 'Hello! Welcome to STACKLY AI. How can I help you today?',
+    'hi': 'Hi there! I\'m STACKLY AI\'s AI assistant. What would you like to know?',
     'hey': 'Hey! Great to see you. How can I assist you today?',
     'services': 'We offer Machine Learning, Deep Learning, Generative AI, Computer Vision, NLP, AI Chatbots, Predictive Analytics, AI Automation, Recommendation Systems, and Data Intelligence.',
     'pricing': 'We have three plans: Starter ($49/mo), Professional ($149/mo), and Enterprise (custom). Visit our pricing page for details!',
-    'contact': 'You can reach us at hello@neuramind.ai or visit our contact page. We\'d love to hear from you!',
+    'contact': 'You can reach us at hello@stackly.ai or visit our contact page. We\'d love to hear from you!',
     'demo': 'We offer free demos for all our AI solutions! Fill out our contact form and we\'ll get back to you within 24 hours.',
-    'about': 'NeuraMind AI is a premium AI solutions provider specializing in cutting-edge artificial intelligence services for businesses worldwide.',
+    'about': 'STACKLY AI is a premium AI solutions provider specializing in cutting-edge artificial intelligence services for businesses worldwide.',
     'help': 'I can help you with information about our services, pricing, demos, and contact details. Just ask!',
     'thanks': 'You\'re welcome! Is there anything else I can help you with?',
     'thank you': 'You\'re welcome! Feel free to ask if you need anything else.',
@@ -537,7 +537,7 @@ function initChatbot() {
     if (chatWindow.classList.contains('active') && isFirstOpen) {
       isFirstOpen = false;
       setTimeout(() => {
-        addMessage('Hello! 👋 Welcome to NeuraMind AI. How can I help you today?', 'bot');
+        addMessage('Hello! 👋 Welcome to STACKLY AI. How can I help you today?', 'bot');
       }, 500);
     }
 
