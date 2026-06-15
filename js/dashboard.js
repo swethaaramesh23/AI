@@ -12,7 +12,7 @@
    --------------------------------------------------------------- */
 function initSidebar() {
   const sidebar = document.querySelector('.sidebar');
-  const sidebarToggle = document.querySelector('.sidebar-toggle, .menu-toggle');
+  const sidebarToggle = document.querySelector('.sidebar-toggle, .menu-toggle, .hamburger-dashboard, #mobileSidebarToggle');
   const mainContent = document.querySelector('.main-content, .dashboard-main');
   const overlay = document.querySelector('.sidebar-overlay');
   const sidebarLinks = document.querySelectorAll('.sidebar-nav a, .sidebar-menu a');

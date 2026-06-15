@@ -4,173 +4,282 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Business Dashboard - STACKLY AI</title>
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/dashboard.css">
-  <link rel="stylesheet" href="css/animations.css">
-  
+  <link rel="stylesheet" href="css/dashboard-new.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="dashboard-body">
+<body class="dash-body">
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-header">
-      <img src="logo.webp" alt="STACKLY AI" style="height: 30px; margin-right: 10px;">
-      <span style="font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: var(--accent);">Enterprise</span>
-    </div>
-    
-    <div class="sidebar-menu">
-      <div class="menu-label">INSIGHTS</div>
-      <a href="#" class="menu-item active">
-        <span class="menu-icon">📈</span> Executive Summary
+<div class="dash-overlay" id="dashOverlay"></div>
+
+<div class="dash-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="dash-sidebar-brand">
+        <span class="dash-sidebar-brand-text">STACKLY AI</span>
       </a>
-      <a href="#" class="menu-item">
-        <span class="menu-icon">🎯</span> Predictive Models
-      </a>
-      <a href="#" class="menu-item">
-        <span class="menu-icon">👥</span> Customer Intel
-      </a>
-      
-      <div class="menu-label mt-4">MANAGEMENT</div>
-      <a href="#" class="menu-item">
-        <span class="menu-icon">📊</span> Custom Reports
-      </a>
-      <a href="#" class="menu-item">
-        <span class="menu-icon">🔗</span> Integrations
-      </a>
-      <a href="#" class="menu-item">
-        <span class="menu-icon">⚙️</span> Team Settings
-      </a>
+      <button class="dash-collapse-btn" id="collapseBtn" title="Toggle Sidebar">
+        <span class="collapse-icon">«</span>
+      </button>
     </div>
 
-    <!-- User Profile Snippet at bottom -->
-    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; border-top: 1px solid var(--glass-border); display: flex; align-items: center; gap: 10px;">
-      <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">BU</div>
-      <div>
-        <div style="font-size: 0.9rem; font-weight: 600; color: white;" id="userNameDisplay">Business Lead</div>
-        <div style="font-size: 0.8rem; color: var(--text-muted);">Acme Corp</div>
+    <nav class="dash-nav">
+      <div class="dash-nav-group">
+        <div class="dash-nav-label">OVERVIEW</div>
+        <a href="#" class="dash-nav-item active">
+          <span class="nav-icon">📊</span>
+          <span class="nav-text">Analytics</span>
+        </a>
+        <a href="#" class="dash-nav-item">
+          <span class="nav-icon">🤖</span>
+          <span class="nav-text">AI Models</span>
+        </a>
+        <a href="#" class="dash-nav-item">
+          <span class="nav-icon">👥</span>
+          <span class="nav-text">Teams</span>
+        </a>
+        <a href="#" class="dash-nav-item">
+          <span class="nav-icon">📈</span>
+          <span class="nav-text">Reports</span>
+        </a>
       </div>
+      <div class="dash-nav-group">
+        <div class="dash-nav-label">MANAGEMENT</div>
+        <a href="#" class="dash-nav-item">
+          <span class="nav-icon">💳</span>
+          <span class="nav-text">Billing</span>
+        </a>
+        <a href="#" class="dash-nav-item">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-text">Settings</span>
+        </a>
+        <a href="index.html" class="dash-nav-item">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-text">Back To Store</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="dash-signout">
+      <a href="login.html">
+        <span class="nav-icon">🚪</span>
+        <span class="nav-text">Sign Out</span>
+      </a>
     </div>
   </aside>
 
-  <!-- Main Content -->
-  <div class="main-content">
-    
-    <!-- Topbar -->
-    <header class="topbar flex-between">
-      <div class="flex" style="align-items: center; gap: 15px;">
-        <button class="hamburger-dashboard" id="mobileSidebarToggle" style="display: none; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer;">☰</button>
-        <h2 class="m-0" style="font-size: 1.5rem;">Business Intelligence</h2>
+  <!-- MAIN -->
+  <div class="dash-main" id="dashMain">
+
+    <header class="dash-topbar">
+      <div class="dash-topbar-left" style="display: flex; align-items: center; gap: 15px;">
+        <img src="logo.webp" alt="STACKLY AI" style="height:32px; border-radius:4px;">
+        <button class="dash-mobile-toggle" id="mobileToggle">☰</button>
+        <div>
+          <div class="dash-topbar-title">Business Dashboard</div>
+          <div class="dash-topbar-subtitle">Enterprise Analytics Overview</div>
+        </div>
       </div>
-      
-      <div class="topbar-actions">
-        <button class="btn btn-outline btn-sm">Export PDF</button>
-        <button class="btn btn-primary btn-sm">Generate Report</button>
+      <div class="dash-topbar-right">
+        <button class="btn-sm-primary" onclick="location.href='#'">+ New Report</button>
+        <a href="login.html" class="dash-logout-btn" id="logoutBtn">
+          <span>↪</span> Logout
+        </a>
       </div>
     </header>
 
-    <!-- Dashboard Content -->
-    <div class="dashboard-content page-enter">
-      
-      <!-- AI Insight Banner -->
-      <div class="glass-card mb-4" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(108, 99, 255, 0.1)); border-color: rgba(168, 85, 247, 0.3);">
-        <div class="flex" style="align-items: flex-start; gap: 15px;">
-          <div style="font-size: 2rem;">✨</div>
-          <div>
-            <h3 class="mb-1" style="font-size: 1.1rem; color: white;">AI Insight Generated</h3>
-            <p class="m-0 text-muted text-sm" style="line-height: 1.5;">Based on recent sales data, our prediction engine anticipates a <strong>15% surge in demand</strong> for the upcoming holiday weekend. We recommend increasing inventory for SKUs in the "Electronics" category by Thursday to prevent stockouts.</p>
+    <div class="dash-content">
+
+      <!-- Stats -->
+      <div class="dash-stats-grid">
+        <div class="dash-stat-card">
+          <div class="stat-body">
+            <div class="stat-label">Monthly Spend</div>
+            <div class="stat-value">$4,820</div>
+            <div class="stat-trend up">↑ +6.3% vs last month</div>
+          </div>
+          <div class="stat-icon green">💰</div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="stat-body">
+            <div class="stat-label">Active Users</div>
+            <div class="stat-value">48</div>
+            <div class="stat-trend up">↑ 4 new this week</div>
+          </div>
+          <div class="stat-icon blue">👥</div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="stat-body">
+            <div class="stat-label">API Calls (Month)</div>
+            <div class="stat-value">2.8M</div>
+            <div class="stat-trend neutral">72% of quota used</div>
+          </div>
+          <div class="stat-icon orange">⚡</div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="stat-body">
+            <div class="stat-label">Avg Response Time</div>
+            <div class="stat-value">124ms</div>
+            <div class="stat-trend up">↑ 12ms faster</div>
+          </div>
+          <div class="stat-icon purple">⏱️</div>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div class="dash-charts-grid">
+        <div class="dash-chart-card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">API Usage Trend</div>
+              <div class="card-subtitle">Calls per day over 30 days</div>
+            </div>
+          </div>
+          <div class="chart-canvas-wrap">
+            <canvas id="apiChart"></canvas>
+          </div>
+        </div>
+
+        <div class="dash-chart-card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Usage by Department</div>
+              <div class="card-subtitle">API calls distribution</div>
+            </div>
+          </div>
+          <div class="chart-canvas-wrap">
+            <canvas id="deptChart"></canvas>
           </div>
         </div>
       </div>
 
-      <!-- KPI Cards -->
-      <div class="kpi-grid mb-4">
-        <div class="glass-card kpi-card hover-lift">
-          <div class="text-muted text-sm text-uppercase mb-2">Revenue Predicted (Q3)</div>
-          <div class="kpi-value" style="color: white;">$2.4M</div>
-          <div class="kpi-trend trend-up">↑ 8% vs Actual Q2</div>
+      <!-- Users Table -->
+      <div class="dash-table-card">
+        <div class="dash-table-header">
+          <h3>Team Members</h3>
+          <button class="btn-sm-primary" onclick="location.href='#'">+ Invite User</button>
         </div>
-        <div class="glass-card kpi-card hover-lift">
-          <div class="text-muted text-sm text-uppercase mb-2">Customer Churn Risk</div>
-          <div class="kpi-value" style="color: #22C55E;">2.1%</div>
-          <div class="kpi-trend trend-down">↓ 0.5% (Improved)</div>
-        </div>
-        <div class="glass-card kpi-card hover-lift">
-          <div class="text-muted text-sm text-uppercase mb-2">AI Automation ROI</div>
-          <div class="kpi-value" style="color: var(--accent);">340%</div>
-          <div class="kpi-trend text-muted">Trailing 12 months</div>
-        </div>
-        <div class="glass-card kpi-card hover-lift">
-          <div class="text-muted text-sm text-uppercase mb-2">Support Tickets</div>
-          <div class="kpi-value" style="color: white;">-45%</div>
-          <div class="kpi-trend text-muted">Since AI bot launch</div>
-        </div>
-      </div>
-
-      <!-- Charts Section -->
-      <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-        
-        <!-- Main Chart: Forecast -->
-        <div class="glass-card">
-          <div class="flex-between mb-4">
-            <h3 class="m-0">Sales Forecast (AI Model)</h3>
-            <select class="form-input" style="width: auto; padding: 5px 10px;">
-              <option>Next 30 Days</option>
-              <option>Next Quarter</option>
-            </select>
-          </div>
-          <div class="chart-container">
-            <canvas id="businessChart"></canvas>
-          </div>
-        </div>
-
-        <!-- Sentiment Analysis -->
-        <div class="glass-card">
-          <h3 class="mb-4">Brand Sentiment (NLP)</h3>
-          
-          <div class="flex-center mb-4">
-            <div style="position: relative; width: 120px; height: 120px;">
-              <!-- Simulated Donut Chart -->
-              <svg viewBox="0 0 36 36" style="width: 100%; height: 100%; transform: rotate(-90deg);">
-                <circle cx="18" cy="18" r="16" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4"></circle>
-                <circle cx="18" cy="18" r="16" fill="none" stroke="#22C55E" stroke-width="4" stroke-dasharray="100" stroke-dashoffset="30"></circle>
-              </svg>
-              <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                <span style="font-size: 1.5rem; font-weight: bold;">70%</span><br>
-                <span style="font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase;">Positive</span>
-              </div>
-            </div>
-          </div>
-          
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <div class="flex-between text-sm">
-              <span style="color: #22C55E;">● Positive</span>
-              <span>70%</span>
-            </div>
-            <div class="flex-between text-sm">
-              <span style="color: var(--text-muted);">● Neutral</span>
-              <span>20%</span>
-            </div>
-            <div class="flex-between text-sm">
-              <span style="color: #EF4444;">● Negative</span>
-              <span>10%</span>
-            </div>
-          </div>
-          
-          <div class="mt-4 pt-3 border-top text-xs text-muted" style="border-color: var(--glass-border);">
-            Based on analysis of 15,420 social mentions and reviews in the last 7 days.
-          </div>
+        <div class="dash-table-wrap">
+          <table class="dash-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>API Calls (Month)</th>
+                <th>Last Active</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Anjali Gupta</td>
+                <td>ML Engineer</td>
+                <td>480,200</td>
+                <td>2 hours ago</td>
+                <td><span class="badge-new badge-success">Active</span></td>
+              </tr>
+              <tr>
+                <td>Rohit Verma</td>
+                <td>Data Analyst</td>
+                <td>312,400</td>
+                <td>Today</td>
+                <td><span class="badge-new badge-success">Active</span></td>
+              </tr>
+              <tr>
+                <td>Meena Reddy</td>
+                <td>Product Manager</td>
+                <td>89,600</td>
+                <td>Yesterday</td>
+                <td><span class="badge-new badge-warning">Away</span></td>
+              </tr>
+              <tr>
+                <td>Vikram Shah</td>
+                <td>Developer</td>
+                <td>620,800</td>
+                <td>1 day ago</td>
+                <td><span class="badge-new badge-success">Active</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
     </div>
   </div>
+</div>
 
-  <script src="js/dashboard.js"></script>
+<script>
+  const sidebar = document.getElementById('dashSidebar');
+  const main = document.getElementById('dashMain');
+  const collapseBtn = document.getElementById('collapseBtn');
+  const overlay = document.getElementById('dashOverlay');
+  const mobileToggle = document.getElementById('mobileToggle');
+
+  collapseBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+    main.classList.toggle('collapsed');
+  });
+  mobileToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('mobile-open');
+    overlay.classList.toggle('show');
+  });
+  overlay.addEventListener('click', () => {
+    sidebar.classList.remove('mobile-open');
+    overlay.classList.remove('show');
+  });
+
+  document.getElementById('logoutBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = 'login.html';
+  });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const days = Array.from({length: 30}, (_, i) => `Day ${i + 1}`);
+    new Chart(document.getElementById('apiChart'), {
+      type: 'line',
+      data: {
+        labels: days,
+        datasets: [{
+          label: 'API Calls (thousands)',
+          data: days.map(() => Math.floor(70 + Math.random() * 60)),
+          borderColor: '#e85d04',
+          backgroundColor: 'rgba(232,93,4,0.07)',
+          fill: true,
+          tension: 0.4,
+          pointRadius: 2,
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { x: { grid: { display: false }, ticks: { maxTicksLimit: 6 } }, y: { grid: { color: '#f0f0f5' } } }
+      }
+    });
+
+    new Chart(document.getElementById('deptChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Engineering','Analytics','Product','Marketing'],
+        datasets: [{
+          data: [45, 28, 15, 12],
+          backgroundColor: ['#e85d04','#1a1a2e','#4285f4','#f59e0b'],
+          borderWidth: 2, borderColor: '#fff'
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 10 } } },
+        cutout: '60%'
+      }
+    });
+  });
+</script>
 </body>
 </html>
+

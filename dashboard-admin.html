@@ -4,192 +4,224 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard - STACKLY AI</title>
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/dashboard.css">
-  <link rel="stylesheet" href="css/animations.css">
-  
+  <link rel="stylesheet" href="css/dashboard-new.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="dashboard-body">
+<body class="dash-body">
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-header">
-      <img src="logo.webp" alt="STACKLY AI" style="height: 30px; margin-right: 10px;">
-      <span style="font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Admin</span>
-    </div>
-    
-    <div class="sidebar-menu">
-      <div class="menu-label">CORE</div>
-      <a href="#" class="menu-item active">
-        <span class="menu-icon">📊</span> Overview
+<!-- Sidebar Overlay -->
+<div class="dash-overlay" id="dashOverlay"></div>
+
+<div class="dash-layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="dash-sidebar-brand">
+        <span class="dash-sidebar-brand-text">STACKLY AI</span>
       </a>
-      <a href="#" class="menu-item">
-        <span class="menu-icon">👥</span> Users & Roles
-      </a>
-      <a href="#" class="menu-item">
-        <span class="menu-icon">🏢</span> Tenants
-      </a>
-      
-      <div class="menu-label mt-4">SYSTEM</div>
-      <a href="#" class="menu-item">
-        <span class="menu-icon">🖥️</span> Infrastructure
-      </a>
-      <a href="#" class="menu-item">
-        <span class="menu-icon">⚠️</span> Error Logs
-      </a>
-      <a href="#" class="menu-item">
-        <span class="menu-icon">⚙️</span> Settings
-      </a>
+      <button class="dash-collapse-btn" id="collapseBtn" title="Toggle Sidebar">
+        <span class="collapse-icon">«</span>
+      </button>
     </div>
 
-    <!-- User Profile Snippet at bottom -->
-    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; border-top: 1px solid var(--glass-border); display: flex; align-items: center; gap: 10px;">
-      <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--gradient-btn); display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">SA</div>
-      <div>
-        <div style="font-size: 0.9rem; font-weight: 600; color: white;" id="userNameDisplay">System Admin</div>
-        <div style="font-size: 0.8rem; color: var(--text-muted);">admin@stackly.ai</div>
+    <nav class="dash-nav">
+      <div class="dash-nav-group">
+        <div class="dash-nav-label">CORE</div>
+        <a href="#" class="dash-nav-item active">
+          <span class="nav-icon">📊</span>
+          <span class="nav-text">System Analytics</span>
+        </a>
+        <a href="#" class="dash-nav-item">
+          <span class="nav-icon">🔑</span>
+          <span class="nav-text">API Keys Management</span>
+        </a>
+        <a href="#" class="dash-nav-item">
+          <span class="nav-icon">🌐</span>
+          <span class="nav-text">Network & Compute</span>
+        </a>
+        <a href="#" class="dash-nav-item">
+          <span class="nav-icon">👥</span>
+          <span class="nav-text">User Subscriptions</span>
+        </a>
       </div>
+
+      <div class="dash-nav-group">
+        <div class="dash-nav-label">SYSTEM</div>
+        <a href="#" class="dash-nav-item">
+          <span class="nav-icon">🖥️</span>
+          <span class="nav-text">Infrastructure</span>
+        </a>
+        <a href="#" class="dash-nav-item">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-text">Settings</span>
+        </a>
+        <a href="index.html" class="dash-nav-item">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-text">Back To Store</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="dash-signout">
+      <a href="login.html">
+        <span class="nav-icon">🚪</span>
+        <span class="nav-text">Sign Out</span>
+      </a>
     </div>
   </aside>
 
-  <!-- Main Content -->
-  <div class="main-content">
-    
+  <!-- ===== MAIN ===== -->
+  <div class="dash-main" id="dashMain">
+
     <!-- Topbar -->
-    <header class="topbar flex-between">
-      <div class="flex" style="align-items: center; gap: 15px;">
-        <button class="hamburger-dashboard" id="mobileSidebarToggle" style="display: none; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer;">☰</button>
-        <h2 class="m-0" style="font-size: 1.5rem;">System Overview</h2>
+    <header class="dash-topbar">
+      <div class="dash-topbar-left" style="display: flex; align-items: center; gap: 15px;">
+        <img src="logo.webp" alt="STACKLY AI" style="height:32px; border-radius:4px;">
+        <button class="dash-mobile-toggle" id="mobileToggle">☰</button>
+        <div>
+          <div class="dash-topbar-title">Platform Admin Panel</div>
+          <div class="dash-topbar-subtitle">Manage AI Infrastructure</div>
+        </div>
       </div>
-      
-      <div class="topbar-actions">
-        <button class="btn btn-outline btn-sm" id="logoutBtn">Logout</button>
+      <div class="dash-topbar-right">
+        <a href="login.html" class="dash-logout-btn" id="logoutBtn">
+          <span>↪</span> Logout
+        </a>
       </div>
     </header>
 
-    <!-- Dashboard Content -->
-    <div class="dashboard-content page-enter">
-      
-      <!-- KPI Cards -->
-      <div class="kpi-grid">
-        <div class="glass-card kpi-card hover-lift">
-          <div class="text-muted text-sm text-uppercase mb-2">Total Users</div>
-          <div class="kpi-value" style="color: var(--primary);">124.5K</div>
-          <div class="kpi-trend trend-up">↑ 12% vs last month</div>
+    <!-- Content -->
+    <div class="dash-content">
+
+      <!-- KPI Stats -->
+      <div class="dash-stats-grid">
+        <div class="dash-stat-card">
+          <div class="stat-body">
+            <div class="stat-label">Total Compute Usage</div>
+            <div class="stat-value">24,580 hrs</div>
+            <div class="stat-trend up">↑ +12.4% vs last month</div>
+          </div>
+          <div class="stat-icon green">⚡</div>
         </div>
-        <div class="glass-card kpi-card hover-lift">
-          <div class="text-muted text-sm text-uppercase mb-2">Active Tenants</div>
-          <div class="kpi-value" style="color: var(--secondary);">8,204</div>
-          <div class="kpi-trend trend-up">↑ 5% vs last month</div>
+        <div class="dash-stat-card">
+          <div class="stat-body">
+            <div class="stat-label">Total API Calls</div>
+            <div class="stat-value">1.24M</div>
+            <div class="stat-trend up">↑ +8.2% vs last month</div>
+          </div>
+          <div class="stat-icon orange">🔌</div>
         </div>
-        <div class="glass-card kpi-card hover-lift">
-          <div class="text-muted text-sm text-uppercase mb-2">API Requests (24h)</div>
-          <div class="kpi-value" style="color: var(--accent);">45.2M</div>
-          <div class="kpi-trend trend-up">↑ 8% vs yesterday</div>
+        <div class="dash-stat-card">
+          <div class="stat-body">
+            <div class="stat-label">Active Deployments</div>
+            <div class="stat-value">850</div>
+            <div class="stat-trend up">↑ +15.1% vs last month</div>
+          </div>
+          <div class="stat-icon blue">🚀</div>
         </div>
-        <div class="glass-card kpi-card hover-lift">
-          <div class="text-muted text-sm text-uppercase mb-2">System Health</div>
-          <div class="kpi-value" style="color: #22C55E;">99.99%</div>
-          <div class="kpi-trend text-muted">Uptime (30 days)</div>
+        <div class="dash-stat-card">
+          <div class="stat-body">
+            <div class="stat-label">AI Models</div>
+            <div class="stat-value">32</div>
+            <div class="stat-trend down">↓ -2 models deprecated</div>
+          </div>
+          <div class="stat-icon yellow">🧠</div>
         </div>
       </div>
 
-      <!-- Charts Section -->
-      <div class="grid" style="grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-        
-        <!-- Main Chart -->
-        <div class="glass-card">
-          <div class="flex-between mb-4">
-            <h3 class="m-0">Global API Traffic</h3>
-            <select class="form-input" style="width: auto; padding: 5px 10px;">
-              <option>Last 7 Days</option>
-              <option>Last 30 Days</option>
+      <!-- Charts -->
+      <div class="dash-charts-grid">
+        <div class="dash-chart-card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Compute &amp; API Requests Trend (2026)</div>
+              <div class="card-subtitle">Monthly system performance</div>
+            </div>
+            <select class="btn-sm-outline" style="padding:5px 10px;cursor:pointer;">
               <option>This Year</option>
+              <option>Last Year</option>
             </select>
           </div>
-          <div class="chart-container">
-            <canvas id="mainChart"></canvas>
+          <div class="chart-canvas-wrap">
+            <canvas id="revenueChart"></canvas>
           </div>
         </div>
 
-        <!-- Secondary Chart -->
-        <div class="glass-card">
-          <h3 class="mb-4">Compute Resources</h3>
-          <div class="chart-container">
-            <canvas id="secondaryChart"></canvas>
+        <div class="dash-chart-card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Model Usage Distribution</div>
+              <div class="card-subtitle">Requests by AI model</div>
+            </div>
           </div>
-          
-          <div class="mt-4">
-            <div class="flex-between text-sm mb-2">
-              <span class="text-muted">GPU Cluster A</span>
-              <span style="color: var(--primary);">85% Utilized</span>
-            </div>
-            <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; margin-bottom: 15px;">
-              <div style="width: 85%; height: 100%; background: var(--primary);"></div>
-            </div>
-            
-            <div class="flex-between text-sm mb-2">
-              <span class="text-muted">GPU Cluster B</span>
-              <span style="color: var(--secondary);">62% Utilized</span>
-            </div>
-            <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
-              <div style="width: 62%; height: 100%; background: var(--secondary);"></div>
-            </div>
+          <div class="chart-canvas-wrap">
+            <canvas id="categoryChart"></canvas>
           </div>
         </div>
       </div>
 
-      <!-- Data Table -->
-      <div class="glass-card" style="padding: 0; overflow: hidden;">
-        <div class="flex-between" style="padding: 1.5rem; border-bottom: 1px solid var(--glass-border);">
-          <h3 class="m-0">Recent Alerts & Errors</h3>
-          <button class="btn btn-outline btn-sm">View All Logs</button>
+      <!-- Recent Orders Table -->
+      <div class="dash-table-card">
+        <div class="dash-table-header">
+          <h3>Recent API Requests</h3>
+          <button class="btn-sm-outline" onclick="location.href='#'">View All</button>
         </div>
-        <div style="overflow-x: auto;">
-          <table class="data-table">
+        <div class="dash-table-wrap">
+          <table class="dash-table">
             <thead>
               <tr>
-                <th>Timestamp</th>
-                <th>Service</th>
-                <th>Severity</th>
-                <th>Message</th>
+                <th>Request ID</th>
+                <th>User / App</th>
+                <th>Model Used</th>
+                <th>Tokens Used</th>
                 <th>Status</th>
+                <th>Timestamp</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="text-muted text-sm">Today, 10:45 AM</td>
-                <td>Model Gateway (US-East)</td>
-                <td><span class="badge" style="background: rgba(239, 68, 68, 0.2); color: #EF4444;">CRITICAL</span></td>
-                <td>Latency spike > 500ms detected</td>
-                <td><span class="text-sm" style="color: #22C55E;">Resolved</span></td>
+                <td>#REQ-1042</td>
+                <td>Priya Sharma</td>
+                <td>STACKLY-Vision-Pro</td>
+                <td>1,245</td>
+                <td><span class="badge-new badge-success">Success</span></td>
+                <td>Today, 11:30 AM</td>
               </tr>
               <tr>
-                <td class="text-muted text-sm">Today, 08:12 AM</td>
-                <td>Auth Service</td>
-                <td><span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B;">WARNING</span></td>
-                <td>Elevated rate of 401 Unauthorized responses</td>
-                <td><span class="text-sm" style="color: #F59E0B;">Investigating</span></td>
+                <td>#REQ-1041</td>
+                <td>Rahul Mehta</td>
+                <td>STACKLY-Chat-7B</td>
+                <td>842</td>
+                <td><span class="badge-new badge-warning">Processing</span></td>
+                <td>Today, 10:45 AM</td>
               </tr>
               <tr>
-                <td class="text-muted text-sm">Yesterday, 11:30 PM</td>
-                <td>Database Cluster 2</td>
-                <td><span class="badge" style="background: rgba(108, 99, 255, 0.2); color: var(--primary);">INFO</span></td>
-                <td>Automated backup completed successfully</td>
-                <td><span class="text-sm text-muted">Closed</span></td>
+                <td>#REQ-1040</td>
+                <td>Sneha Patel</td>
+                <td>STACKLY-Embeddings</td>
+                <td>4,096</td>
+                <td><span class="badge-new badge-info">Queued</span></td>
+                <td>Today, 10:12 AM</td>
               </tr>
               <tr>
-                <td class="text-muted text-sm">Yesterday, 04:22 PM</td>
-                <td>Vision API Node</td>
-                <td><span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B;">WARNING</span></td>
-                <td>GPU memory utilization > 90%</td>
-                <td><span class="text-sm" style="color: #22C55E;">Resolved (Auto-scaled)</span></td>
+                <td>#REQ-1039</td>
+                <td>Arjun Singh</td>
+                <td>STACKLY-GenAudio</td>
+                <td>320</td>
+                <td><span class="badge-new badge-success">Success</span></td>
+                <td>Yesterday, 9:00 PM</td>
+              </tr>
+              <tr>
+                <td>#REQ-1038</td>
+                <td>Deepa Nair</td>
+                <td>STACKLY-Chat-7B</td>
+                <td>0</td>
+                <td><span class="badge-new badge-danger">Failed</span></td>
+                <td>Yesterday, 7:30 PM</td>
               </tr>
             </tbody>
           </table>
@@ -198,7 +230,99 @@
 
     </div>
   </div>
+</div>
 
-  <script src="js/dashboard.js"></script>
+<script>
+  // Sidebar collapse
+  const sidebar = document.getElementById('dashSidebar');
+  const main = document.getElementById('dashMain');
+  const collapseBtn = document.getElementById('collapseBtn');
+  const overlay = document.getElementById('dashOverlay');
+  const mobileToggle = document.getElementById('mobileToggle');
+
+  collapseBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+    main.classList.toggle('collapsed');
+  });
+
+  mobileToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('mobile-open');
+    overlay.classList.toggle('show');
+  });
+
+  overlay.addEventListener('click', () => {
+    sidebar.classList.remove('mobile-open');
+    overlay.classList.remove('show');
+  });
+
+  // Logout
+  document.getElementById('logoutBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = 'login.html';
+  });
+
+  // Charts
+  window.addEventListener('DOMContentLoaded', () => {
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+    new Chart(document.getElementById('revenueChart'), {
+      type: 'line',
+      data: {
+        labels: months,
+        datasets: [
+          {
+            label: 'Compute (hrs)',
+            data: [7200,7800,8400,8900,9100,9400,9200,9600,9800,10200,10500,10900],
+            borderColor: '#e85d04',
+            backgroundColor: 'rgba(232,93,4,0.07)',
+            fill: true,
+            tension: 0.4,
+            pointRadius: 3,
+            borderWidth: 2
+          },
+          {
+            label: 'API Requests (k)',
+            data: [310,340,380,410,420,440,430,450,460,480,490,510],
+            borderColor: '#1a1a2e',
+            backgroundColor: 'transparent',
+            tension: 0.4,
+            pointRadius: 3,
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { position: 'top', labels: { font: { size: 11 } } } },
+        scales: {
+          x: { grid: { display: false } },
+          y: { grid: { color: '#f0f0f5' } }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('categoryChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Vision-Pro','Chat-7B','Embeddings','GenAudio','Other'],
+        datasets: [{
+          data: [30, 25, 18, 15, 12],
+          backgroundColor: ['#e85d04','#1a1a2e','#4285f4','#16a34a','#f59e0b'],
+          borderWidth: 2,
+          borderColor: '#fff'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 10 } } },
+        cutout: '60%'
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
+

@@ -180,12 +180,13 @@ const PHONE_REGEX = /^[\d\s\-+()]{10,}$/;
    1. LOGIN FORM VALIDATION
    --------------------------------------------------------------- */
 function initLoginForm() {
-  const form = document.querySelector('.login-form, #login-form');
+  const form = document.querySelector('.login-form, #login-form, #loginForm');
   if (!form) return;
 
-  const emailField = form.querySelector('[name="email"], #login-email');
-  const passwordField = form.querySelector('[name="password"], #login-password');
-  const submitBtn = form.querySelector('button[type="submit"], .login-btn');
+  const emailField = form.querySelector('[name="email"], #login-email, #email');
+  const passwordField = form.querySelector('[name="password"], #login-password, #password');
+  const roleField = form.querySelector('[name="role"], #login-role, #role');
+  const submitBtn = form.querySelector('button[type="submit"], .login-btn, #loginBtn');
 
   // Real-time validation for login fields
   if (emailField) {
@@ -239,8 +240,15 @@ function initLoginForm() {
 
     const emailValid = emailField ? validateLoginEmail(emailField) : true;
     const passwordValid = passwordField ? validateLoginPassword(passwordField) : true;
+    const roleValid = roleField ? (roleField.value !== '') : true;
 
-    if (!emailValid || !passwordValid) {
+    if (!roleField || roleField.value === '') {
+        if(roleField) setFieldError(roleField, 'Please select a role');
+    } else {
+        if(roleField) setFieldValid(roleField);
+    }
+
+    if (!emailValid || !passwordValid || !roleValid) {
       showToast('Please fix the errors before submitting.', 'error');
       return;
     }
@@ -270,14 +278,18 @@ function initLoginForm() {
 
         showToast('Login successful! Redirecting...', 'success');
 
-        // Determine redirect based on email domain
+        // Determine redirect based on role or email
         let redirectPage = 'dashboard-customer.html';
-        if (email === 'admin@stackly.ai') {
+        const role = roleField ? roleField.value : 'customer';
+        
+        if (role === 'admin' || email === 'admin@stackly.ai') {
           redirectPage = 'dashboard-admin.html';
-        } else if (email === 'dev@stackly.ai') {
+        } else if (role === 'developer' || email === 'dev@stackly.ai') {
           redirectPage = 'dashboard-developer.html';
-        } else if (email === 'biz@stackly.ai') {
+        } else if (role === 'business' || role === 'manager' || email === 'biz@stackly.ai') {
           redirectPage = 'dashboard-business.html';
+        } else if (role === 'user') {
+          redirectPage = 'dashboard-customer.html';
         }
 
         setTimeout(() => {
@@ -292,17 +304,17 @@ function initLoginForm() {
    2. SIGNUP FORM VALIDATION
    --------------------------------------------------------------- */
 function initSignupForm() {
-  const form = document.querySelector('.signup-form, #signup-form');
+  const form = document.querySelector('.signup-form, #signup-form, #signupForm');
   if (!form) return;
 
-  const nameField = form.querySelector('[name="fullname"], [name="name"], #signup-name');
-  const emailField = form.querySelector('[name="email"], #signup-email');
+  const nameField = form.querySelector('[name="fullname"], [name="name"], #signup-name, #firstName, #lastName');
+  const emailField = form.querySelector('[name="email"], #signup-email, #email');
   const phoneField = form.querySelector('[name="phone"], #signup-phone');
-  const passwordField = form.querySelector('[name="password"], #signup-password');
+  const passwordField = form.querySelector('[name="password"], #signup-password, #password');
   const confirmField = form.querySelector('[name="confirm-password"], [name="confirmPassword"], #signup-confirm');
-  const roleField = form.querySelector('[name="role"], #signup-role');
-  const termsField = form.querySelector('[name="terms"], #signup-terms');
-  const submitBtn = form.querySelector('button[type="submit"], .signup-btn');
+  const roleField = form.querySelector('[name="role"], #signup-role, #role');
+  const termsField = form.querySelector('[name="terms"], #signup-terms, #terms');
+  const submitBtn = form.querySelector('button[type="submit"], .signup-btn, #signupBtn');
 
   // Password Strength Meter
   const strengthBar = form.querySelector('.password-strength-bar');

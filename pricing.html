@@ -80,9 +80,10 @@
 
   <!-- Preloader -->
   <div class="preloader" id="preloader">
-    <div class="preloader-content">
-      <img src="logo.webp" alt="STACKLY AI" class="preloader-logo pulse" style="max-width: 200px;">
-      <div class="preloader-spinner" style="width: 40px; height: 40px; border: 3px solid rgba(108, 99, 255, 0.3); border-top-color: #6C63FF; border-radius: 50%; animation: spin 1s linear infinite; margin: 20px auto;"></div>
+    <div class="preloader-content" style="text-align: center; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: 2px; font-family: var(--font-heading);">Think. Learn. Innovate.</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: rgba(255,255,255,0.8);">Loading AI Experience...</p>
+      <div style="font-size: 3rem; font-weight: 800; color: var(--primary); font-variant-numeric: tabular-nums;"><span id="preloader-percent">0</span>%</div>
     </div>
   </div>
 
@@ -103,7 +104,6 @@
       </ul>
       <div class="nav-actions" style="display: flex; gap: 1rem;">
         <a href="login.html" class="btn btn-outline btn-sm">Login</a>
-        <a href="signup.html" class="btn btn-primary btn-sm nav-cta">Get Started</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -113,6 +113,7 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close Menu" style="position:absolute; top:20px; right:20px; background:none; border:none; color:white; font-size:2rem; cursor:pointer; z-index:1002;">&times;</button>
     <ul class="mobile-menu-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -122,7 +123,6 @@
       <li><a href="blog.html">Blog</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="login.html">Login</a></li>
-      <li><a href="signup.html" class="btn btn-primary" style="margin-top: 1rem;">Get Started</a></li>
     </ul>
   </div>
 
@@ -399,10 +399,10 @@
           </a>
           <p class="footer-description text-muted mt-3 mb-4">Empowering businesses with cutting-edge AI solutions. Transform your operations with intelligent automation and data-driven insights.</p>
           <div class="footer-social" style="display: flex; gap: 15px;">
-            <a href="#" class="social-icon flex-center hover-glow" aria-label="Twitter" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">𝕏</a>
-            <a href="#" class="social-icon flex-center hover-glow" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">in</a>
-            <a href="#" class="social-icon flex-center hover-glow" aria-label="GitHub" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">⌨</a>
-            <a href="#" class="social-icon flex-center hover-glow" aria-label="YouTube" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">▶</a>
+            <a href="https://twitter.com/stacklyai" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="Twitter" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">𝕏</a>
+            <a href="https://linkedin.com/company/stacklyai" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">in</a>
+            <a href="https://github.com/stacklyai" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="GitHub" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">⌨</a>
+            <a href="https://youtube.com/@stacklyai" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="YouTube" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">▶</a>
           </div>
         </div>
         <div class="footer-links-col">
@@ -480,3 +480,4 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+
