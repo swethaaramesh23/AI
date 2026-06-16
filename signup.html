@@ -18,13 +18,35 @@
 
 <div class="auth-page-wrapper">
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="auth-navbar" id="authNavbar">
-    <a href="index.html" class="nav-brand">
-      <img src="lo.webp" alt="STACKLY AI">
-    </a>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="lo.webp" alt="STACKLY AI" class="nav-logo-img" style="max-height: 70px;">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme" style="background: none; border: none; color: var(--text-bright); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px;">🌙</button>
+        <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-    <ul class="nav-links-auth" id="authNavLinks">
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close Menu" style="position:absolute; top:20px; right:20px; background:none; border:none; color:white; font-size:2rem; cursor:pointer; z-index:1002;">&times;</button>
+    <ul class="mobile-menu-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
@@ -32,37 +54,15 @@
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
     </ul>
-
-    <a href="login.html" class="nav-login-btn">
-      <span>👤</span> Login
-    </a>
-
-    <button class="auth-nav-hamburger" id="authHamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- Mobile Drawer -->
-  <div class="auth-mobile-menu" id="authMobileMenu">
-    <div class="auth-mobile-drawer">
-      <button class="auth-mobile-close" id="authMobileClose">&times;</button>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="solutions.html">Solutions</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-      <a href="login.html" style="color:#2e04e8;font-weight:700;">Login</a>
-    </div>
   </div>
 
   <!-- ===== AUTH BODY ===== -->
   <main class="auth-body">
     <div class="auth-card-new" style="max-width:500px;" data-aos="fade-up">
 
-      <p class="auth-tagline" style="color: #2e04e8;">Join the AI revolution with STACKLY</p>
+      <p class="auth-tagline">Join the AI revolution with STACKLY</p>
       <h1>Create Account</h1>
 
       <!-- Alert -->
@@ -130,7 +130,7 @@
         <!-- Terms -->
         <div class="auth-terms">
           <input type="checkbox" id="terms" required>
-          <span style="color: #2e04e8;">I agree to Stackly's <a href="#" style="color: #2e04e8;">Terms of Service</a> &amp; <a href="#" style="color: #2e04e8;">Privacy Policy</a></span>
+          <span>I agree to Stackly's <a href="#">Terms of Service</a> &amp; <a href="#">Privacy Policy</a></span>
         </div>
 
         <!-- Submit -->
@@ -168,19 +168,9 @@
 
 </div>
 
+<script src="js/main.js"></script>
 <script src="js/auth.js"></script>
 <script>
-  // Mobile nav
-  document.getElementById('authHamburger').addEventListener('click', () => {
-    document.getElementById('authMobileMenu').classList.add('open');
-  });
-  document.getElementById('authMobileClose').addEventListener('click', () => {
-    document.getElementById('authMobileMenu').classList.remove('open');
-  });
-  document.getElementById('authMobileMenu').addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) e.currentTarget.classList.remove('open');
-  });
-
   // Password toggles
   function makeToggle(toggleId, inputId) {
     document.getElementById(toggleId).addEventListener('click', () => {

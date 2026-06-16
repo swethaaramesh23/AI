@@ -13,9 +13,9 @@
    --------------------------------------------------------------- */
 (function initPreloader() {
   const preloader = document.querySelector('.preloader');
-  const percentEl = document.getElementById('preloader-percent');
   if (!preloader) return;
 
+  const percentEl = document.getElementById('preloader-percent');
   let percent = 0;
   let interval;
   
@@ -27,22 +27,17 @@
         clearInterval(interval);
       }
       percentEl.textContent = percent;
-    }, 50);
+    }, 30);
   }
 
-  window.addEventListener('load', () => {
+  function hidePreloader() {
+    if (preloader.classList.contains('loaded')) return;
+    
     if (percentEl) {
       clearInterval(interval);
       percentEl.textContent = '100';
     }
-  });
-
-  // Force preloader to close after 2.5 seconds exactly
-  setTimeout(() => {
-    if (percentEl && percent < 100) {
-      clearInterval(interval);
-      percentEl.textContent = '100';
-    }
+    
     preloader.classList.add('loaded');
     preloader.addEventListener('transitionend', () => {
       preloader.style.display = 'none';
@@ -52,7 +47,15 @@
     setTimeout(() => {
       preloader.style.display = 'none';
     }, 500);
-  }, 2500);
+  }
+
+  // Hide preloader when page is fully loaded
+  window.addEventListener('load', () => {
+    setTimeout(hidePreloader, 300);
+  });
+
+  // Fallback: Force preloader to close after 1.5 seconds max
+  setTimeout(hidePreloader, 1500);
 })();
 
 /* ---------------------------------------------------------------

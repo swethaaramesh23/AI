@@ -276,19 +276,34 @@ function initLoginForm() {
         localStorage.setItem('stackly_logged_in', 'true');
         localStorage.setItem('stackly_user_email', email);
 
+        let role = roleField ? roleField.value : 'customer';
+        if (email === 'admin@stackly.ai') {
+          role = 'admin';
+        } else if (email === 'dev@stackly.ai') {
+          role = 'developer';
+        } else if (email === 'biz@stackly.ai') {
+          role = 'business';
+        } else if (role === 'user') {
+          role = 'customer';
+        }
+
+        localStorage.setItem('stackly_user_role', role);
+
+        let userName = email.split('@')[0];
+        userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+        localStorage.setItem('stackly_user_name', userName);
+
         showToast('Login successful! Redirecting...', 'success');
 
-        // Determine redirect based on role or email
+        // Determine redirect based on role
         let redirectPage = 'dashboard-customer.html';
-        const role = roleField ? roleField.value : 'customer';
-        
-        if (role === 'admin' || email === 'admin@stackly.ai') {
+        if (role === 'admin') {
           redirectPage = 'dashboard-admin.html';
-        } else if (role === 'developer' || email === 'dev@stackly.ai') {
+        } else if (role === 'developer') {
           redirectPage = 'dashboard-developer.html';
-        } else if (role === 'business' || role === 'manager' || email === 'biz@stackly.ai') {
+        } else if (role === 'business') {
           redirectPage = 'dashboard-business.html';
-        } else if (role === 'user') {
+        } else {
           redirectPage = 'dashboard-customer.html';
         }
 

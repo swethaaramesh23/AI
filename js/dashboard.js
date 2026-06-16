@@ -1,92 +1,287 @@
 /* ============================================================
-   STACKLY AI — Dashboard JavaScript
-   Version: 1.0.0
-   Features: Sidebar, Theme Toggle, Profile Dropdown, Charts,
-   Data Tables, Tabs, API Keys, Responsive Layout
+   STACKLY AI — Centralized Dashboard Javascript
+   Version: 2.0.0
    ============================================================ */
 
 'use strict';
 
-/* ---------------------------------------------------------------
-   1. SIDEBAR NAVIGATION
-   --------------------------------------------------------------- */
-function initSidebar() {
-  const sidebar = document.querySelector('.sidebar');
-  const sidebarToggle = document.querySelector('.sidebar-toggle, .menu-toggle, .hamburger-dashboard, #mobileSidebarToggle');
-  const mainContent = document.querySelector('.main-content, .dashboard-main');
-  const overlay = document.querySelector('.sidebar-overlay');
-  const sidebarLinks = document.querySelectorAll('.sidebar-nav a, .sidebar-menu a');
+// Role-based Sidebar Menus
+const SIDEBAR_MENUS = {
+  admin: [
+    { label: 'MAIN', isHeader: true },
+    { label: 'Dashboard', icon: '📊', url: 'dashboard-admin.html' },
+    { label: 'User Management', icon: '👥', url: 'dashboard-users.html' },
+    { label: 'AI Services', icon: '🤖', url: 'dashboard-ai-tools.html' },
+    { label: 'Analytics', icon: '📈', url: 'dashboard-business.html' },
+    { label: 'Reports', icon: '📄', url: 'dashboard-reports.html' },
+    { label: 'API Keys', icon: '🔑', url: 'dash-dev-keys.html' },
+    { label: 'Documentation', icon: '📖', url: 'dash-dev-docs.html' },
+    { label: 'Webhooks', icon: '⚡', url: 'dash-dev-webhooks.html' },
+    { label: 'ACCOUNT', isHeader: true },
+    { label: 'Settings', icon: '⚙️', url: 'dashboard-settings.html' },
+    { label: 'Profile', icon: '👤', url: 'dashboard-profile.html' },
+    { label: 'Notifications', icon: '🔔', url: 'dashboard-notifications.html' },
+    { label: 'Help & Support', icon: '❓', url: 'dashboard-help.html' }
+  ],
+  developer: [
+    { label: 'MAIN', isHeader: true },
+    { label: 'API Console', icon: '🤖', url: 'dashboard-developer.html' },
+    { label: 'AI Tools', icon: '⚙️', url: 'dashboard-ai-tools.html' },
+    { label: 'API Keys', icon: '🔑', url: 'dash-dev-keys.html' },
+    { label: 'Documentation', icon: '📖', url: 'dash-dev-docs.html' },
+    { label: 'Webhooks', icon: '⚡', url: 'dash-dev-webhooks.html' },
+    { label: 'ACCOUNT', isHeader: true },
+    { label: 'Settings', icon: '⚙️', url: 'dashboard-settings.html' },
+    { label: 'Profile', icon: '👤', url: 'dashboard-profile.html' },
+    { label: 'Notifications', icon: '🔔', url: 'dashboard-notifications.html' },
+    { label: 'Help & Support', icon: '❓', url: 'dashboard-help.html' }
+  ],
+  customer: [
+    { label: 'MAIN', isHeader: true },
+    { label: 'My Dashboard', icon: '📊', url: 'dashboard-customer.html' },
+    { label: 'AI Tools', icon: '🤖', url: 'dashboard-ai-tools.html' },
+    { label: 'My Projects', icon: '🚀', url: 'dash-cust-projects.html' },
+    { label: 'Chat History', icon: '💬', url: 'dash-cust-chat.html' },
+    { label: 'Subscription', icon: '💳', url: 'dash-cust-sub.html' },
+    { label: 'ACCOUNT', isHeader: true },
+    { label: 'Settings', icon: '⚙️', url: 'dashboard-settings.html' },
+    { label: 'Profile', icon: '👤', url: 'dashboard-profile.html' },
+    { label: 'Notifications', icon: '🔔', url: 'dashboard-notifications.html' },
+    { label: 'Help & Support', icon: '❓', url: 'dashboard-help.html' }
+  ],
+  business: [
+    { label: 'MAIN', isHeader: true },
+    { label: 'Analytics Overview', icon: '📈', url: 'dashboard-business.html' },
+    { label: 'Team Members', icon: '👥', url: 'dash-bus-team.html' },
+    { label: 'Business Reports', icon: '📄', url: 'dash-bus-reports.html' },
+    { label: 'Billing', icon: '💳', url: 'dash-bus-billing.html' },
+    { label: 'ACCOUNT', isHeader: true },
+    { label: 'Settings', icon: '⚙️', url: 'dashboard-settings.html' },
+    { label: 'Profile', icon: '👤', url: 'dashboard-profile.html' },
+    { label: 'Notifications', icon: '🔔', url: 'dashboard-notifications.html' },
+    { label: 'Help & Support', icon: '❓', url: 'dashboard-help.html' }
+  ]
+};
 
-  if (!sidebar) return;
+// 1. Dynamic Layout Injection
+function renderDashboardLayout() {
+  const sidebarEl = document.getElementById('dashSidebar');
+  const topbarEl = document.querySelector('.dash-topbar');
 
-  // Create overlay if it doesn't exist (for mobile)
-  let sidebarOverlay = overlay;
-  if (!sidebarOverlay) {
-    sidebarOverlay = document.createElement('div');
-    sidebarOverlay.classList.add('sidebar-overlay');
-    sidebarOverlay.style.cssText = `
-      position: fixed; inset: 0; background: rgba(0,0,0,0.5);
-      z-index: 998; display: none; opacity: 0;
-      transition: opacity 0.3s ease;
+  // Detect current role and parameters from storage
+  let role = localStorage.getItem('stackly_user_role') || 'customer';
+  const path = window.location.pathname.split('/').pop() || 'index.html';
+  
+  // Fallback checks to align sidebars dynamically if URL changes
+  if (path.includes('admin') || path === 'dashboard-users.html' || path === 'dashboard-reports.html') {
+    role = 'admin';
+  } else if (path.includes('dev-') || path === 'dashboard-developer.html') {
+    role = 'developer';
+  } else if (path.includes('bus-') || path === 'dashboard-business.html') {
+    role = 'business';
+  } else if (path.includes('cust-') || path === 'dashboard-customer.html') {
+    role = 'customer';
+  }
+
+  const userName = localStorage.getItem('stackly_user_name') || 'User';
+  
+  let avatarSrc = 'images/8.webp';
+  if (role === 'admin') avatarSrc = 'images/3.webp';
+  else if (role === 'developer') avatarSrc = 'images/7.webp';
+  else if (role === 'business') avatarSrc = 'images/4.webp';
+
+  // 1a. Build Sidebar
+  if (sidebarEl) {
+    let sidebarHTML = `
+      <div class="dash-sidebar-header">
+        <a href="index.html" class="dash-sidebar-brand">
+          <img src="logo.webp" alt="STACKLY AI" style="height:28px; filter:brightness(10);">
+          <span class="dash-sidebar-brand-text">STACKLY AI</span>
+        </a>
+        <button class="dash-collapse-btn" id="collapseBtn" title="Toggle Sidebar">
+          <span class="collapse-icon">«</span>
+        </button>
+      </div>
+      <nav class="dash-nav">
     `;
-    document.body.appendChild(sidebarOverlay);
-  }
 
-  function isMobile() {
-    return window.innerWidth <= 768;
-  }
-
-  function toggleSidebar() {
-    if (isMobile()) {
-      sidebar.classList.toggle('mobile-open');
-      if (sidebar.classList.contains('mobile-open')) {
-        sidebarOverlay.style.display = 'block';
-        requestAnimationFrame(() => { sidebarOverlay.style.opacity = '1'; });
+    const menu = SIDEBAR_MENUS[role] || SIDEBAR_MENUS.customer;
+    menu.forEach(item => {
+      if (item.isHeader) {
+        sidebarHTML += `<div class="dash-nav-label">${item.label}</div>`;
       } else {
-        closeMobileSidebar();
+        const isActive = (item.url === path) ? 'active' : '';
+        sidebarHTML += `
+          <a href="${item.url}" class="dash-nav-item ${isActive}">
+            <span class="nav-icon">${item.icon}</span>
+            <span class="nav-text">${item.label}</span>
+          </a>
+        `;
       }
-    } else {
-      sidebar.classList.toggle('collapsed');
-      if (mainContent) mainContent.classList.toggle('expanded');
-    }
-  }
-
-  function closeMobileSidebar() {
-    sidebar.classList.remove('mobile-open');
-    sidebarOverlay.style.opacity = '0';
-    sidebarOverlay.addEventListener('transitionend', () => {
-      if (!sidebar.classList.contains('mobile-open')) {
-        sidebarOverlay.style.display = 'none';
-      }
-    }, { once: true });
-  }
-
-  if (sidebarToggle) {
-    sidebarToggle.addEventListener('click', toggleSidebar);
-  }
-
-  // Close sidebar on overlay click (mobile)
-  sidebarOverlay.addEventListener('click', closeMobileSidebar);
-
-  // Close sidebar on mobile when a nav item is clicked
-  sidebarLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (isMobile()) closeMobileSidebar();
     });
-  });
+
+    sidebarHTML += `
+      </nav>
+      <div class="dash-signout">
+        <a href="#" id="sidebarSignoutBtn">
+          <span class="nav-icon">🚪</span>
+          <span class="nav-text">Sign Out</span>
+        </a>
+      </div>
+    `;
+
+    sidebarEl.innerHTML = sidebarHTML;
+  }
+
+  // 1b. Build Topbar Header
+  if (topbarEl) {
+    let pageTitle = topbarEl.getAttribute('data-title') || document.title.split(' - ')[0] || 'Dashboard';
+    let pageSubtitle = topbarEl.getAttribute('data-subtitle') || 'Manage resources';
+
+    let topbarHTML = `
+      <div class="dash-topbar-left" style="display: flex; align-items: center; gap: 15px;">
+        <button class="dash-mobile-toggle" id="mobileToggle">☰</button>
+        <div>
+          <div class="dash-topbar-title">${pageTitle}</div>
+          <div class="dash-topbar-subtitle">${pageSubtitle}</div>
+        </div>
+      </div>
+      
+      <!-- Center Search Bar -->
+      <div class="dash-search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="topbarSearchInput" placeholder="Search dashboard...">
+      </div>
+
+      <div class="dash-topbar-right">
+        <button class="dash-logout-btn" id="topbarLogoutBtn" title="Sign Out">
+          🚪 <span class="hidden-mobile">Logout</span>
+        </button>
+
+        <div class="profile-dropdown-container">
+          <div class="dash-profile" id="profileTrigger">
+            <img src="${avatarSrc}" alt="Profile avatar">
+            <span style="font-weight: 600; font-size: 0.85rem; color: inherit;" class="hidden-mobile">${userName}</span>
+            <span style="font-size: 0.7rem; margin-left: 5px; opacity: 0.7;">▼</span>
+          </div>
+          <div class="profile-dropdown-menu" id="profileDropdownMenu">
+            <a href="dashboard-profile.html" class="profile-dropdown-item">👤 Profile</a>
+            <a href="dashboard-settings.html" class="profile-dropdown-item">⚙️ Settings</a>
+            <a href="dashboard-notifications.html" class="profile-dropdown-item">🔔 Notifications</a>
+            <div class="profile-dropdown-divider"></div>
+            <a href="#" class="profile-dropdown-item" id="dropdownLogoutBtn">🚪 Sign Out</a>
+          </div>
+        </div>
+      </div>
+    `;
+
+    topbarEl.innerHTML = topbarHTML;
+  }
 }
 
-/* ---------------------------------------------------------------
-   2. DARK / LIGHT MODE TOGGLE
-   --------------------------------------------------------------- */
-function initThemeToggle() {
+// 2. Sidebar Toggles, Dropdowns, and Signout Events
+function initDashboardLayout() {
+  const sidebar = document.getElementById('dashSidebar');
+  const main = document.getElementById('dashMain');
+  const collapseBtn = document.getElementById('collapseBtn');
+  const overlay = document.getElementById('dashOverlay');
+  const mobileToggle = document.getElementById('mobileToggle');
+  const profileTrigger = document.getElementById('profileTrigger');
+  const profileMenu = document.getElementById('profileDropdownMenu');
+
+  // Restore collapsed state
+  const isCollapsed = localStorage.getItem('sidebar-collapsed') === 'true';
+  if (sidebar && main && isCollapsed) {
+    sidebar.classList.add('collapsed');
+    main.classList.add('collapsed');
+  }
+
+  // Sidebar collapse click
+  if (collapseBtn && sidebar && main) {
+    collapseBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+      main.classList.toggle('collapsed');
+      localStorage.setItem('sidebar-collapsed', sidebar.classList.contains('collapsed'));
+    });
+  }
+
+  // Mobile drawer trigger
+  if (mobileToggle && sidebar && overlay) {
+    mobileToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('mobile-open');
+      overlay.classList.toggle('show');
+    });
+  }
+
+  // Overlay click to dismiss mobile menu
+  if (overlay && sidebar) {
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('mobile-open');
+      overlay.classList.remove('show');
+    });
+  }
+
+  // Profile dropdown trigger click
+  if (profileTrigger && profileMenu) {
+    profileTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      profileMenu.classList.toggle('active');
+    });
+    
+    document.addEventListener('click', (e) => {
+      if (!profileTrigger.contains(e.target) && !profileMenu.contains(e.target)) {
+        profileMenu.classList.remove('active');
+      }
+    });
+  }
+
+  // Search logic synchronization
+  const topbarSearch = document.getElementById('topbarSearchInput');
+  if (topbarSearch) {
+    topbarSearch.addEventListener('input', () => {
+      const pageSearch = document.querySelector('.table-search, #table-search');
+      if (pageSearch) {
+        pageSearch.value = topbarSearch.value;
+        pageSearch.dispatchEvent(new Event('input'));
+      } else {
+        const cards = document.querySelectorAll('.feature-card, .glass-card, .dash-stat-card, .dash-chart-card, .dash-table-card');
+        const query = topbarSearch.value.toLowerCase().trim();
+        cards.forEach(card => {
+          if (card.closest('.dash-sidebar') || card.closest('.dash-topbar')) return;
+          const text = card.textContent.toLowerCase();
+          card.style.display = (query === '' || text.includes(query)) ? '' : 'none';
+        });
+      }
+    });
+  }
+
+  // Handle Logouts
+  function handleSignout(e) {
+    e.preventDefault();
+    localStorage.removeItem('stackly_logged_in');
+    localStorage.removeItem('stackly_user_role');
+    localStorage.removeItem('stackly_user_name');
+    localStorage.removeItem('stackly_user_email');
+    window.location.href = 'login.html';
+  }
+
+  const sidebarSignout = document.getElementById('sidebarSignoutBtn');
+  const topbarLogout = document.getElementById('topbarLogoutBtn');
+  const dropdownLogout = document.getElementById('dropdownLogoutBtn');
+  
+  if (sidebarSignout) sidebarSignout.addEventListener('click', handleSignout);
+  if (topbarLogout) topbarLogout.addEventListener('click', handleSignout);
+  if (dropdownLogout) dropdownLogout.addEventListener('click', handleSignout);
+}
+
+// 3. Theme toggle styling inside dashboard
+function initDashboardThemeToggle() {
   const themeToggle = document.querySelector('.theme-toggle, #theme-toggle');
   if (!themeToggle) return;
 
   const sunIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
   const moonIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
 
-  // Load stored preference, default to dark
   const storedTheme = localStorage.getItem('stackly_theme') || 'dark';
   applyTheme(storedTheme);
 
@@ -101,11 +296,8 @@ function initThemeToggle() {
       themeToggle.innerHTML = sunIcon;
       themeToggle.setAttribute('aria-label', 'Switch to light mode');
     }
-
     localStorage.setItem('stackly_theme', theme);
-
-    // Update chart colors if charts exist
-    updateChartTheme(theme);
+    updateChartColors(theme);
   }
 
   themeToggle.addEventListener('click', () => {
@@ -115,16 +307,15 @@ function initThemeToggle() {
   });
 }
 
-function updateChartTheme(theme) {
+function updateChartColors(theme) {
   if (typeof Chart === 'undefined') return;
 
-  const textColor = theme === 'light' ? '#334155' : '#94A3B8';
-  const gridColor = theme === 'light' ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.05)';
+  const textColor = theme === 'light' ? '#334155' : '#e2e8f0';
+  const gridColor = theme === 'light' ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.06)';
 
   Chart.defaults.color = textColor;
   Chart.defaults.borderColor = gridColor;
 
-  // Update existing chart instances
   Object.values(Chart.instances || {}).forEach(chart => {
     if (chart.options.scales) {
       Object.values(chart.options.scales).forEach(scale => {
@@ -136,397 +327,10 @@ function updateChartTheme(theme) {
   });
 }
 
-/* ---------------------------------------------------------------
-   3. PROFILE DROPDOWN
-   --------------------------------------------------------------- */
-function initProfileDropdown() {
-  const trigger = document.querySelector('.profile-trigger');
-  const menu = document.querySelector('.profile-menu');
-  if (!trigger || !menu) return;
-
-  function openMenu() {
-    menu.classList.add('active');
-    menu.style.opacity = '1';
-    menu.style.transform = 'translateY(0)';
-    menu.style.pointerEvents = 'auto';
-  }
-
-  function closeMenu() {
-    menu.classList.remove('active');
-    menu.style.opacity = '0';
-    menu.style.transform = 'translateY(-10px)';
-    menu.style.pointerEvents = 'none';
-  }
-
-  // Initialize hidden state
-  closeMenu();
-
-  trigger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (menu.classList.contains('active')) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
-
-  // Close on click outside
-  document.addEventListener('click', (e) => {
-    if (!trigger.contains(e.target) && !menu.contains(e.target)) {
-      closeMenu();
-    }
-  });
-
-  // Close on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
-  });
-
-  // Handle logout
-  const logoutBtn = menu.querySelector('.logout-btn, [data-action="logout"]');
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      localStorage.removeItem('stackly_logged_in');
-      localStorage.removeItem('stackly_user_email');
-      window.location.href = 'login.html';
-    });
-  }
-}
-
-/* ---------------------------------------------------------------
-   4. CHART.JS INTEGRATION
-   --------------------------------------------------------------- */
-function initCharts() {
-  if (typeof Chart === 'undefined') return;
-
-  // Set global defaults for dark theme
-  const currentTheme = localStorage.getItem('stackly_theme') || 'dark';
-  const textColor = currentTheme === 'light' ? '#334155' : '#94A3B8';
-  const gridColor = currentTheme === 'light' ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.05)';
-
-  Chart.defaults.color = textColor;
-  Chart.defaults.borderColor = gridColor;
-  Chart.defaults.font.family = "'Inter', 'Segoe UI', sans-serif";
-
-  // --- Revenue / Usage Line Chart ---
-  const revenueCanvas = document.getElementById('revenueChart');
-  if (revenueCanvas) {
-    const revenueCtx = revenueCanvas.getContext('2d');
-
-    // Create gradient fill
-    const lineGradient = revenueCtx.createLinearGradient(0, 0, 0, 400);
-    lineGradient.addColorStop(0, 'rgba(108, 99, 255, 0.25)');
-    lineGradient.addColorStop(1, 'rgba(108, 99, 255, 0.0)');
-
-    new Chart(revenueCtx, {
-      type: 'line',
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [{
-          label: 'Revenue',
-          data: [30000, 35000, 32000, 45000, 52000, 48000, 61000, 55000, 67000, 72000, 78000, 85000],
-          borderColor: '#6C63FF',
-          backgroundColor: lineGradient,
-          fill: true,
-          tension: 0.4,
-          pointBackgroundColor: '#6C63FF',
-          pointBorderColor: '#fff',
-          pointBorderWidth: 2,
-          pointRadius: 4,
-          pointHoverRadius: 6,
-          borderWidth: 3
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: {
-          intersect: false,
-          mode: 'index'
-        },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            backgroundColor: '#1E293B',
-            titleColor: '#F1F5F9',
-            bodyColor: '#94A3B8',
-            borderColor: '#334155',
-            borderWidth: 1,
-            cornerRadius: 8,
-            padding: 12,
-            displayColors: false,
-            callbacks: {
-              label: function (context) {
-                return 'Revenue: $' + context.parsed.y.toLocaleString();
-              }
-            }
-          }
-        },
-        scales: {
-          x: {
-            grid: { color: gridColor, drawBorder: false },
-            ticks: { color: textColor, font: { size: 12 } }
-          },
-          y: {
-            grid: { color: gridColor, drawBorder: false },
-            ticks: {
-              color: textColor,
-              font: { size: 12 },
-              callback: function (value) {
-                return '$' + value / 1000 + 'k';
-              }
-            },
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  }
-
-  // --- User Growth Bar Chart ---
-  const userGrowthCanvas = document.getElementById('userGrowthChart');
-  if (userGrowthCanvas) {
-    const barCtx = userGrowthCanvas.getContext('2d');
-
-    // Create gradient for bars
-    const barGradient = barCtx.createLinearGradient(0, 0, 0, 400);
-    barGradient.addColorStop(0, 'rgba(108, 99, 255, 0.9)');
-    barGradient.addColorStop(1, 'rgba(108, 99, 255, 0.3)');
-
-    new Chart(barCtx, {
-      type: 'bar',
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-        datasets: [{
-          label: 'New Users',
-          data: [120, 190, 150, 280, 320, 410],
-          backgroundColor: barGradient,
-          borderRadius: 8,
-          borderSkipped: false,
-          barPercentage: 0.6,
-          categoryPercentage: 0.7
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            backgroundColor: '#1E293B',
-            titleColor: '#F1F5F9',
-            bodyColor: '#94A3B8',
-            borderColor: '#334155',
-            borderWidth: 1,
-            cornerRadius: 8,
-            padding: 12,
-            displayColors: false,
-            callbacks: {
-              label: function (context) {
-                return 'New Users: ' + context.parsed.y.toLocaleString();
-              }
-            }
-          }
-        },
-        scales: {
-          x: {
-            grid: { display: false },
-            ticks: { color: textColor, font: { size: 12 } }
-          },
-          y: {
-            grid: { color: gridColor, drawBorder: false },
-            ticks: { color: textColor, font: { size: 12 } },
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  }
-
-  // --- Usage Donut Chart ---
-  const usageCanvas = document.getElementById('usageChart');
-  if (usageCanvas) {
-    const donutCtx = usageCanvas.getContext('2d');
-
-    new Chart(donutCtx, {
-      type: 'doughnut',
-      data: {
-        labels: ['API Calls', 'Chat', 'Image Gen', 'Analytics'],
-        datasets: [{
-          data: [45, 25, 20, 10],
-          backgroundColor: ['#6C63FF', '#00D4FF', '#A855F7', '#22C55E'],
-          borderWidth: 0,
-          cutout: '70%',
-          hoverOffset: 8
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: {
-              color: textColor,
-              padding: 16,
-              usePointStyle: true,
-              pointStyle: 'circle',
-              font: { size: 12 }
-            }
-          },
-          tooltip: {
-            backgroundColor: '#1E293B',
-            titleColor: '#F1F5F9',
-            bodyColor: '#94A3B8',
-            borderColor: '#334155',
-            borderWidth: 1,
-            cornerRadius: 8,
-            padding: 12,
-            callbacks: {
-              label: function (context) {
-                return context.label + ': ' + context.parsed + '%';
-              }
-            }
-          }
-        }
-      }
-    });
-  }
-
-  // --- Analytics Pie Chart ---
-  const analyticsCanvas = document.getElementById('analyticsChart');
-  if (analyticsCanvas) {
-    const pieCtx = analyticsCanvas.getContext('2d');
-
-    new Chart(pieCtx, {
-      type: 'pie',
-      data: {
-        labels: ['Marketing', 'Sales', 'Support', 'Engineering', 'HR'],
-        datasets: [{
-          data: [30, 25, 20, 15, 10],
-          backgroundColor: ['#6C63FF', '#00D4FF', '#A855F7', '#22C55E', '#F59E0B'],
-          borderWidth: 2,
-          borderColor: currentTheme === 'light' ? '#ffffff' : '#0F172A',
-          hoverOffset: 10
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: {
-              color: textColor,
-              padding: 16,
-              usePointStyle: true,
-              pointStyle: 'circle',
-              font: { size: 12 }
-            }
-          },
-          tooltip: {
-            backgroundColor: '#1E293B',
-            titleColor: '#F1F5F9',
-            bodyColor: '#94A3B8',
-            borderColor: '#334155',
-            borderWidth: 1,
-            cornerRadius: 8,
-            padding: 12,
-            callbacks: {
-              label: function (context) {
-                return context.label + ': ' + context.parsed + '%';
-              }
-            }
-          }
-        }
-      }
-    });
-  }
-
-  // --- Business Bar Chart (horizontal) ---
-  const businessBarCanvas = document.getElementById('businessBarChart');
-  if (businessBarCanvas) {
-    const bizBarCtx = businessBarCanvas.getContext('2d');
-
-    new Chart(bizBarCtx, {
-      type: 'bar',
-      data: {
-        labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-        datasets: [
-          {
-            label: 'Revenue',
-            data: [125000, 148000, 167000, 198000],
-            backgroundColor: 'rgba(108, 99, 255, 0.8)',
-            borderRadius: 6,
-            borderSkipped: false
-          },
-          {
-            label: 'Expenses',
-            data: [95000, 102000, 110000, 125000],
-            backgroundColor: 'rgba(0, 212, 255, 0.8)',
-            borderRadius: 6,
-            borderSkipped: false
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: 'top',
-            labels: {
-              color: textColor,
-              padding: 20,
-              usePointStyle: true,
-              pointStyle: 'circle',
-              font: { size: 12 }
-            }
-          },
-          tooltip: {
-            backgroundColor: '#1E293B',
-            titleColor: '#F1F5F9',
-            bodyColor: '#94A3B8',
-            borderColor: '#334155',
-            borderWidth: 1,
-            cornerRadius: 8,
-            padding: 12,
-            callbacks: {
-              label: function (context) {
-                return context.dataset.label + ': $' + context.parsed.y.toLocaleString();
-              }
-            }
-          }
-        },
-        scales: {
-          x: {
-            grid: { display: false },
-            ticks: { color: textColor, font: { size: 12 } }
-          },
-          y: {
-            grid: { color: gridColor, drawBorder: false },
-            ticks: {
-              color: textColor,
-              font: { size: 12 },
-              callback: function (value) {
-                return '$' + value / 1000 + 'k';
-              }
-            },
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  }
-}
-
-/* ---------------------------------------------------------------
-   5. DATA TABLE SEARCH & SORT
-   --------------------------------------------------------------- */
+// 4. Data Tables Search and Sort
 function initTableSearch() {
   const searchInput = document.querySelector('.table-search, #table-search');
-  const table = document.querySelector('.data-table, .dashboard-table');
+  const table = document.querySelector('.dash-table');
   if (!searchInput || !table) return;
 
   const tbody = table.querySelector('tbody');
@@ -547,7 +351,6 @@ function initTableSearch() {
       if (match) visibleCount++;
     });
 
-    // Show/hide no results message
     if (noResultsRow) noResultsRow.remove();
 
     if (visibleCount === 0 && query) {
@@ -563,22 +366,20 @@ function initTableSearch() {
   });
 
   // Table Sort
-  const headers = table.querySelectorAll('th[data-sortable], th.sortable');
+  const headers = table.querySelectorAll('th');
   headers.forEach((th, colIndex) => {
+    if (th.textContent.trim() === 'Actions' || th.textContent.trim() === 'Download') return;
     th.style.cursor = 'pointer';
     th.style.userSelect = 'none';
     let ascending = true;
 
-    // Add sort indicator
     const indicator = document.createElement('span');
-    indicator.classList.add('sort-indicator');
-    indicator.style.cssText = 'margin-left:6px;font-size:12px;opacity:0.5;';
+    indicator.style.cssText = 'margin-left:6px;font-size:11px;opacity:0.5;';
     indicator.textContent = '↕';
     th.appendChild(indicator);
 
     th.addEventListener('click', () => {
       const rows = Array.from(tbody.querySelectorAll('tr:not(.no-results-row)'));
-
       rows.sort((a, b) => {
         const aCell = a.cells[colIndex];
         const bCell = b.cells[colIndex];
@@ -587,40 +388,30 @@ function initTableSearch() {
         let aVal = aCell.textContent.trim();
         let bVal = bCell.textContent.trim();
 
-        // Try numeric sort first
         const aNum = parseFloat(aVal.replace(/[,$%]/g, ''));
         const bNum = parseFloat(bVal.replace(/[,$%]/g, ''));
 
         if (!isNaN(aNum) && !isNaN(bNum)) {
           return ascending ? aNum - bNum : bNum - aNum;
         }
-
-        // String sort
-        return ascending
-          ? aVal.localeCompare(bVal)
-          : bVal.localeCompare(aVal);
+        return ascending ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
       });
 
-      // Re-append sorted rows
       rows.forEach(row => tbody.appendChild(row));
 
-      // Update indicators
       headers.forEach(h => {
-        const ind = h.querySelector('.sort-indicator');
+        const ind = h.querySelector('span');
         if (ind) { ind.textContent = '↕'; ind.style.opacity = '0.5'; }
       });
 
       indicator.textContent = ascending ? '↑' : '↓';
       indicator.style.opacity = '1';
-
       ascending = !ascending;
     });
   });
 }
 
-/* ---------------------------------------------------------------
-   6. DASHBOARD TAB NAVIGATION
-   --------------------------------------------------------------- */
+// 5. Tabs Layout
 function initTabs() {
   const tabs = document.querySelectorAll('.dash-tab, .tab-btn');
   const contents = document.querySelectorAll('.tab-content, .tab-pane');
@@ -629,324 +420,59 @@ function initTabs() {
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const target = tab.getAttribute('data-tab') || tab.getAttribute('data-target');
-
-      // Update active tab
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
 
-      // Show/hide content with fade transition
       contents.forEach(content => {
         const contentId = content.getAttribute('id') || content.getAttribute('data-tab-content');
         if (contentId === target) {
-          content.style.display = 'block';
-          content.style.opacity = '0';
-          requestAnimationFrame(() => {
-            content.style.transition = 'opacity 0.3s ease';
-            content.style.opacity = '1';
-          });
+          content.style.display = '';
         } else {
-          content.style.opacity = '0';
-          setTimeout(() => {
-            content.style.display = 'none';
-          }, 300);
+          content.style.display = 'none';
         }
       });
     });
   });
 }
 
-/* ---------------------------------------------------------------
-   7. API KEY MANAGEMENT (Developer Dashboard)
-   --------------------------------------------------------------- */
+// 6. Developer Dashboard API Key Gen
 function initApiKeys() {
-  const generateBtn = document.querySelector('.generate-api-key, #generate-key');
+  const generateBtn = document.querySelector('.generate-api-key, #generate-key, .btn-generate-key');
   const keyDisplay = document.querySelector('.api-key-display, #api-key');
   const copyBtn = document.querySelector('.copy-api-key, #copy-key');
-  const toggleBtn = document.querySelector('.toggle-api-key, #toggle-key');
-  const revokeBtn = document.querySelector('.revoke-api-key, #revoke-key');
 
-  if (!generateBtn && !copyBtn && !keyDisplay) return;
+  if (!generateBtn || !keyDisplay) return;
 
-  let currentKey = keyDisplay ? keyDisplay.textContent.trim() : '';
-  let isKeyVisible = false;
-
-  function generateRandomKey() {
-    const prefix = 'nm_';
+  generateBtn.addEventListener('click', () => {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let key = prefix;
-    for (let i = 0; i < 40; i++) {
-      key += chars.charAt(Math.floor(Math.random() * chars.length));
+    let key = 'sk_live_';
+    for (let i = 0; i < 24; i++) key += chars.charAt(Math.floor(Math.random() * chars.length));
+    keyDisplay.textContent = key;
+    if (typeof window.showToast === 'function') {
+      window.showToast('New API key generated successfully!', 'success');
     }
-    return key;
-  }
+  });
 
-  function maskKey(key) {
-    if (!key || key.length <= 8) return '••••••••••••••••••••';
-    return key.substring(0, 6) + '••••••••••••••••••••••••' + key.substring(key.length - 4);
-  }
-
-  function updateKeyDisplay() {
-    if (!keyDisplay) return;
-    keyDisplay.textContent = isKeyVisible ? currentKey : maskKey(currentKey);
-  }
-
-  // Generate new key
-  if (generateBtn) {
-    generateBtn.addEventListener('click', () => {
-      currentKey = generateRandomKey();
-      isKeyVisible = true;
-      updateKeyDisplay();
-      showDashboardToast('New API key generated successfully!', 'success');
-    });
-  }
-
-  // Copy key to clipboard
   if (copyBtn) {
     copyBtn.addEventListener('click', () => {
-      if (!currentKey) {
-        showDashboardToast('No API key to copy. Generate one first.', 'error');
+      const val = keyDisplay.textContent;
+      if (val.includes('•••') || val.trim() === '') {
+        if (typeof window.showToast === 'function') window.showToast('Generate a key first!', 'error');
         return;
       }
-
-      navigator.clipboard.writeText(currentKey).then(() => {
-        showDashboardToast('API key copied to clipboard!', 'success');
-      }).catch(() => {
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = currentKey;
-        textArea.style.position = 'fixed';
-        textArea.style.left = '-9999px';
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        try {
-          document.execCommand('copy');
-          showDashboardToast('API key copied to clipboard!', 'success');
-        } catch (err) {
-          showDashboardToast('Failed to copy. Please copy manually.', 'error');
-        }
-        document.body.removeChild(textArea);
+      navigator.clipboard.writeText(val).then(() => {
+        if (typeof window.showToast === 'function') window.showToast('API key copied to clipboard!', 'success');
       });
     });
   }
-
-  // Toggle key visibility
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
-      isKeyVisible = !isKeyVisible;
-      updateKeyDisplay();
-      toggleBtn.textContent = isKeyVisible ? 'Hide' : 'Show';
-      toggleBtn.setAttribute('aria-label', isKeyVisible ? 'Hide API key' : 'Show API key');
-    });
-  }
-
-  // Revoke key
-  if (revokeBtn) {
-    revokeBtn.addEventListener('click', () => {
-      if (!currentKey) {
-        showDashboardToast('No API key to revoke.', 'error');
-        return;
-      }
-
-      const confirmed = confirm('Are you sure you want to revoke this API key? This action cannot be undone.');
-      if (confirmed) {
-        currentKey = '';
-        isKeyVisible = false;
-        if (keyDisplay) keyDisplay.textContent = 'No active API key';
-        showDashboardToast('API key revoked successfully.', 'success');
-      }
-    });
-  }
-
-  // Initialize display
-  if (currentKey) updateKeyDisplay();
 }
 
-/* ---------------------------------------------------------------
-   8. SIDEBAR ACTIVE STATE
-   --------------------------------------------------------------- */
-function initSidebarActiveState() {
-  const sidebarLinks = document.querySelectorAll('.sidebar-nav a, .sidebar-menu a');
-  if (!sidebarLinks.length) return;
-
-  // Detect current page
-  const currentPage = window.location.pathname.split('/').pop() || '';
-  const currentHash = window.location.hash;
-
-  sidebarLinks.forEach(link => {
-    const href = link.getAttribute('href') || '';
-
-    // Match by page URL
-    if (href && currentPage && href.includes(currentPage)) {
-      link.classList.add('active');
-      // Also expand parent menu if in nested nav
-      const parentItem = link.closest('.sidebar-submenu, .nav-group');
-      if (parentItem) parentItem.classList.add('open');
-    }
-
-    // Handle clicks for showing/hiding dashboard content sections
-    link.addEventListener('click', (e) => {
-      const target = link.getAttribute('data-section');
-      if (target) {
-        e.preventDefault();
-
-        // Remove active from all
-        sidebarLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-
-        // Show corresponding section
-        const sections = document.querySelectorAll('.dashboard-section');
-        sections.forEach(section => {
-          if (section.getAttribute('id') === target || section.getAttribute('data-section') === target) {
-            section.style.display = 'block';
-            section.style.opacity = '0';
-            requestAnimationFrame(() => {
-              section.style.transition = 'opacity 0.3s ease';
-              section.style.opacity = '1';
-            });
-          } else {
-            section.style.display = 'none';
-          }
-        });
-      }
-    });
-  });
-}
-
-/* ---------------------------------------------------------------
-   9. RESPONSIVE ADJUSTMENTS
-   --------------------------------------------------------------- */
-function initResponsive() {
-  const sidebar = document.querySelector('.sidebar');
-  const mainContent = document.querySelector('.main-content, .dashboard-main');
-
-  function handleResize() {
-    if (!sidebar) return;
-
-    if (window.innerWidth <= 768) {
-      // Mobile: collapse sidebar
-      sidebar.classList.remove('collapsed');
-      sidebar.classList.remove('mobile-open');
-      if (mainContent) mainContent.classList.remove('expanded');
-    } else {
-      // Desktop: remove mobile classes
-      sidebar.classList.remove('mobile-open');
-      const overlay = document.querySelector('.sidebar-overlay');
-      if (overlay) {
-        overlay.style.display = 'none';
-        overlay.style.opacity = '0';
-      }
-    }
-  }
-
-  // Close sidebar on outside click (mobile)
-  document.addEventListener('click', (e) => {
-    if (window.innerWidth > 768) return;
-    if (!sidebar) return;
-
-    const toggle = document.querySelector('.sidebar-toggle, .menu-toggle');
-    if (
-      sidebar.classList.contains('mobile-open') &&
-      !sidebar.contains(e.target) &&
-      (!toggle || !toggle.contains(e.target))
-    ) {
-      sidebar.classList.remove('mobile-open');
-      const overlay = document.querySelector('.sidebar-overlay');
-      if (overlay) {
-        overlay.style.opacity = '0';
-        setTimeout(() => { overlay.style.display = 'none'; }, 300);
-      }
-    }
-  });
-
-  // Debounced resize handler
-  let resizeTimeout;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(handleResize, 150);
-  });
-
-  // Resize charts on window resize
-  window.addEventListener('resize', () => {
-    if (typeof Chart !== 'undefined') {
-      Object.values(Chart.instances || {}).forEach(chart => {
-        chart.resize();
-      });
-    }
-  });
-
-  // Initial run
-  handleResize();
-}
-
-/* ---------------------------------------------------------------
-   DASHBOARD TOAST (uses auth.js showToast if available, else local)
-   --------------------------------------------------------------- */
-function showDashboardToast(message, type = 'info', duration = 4000) {
-  // Prefer the global showToast from auth.js
-  if (typeof window.showToast === 'function') {
-    window.showToast(message, type, duration);
-    return;
-  }
-
-  // Fallback: lightweight toast
-  let container = document.querySelector('.toast-container');
-  if (!container) {
-    container = document.createElement('div');
-    container.classList.add('toast-container');
-    container.style.cssText = `
-      position: fixed; top: 24px; right: 24px; z-index: 99999;
-      display: flex; flex-direction: column; gap: 12px; pointer-events: none;
-    `;
-    document.body.appendChild(container);
-  }
-
-  const colors = { success: '#22C55E', error: '#EF4444', info: '#3B82F6' };
-
-  const toast = document.createElement('div');
-  toast.style.cssText = `
-    display: flex; align-items: center; gap: 12px; padding: 14px 20px;
-    background: #1E293B; border-left: 4px solid ${colors[type] || colors.info};
-    border-radius: 8px; color: #fff; font-size: 14px;
-    min-width: 300px; max-width: 420px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    transform: translateX(120%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
-    pointer-events: all;
-  `;
-  toast.textContent = message;
-
-  const closeBtn = document.createElement('button');
-  closeBtn.style.cssText = 'background:none;border:none;color:#94A3B8;cursor:pointer;font-size:18px;margin-left:auto;';
-  closeBtn.innerHTML = '&times;';
-  closeBtn.addEventListener('click', () => dismiss());
-  toast.appendChild(closeBtn);
-
-  container.appendChild(toast);
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => { toast.style.transform = 'translateX(0)'; });
-  });
-
-  const timer = setTimeout(dismiss, duration);
-  toast.addEventListener('mouseenter', () => clearTimeout(timer));
-
-  function dismiss() {
-    toast.style.transform = 'translateX(120%)';
-    setTimeout(() => { if (toast.parentNode) toast.remove(); }, 500);
-  }
-}
-
-/* ---------------------------------------------------------------
-   10. INITIALIZE EVERYTHING
-   --------------------------------------------------------------- */
+// Run layout population first, then run initializations
 document.addEventListener('DOMContentLoaded', () => {
-  initSidebar();
-  initThemeToggle();
-  initProfileDropdown();
-  initCharts();
+  renderDashboardLayout();
+  initDashboardLayout();
+  initDashboardThemeToggle();
   initTableSearch();
   initTabs();
   initApiKeys();
-  initSidebarActiveState();
-  initResponsive();
 });
