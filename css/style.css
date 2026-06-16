@@ -11,31 +11,31 @@
    ============================================================ */
 :root {
   /* Brand Colors */
-  --primary: #6C63FF;
-  --primary-rgb: 108, 99, 255;
-  --secondary: #00D4FF;
-  --secondary-rgb: 0, 212, 255;
-  --accent: #A855F7;
-  --accent-rgb: 168, 85, 247;
+  --primary: #2563EB;
+  --primary-rgb: 37, 99, 235;
+  --secondary: #0F172A;
+  --secondary-rgb: 15, 23, 42;
+  --accent: #06B6D4;
+  --accent-rgb: 6, 182, 212;
 
   /* Backgrounds */
-  --bg-dark: #0A0E27;
-  --bg-darker: #060918;
-  --bg-card: rgba(255, 255, 255, 0.05);
-  --bg-card-hover: rgba(255, 255, 255, 0.08);
+  --bg-dark: #F8FAFC;
+  --bg-darker: #F1F5F9;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F1F5F9;
 
   /* Text */
-  --text: #E2E8F0;
-  --text-muted: #94A3B8;
-  --text-bright: #FFFFFF;
+  --text: #334155;
+  --text-muted: #64748B;
+  --text-bright: #0F172A;
 
   /* Gradients */
-  --gradient-hero: linear-gradient(135deg, #6C63FF 0%, #A855F7 50%, #00D4FF 100%);
-  --gradient-btn: linear-gradient(135deg, #6C63FF, #A855F7);
+  --gradient-hero: linear-gradient(135deg, #2563EB 0%, #06B6D4 50%, #0F172A 100%);
+  --gradient-btn: linear-gradient(135deg, #2563EB, #06B6D4);
 
   /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(15, 23, 42, 0.08);
   --glass-blur: blur(20px);
 
   /* Border Radius */
@@ -47,12 +47,31 @@
   --transition: all 0.3s ease;
 
   /* Shadows */
-  --shadow-glow: 0 0 30px rgba(108, 99, 255, 0.3);
-  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 30px rgba(37, 99, 235, 0.15);
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.05);
 
   /* Typography */
   --font-body: 'Inter', sans-serif;
   --font-heading: 'Outfit', sans-serif;
+}
+
+[data-theme="dark"], body.dark-theme, html.dark-theme {
+  --bg-dark: #0A0E27;
+  --bg-darker: #060918;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --bg-card-hover: rgba(255, 255, 255, 0.08);
+
+  --text: #E2E8F0;
+  --text-muted: #94A3B8;
+  --text-bright: #FFFFFF;
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  --shadow-glow: 0 0 30px rgba(37, 99, 235, 0.3);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+  --secondary: #06B6D4;
 }
 
 /* ============================================================
@@ -3774,4 +3793,65 @@ p {
   .tech-grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
+}
+
+/* --- FAQ Accordion and Animations Additions --- */
+details.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+details.faq-item[open] .faq-icon {
+  transform: rotate(180deg);
+}
+details.faq-item .faq-icon {
+  transition: transform 0.2s ease;
+}
+
+/* Animations and Hover Scale Effects */
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.1);
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Button hover scale effect */
+.btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn:hover {
+  transform: scale(1.03);
+}
+
+/* Hero text fade-in */
+.hero-text {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeIn 0.8s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes heroFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Theme Toggle styles */
+.theme-toggle:hover {
+  transform: scale(1.1);
+  color: var(--primary) !important;
+}
+
+/* Card hover glow and scale */
+.feature-card, .service-card, .tech-item {
+  transition: all 0.3s ease;
+}
+.feature-card:hover, .service-card:hover {
+  border-color: var(--primary) !important;
+  box-shadow: var(--shadow-glow);
 }

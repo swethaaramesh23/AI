@@ -88,10 +88,9 @@
           <span class="field-icon">👤</span>
           <select id="loginRole" required>
             <option value="" disabled selected>Select Your Role</option>
-            <option value="admin">Platform Admin</option>
-            <option value="business">Business User</option>
-            <option value="customer">AI Customer</option>
-            <option value="developer">AI Developer</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+            <option value="developer">Developer</option>
           </select>
           <span class="field-icon-right" style="pointer-events:none;">▼</span>
         </div>
@@ -144,6 +143,7 @@
 
 </div>
 
+<script src="js/auth.js"></script>
 <script>
   // Mobile nav
   document.getElementById('authHamburger').addEventListener('click', () => {
@@ -164,43 +164,16 @@
     else { pw.type = 'password'; icon.textContent = '👁'; }
   });
 
+  // Forgot password
+  document.querySelector('.auth-forgot').addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('A password reset link has been sent to your email.');
+  });
+
   // Input focus glow
   document.querySelectorAll('.auth-field input, .auth-field select').forEach(el => {
     el.addEventListener('focus', () => el.closest('.auth-field').style.setProperty('--ring', '1'));
     el.addEventListener('blur', () => el.closest('.auth-field').style.setProperty('--ring', '0'));
-  });
-
-  // Form submit
-  document.getElementById('loginForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = document.getElementById('loginEmail').value.trim();
-    const password = document.getElementById('loginPassword').value;
-    const role = document.getElementById('loginRole').value;
-    const err = document.getElementById('loginError');
-
-    err.style.display = 'none';
-
-    if (!email || !password || !role) {
-      err.textContent = 'Please fill in all fields.';
-      err.style.display = 'block';
-      return;
-    }
-
-    document.getElementById('loginBtnText').style.display = 'none';
-    document.getElementById('loginBtnLoader').style.display = 'inline-block';
-
-    // Simulate auth
-    await new Promise(r => setTimeout(r, 1200));
-
-    // Route by role
-    const routes = {
-      admin: 'dashboard-admin.html',
-      business: 'dashboard-business.html',
-      customer: 'dashboard-customer.html',
-      developer: 'dashboard-developer.html'
-    };
-
-    window.location.href = routes[role] || 'dashboard-customer.html';
   });
 </script>
 

@@ -960,6 +960,53 @@ function showMainToast(message, type = 'info', duration = 4000) {
 window.showMainToast = showMainToast;
 
 /* ---------------------------------------------------------------
+   17. WEBSITE DARK / LIGHT THEME TOGGLE
+   --------------------------------------------------------------- */
+function initThemeToggle() {
+  const themeToggle = document.getElementById('themeToggle');
+  if (!themeToggle) return;
+
+  const currentTheme = localStorage.getItem('stackly_theme') || 'light';
+  applyTheme(currentTheme);
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.body.classList.toggle('dark-theme', theme === 'dark');
+    themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    localStorage.setItem('stackly_theme', theme);
+  }
+
+  themeToggle.addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    applyTheme(isDark ? 'light' : 'dark');
+  });
+}
+
+/* ---------------------------------------------------------------
+   18. AI TOOL SEARCH FILTER
+   --------------------------------------------------------------- */
+function initAIQuery() {
+  const searchInput = document.getElementById('aiToolSearch');
+  if (!searchInput) return;
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.ai-tool-card');
+    
+    cards.forEach(card => {
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      const desc = card.querySelector('p').textContent.toLowerCase();
+      
+      if (title.includes(query) || desc.includes(query)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+}
+
+/* ---------------------------------------------------------------
    INITIALIZE ALL
    --------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
@@ -976,4 +1023,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initContactForm();
   initParallax();
+  initThemeToggle();
+  initAIQuery();
 });

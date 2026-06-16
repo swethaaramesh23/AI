@@ -136,7 +136,7 @@ window.showToast = showToast;
    7. REAL-TIME FIELD VALIDATION HELPERS
    --------------------------------------------------------------- */
 function setFieldError(field, message) {
-  const group = field.closest('.form-group');
+  const group = field.closest('.auth-field');
   if (!group) return;
   group.classList.add('error');
   group.classList.remove('valid');
@@ -151,7 +151,7 @@ function setFieldError(field, message) {
 }
 
 function clearFieldError(field) {
-  const group = field.closest('.form-group');
+  const group = field.closest('.auth-field');
   if (!group) return;
   group.classList.remove('error');
   const errorEl = group.querySelector('.form-error');
@@ -162,7 +162,7 @@ function clearFieldError(field) {
 }
 
 function setFieldValid(field) {
-  const group = field.closest('.form-group');
+  const group = field.closest('.auth-field');
   if (!group) return;
   group.classList.remove('error');
   group.classList.add('valid');
@@ -183,16 +183,16 @@ function initLoginForm() {
   const form = document.querySelector('.login-form, #login-form, #loginForm');
   if (!form) return;
 
-  const emailField = form.querySelector('[name="email"], #login-email, #email');
-  const passwordField = form.querySelector('[name="password"], #login-password, #password');
-  const roleField = form.querySelector('[name="role"], #login-role, #role');
+  const emailField = form.querySelector('[name="email"], #login-email, #email, #loginEmail');
+  const passwordField = form.querySelector('[name="password"], #login-password, #password, #loginPassword');
+  const roleField = form.querySelector('[name="role"], #login-role, #role, #loginRole');
   const submitBtn = form.querySelector('button[type="submit"], .login-btn, #loginBtn');
 
   // Real-time validation for login fields
   if (emailField) {
     emailField.addEventListener('blur', () => validateLoginEmail(emailField));
     emailField.addEventListener('input', () => {
-      if (emailField.closest('.form-group')?.classList.contains('error')) {
+      if (emailField.closest('.auth-field')?.classList.contains('error')) {
         validateLoginEmail(emailField);
       }
     });
@@ -201,7 +201,7 @@ function initLoginForm() {
   if (passwordField) {
     passwordField.addEventListener('blur', () => validateLoginPassword(passwordField));
     passwordField.addEventListener('input', () => {
-      if (passwordField.closest('.form-group')?.classList.contains('error')) {
+      if (passwordField.closest('.auth-field')?.classList.contains('error')) {
         validateLoginPassword(passwordField);
       }
     });
@@ -254,7 +254,7 @@ function initLoginForm() {
     }
 
     // Handle Remember Me
-    const rememberMe = form.querySelector('#remember-me, [name="remember"]');
+    const rememberMe = form.querySelector('#remember-me, [name="remember"], #rememberMe');
     if (rememberMe && rememberMe.checked && emailField) {
       localStorage.setItem('stackly_remembered_email', emailField.value.trim());
     } else {
@@ -307,12 +307,12 @@ function initSignupForm() {
   const form = document.querySelector('.signup-form, #signup-form, #signupForm');
   if (!form) return;
 
-  const nameField = form.querySelector('[name="fullname"], [name="name"], #signup-name, #firstName, #lastName');
-  const emailField = form.querySelector('[name="email"], #signup-email, #email');
-  const phoneField = form.querySelector('[name="phone"], #signup-phone');
-  const passwordField = form.querySelector('[name="password"], #signup-password, #password');
-  const confirmField = form.querySelector('[name="confirm-password"], [name="confirmPassword"], #signup-confirm');
-  const roleField = form.querySelector('[name="role"], #signup-role, #role');
+  const nameField = form.querySelector('[name="fullname"], [name="name"], #signup-name, #firstName, #lastName, #signupName');
+  const emailField = form.querySelector('[name="email"], #signup-email, #email, #signupEmail');
+  const phoneField = form.querySelector('[name="phone"], #signup-phone, #signupPhone');
+  const passwordField = form.querySelector('[name="password"], #signup-password, #password, #signupPassword');
+  const confirmField = form.querySelector('[name="confirm-password"], [name="confirmPassword"], #signup-confirm, #signupConfirm');
+  const roleField = form.querySelector('[name="role"], #signup-role, #role, #signupRole');
   const termsField = form.querySelector('[name="terms"], #signup-terms, #terms');
   const submitBtn = form.querySelector('button[type="submit"], .signup-btn, #signupBtn');
 
@@ -345,9 +345,17 @@ function initSignupForm() {
     }
 
     if (strengthBar) {
-      strengthBar.style.width = strength.width;
-      strengthBar.style.backgroundColor = strength.color;
-      strengthBar.style.transition = 'width 0.3s ease, background-color 0.3s ease';
+      const segments = strengthBar.querySelectorAll('.strength-segment');
+      if (segments.length > 0) {
+        strengthBar.style.display = password.length > 0 ? 'block' : 'none';
+        segments.forEach((seg, i) => {
+          seg.style.backgroundColor = (password.length > 0 && i < score) ? strength.color : '#e0e5ef';
+        });
+      } else {
+        strengthBar.style.width = strength.width;
+        strengthBar.style.backgroundColor = strength.color;
+        strengthBar.style.transition = 'width 0.3s ease, background-color 0.3s ease';
+      }
     }
     if (strengthLabel) {
       strengthLabel.textContent = strength.label;
@@ -429,7 +437,7 @@ function initSignupForm() {
     if (!field) return;
     field.addEventListener('blur', validator);
     field.addEventListener('input', () => {
-      if (field.closest('.form-group')?.classList.contains('error')) {
+      if (field.closest('.auth-field')?.classList.contains('error')) {
         validator();
       }
     });
@@ -502,7 +510,7 @@ function initSignupForm() {
         if (strengthLabel) strengthLabel.textContent = '';
 
         // Clear all validation states
-        form.querySelectorAll('.form-group').forEach(g => {
+        form.querySelectorAll('.auth-field').forEach(g => {
           g.classList.remove('error', 'valid');
         });
 
@@ -530,7 +538,7 @@ function initPasswordToggles() {
     toggle.innerHTML = eyeClosedSVG;
 
     toggle.addEventListener('click', () => {
-      const input = toggle.closest('.form-group, .input-group, .password-wrapper')
+      const input = toggle.closest('.auth-field, .form-group, .input-group, .password-wrapper')
         ?.querySelector('input[type="password"], input[type="text"]');
       if (!input) return;
 
@@ -569,9 +577,9 @@ function initSocialLogin() {
    --------------------------------------------------------------- */
 function initRememberMe() {
   const emailField = document.querySelector(
-    '.login-form [name="email"], #login-email'
+    '.login-form [name="email"], #login-email, #loginEmail'
   );
-  const rememberCheckbox = document.querySelector('#remember-me, [name="remember"]');
+  const rememberCheckbox = document.querySelector('#remember-me, [name="remember"], #rememberMe');
 
   if (!emailField) return;
 

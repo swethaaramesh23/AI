@@ -94,10 +94,9 @@
           <span class="field-icon">👤</span>
           <select id="signupRole" required>
             <option value="" disabled selected>Select Your Role</option>
-            <option value="admin">Platform Admin</option>
-            <option value="business">Business User</option>
-            <option value="customer">AI Customer</option>
-            <option value="developer">AI Developer</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+            <option value="developer">Developer</option>
           </select>
           <span class="field-icon-right" style="pointer-events:none;">▼</span>
         </div>
@@ -117,7 +116,7 @@
             <div class="strength-segment" style="flex:1; height:4px; border-radius:2px; background:#e0e5ef; transition:background 0.3s;"></div>
             <div class="strength-segment" style="flex:1; height:4px; border-radius:2px; background:#e0e5ef; transition:background 0.3s;"></div>
           </div>
-          <span id="strengthText" style="font-size:0.72rem; font-weight:600; color:#888;"></span>
+          <span id="strengthText" class="strength-text" style="font-size:0.72rem; font-weight:600; color:#888;"></span>
         </div>
 
         <!-- Confirm Password -->
@@ -169,6 +168,7 @@
 
 </div>
 
+<script src="js/auth.js"></script>
 <script>
   // Mobile nav
   document.getElementById('authHamburger').addEventListener('click', () => {
@@ -193,83 +193,10 @@
   makeToggle('toggleSignupPw', 'signupPassword');
   makeToggle('toggleConfirmPw', 'signupConfirm');
 
-  // Password strength indicator
-  document.getElementById('signupPassword').addEventListener('input', function() {
-    const val = this.value;
-    const bar = document.getElementById('strengthBar');
-    const segments = bar.querySelectorAll('.strength-segment');
-    const text = document.getElementById('strengthText');
-    
-    if (val.length === 0) { bar.style.display = 'none'; return; }
-    bar.style.display = 'block';
-    
-    let score = 0;
-    if (val.length >= 8) score++;
-    if (/[A-Z]/.test(val)) score++;
-    if (/[0-9]/.test(val)) score++;
-    if (/[^A-Za-z0-9]/.test(val)) score++;
-    
-    const colors = ['#ef4444', '#f59e0b', '#22c55e', '#16a34a'];
-    const labels = ['Weak', 'Fair', 'Good', 'Strong'];
-    
-    segments.forEach((seg, i) => {
-      seg.style.background = i < score ? colors[Math.min(score-1, 3)] : '#e0e5ef';
-    });
-    text.textContent = labels[Math.min(score-1, 3)] || 'Weak';
-    text.style.color = colors[Math.min(score-1, 3)];
-  });
-
-  // Form submit
-  document.getElementById('signupForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const name = document.getElementById('signupName').value.trim();
-    const email = document.getElementById('signupEmail').value.trim();
-    const role = document.getElementById('signupRole').value;
-    const password = document.getElementById('signupPassword').value;
-    const confirm = document.getElementById('signupConfirm').value;
-    const terms = document.getElementById('terms').checked;
-    const err = document.getElementById('signupError');
-    const suc = document.getElementById('signupSuccess');
-
-    err.style.display = 'none';
-    suc.style.display = 'none';
-
-    if (!name || !email || !role || !password) {
-      err.textContent = 'Please fill in all required fields.';
-      err.style.display = 'block';
-      return;
-    }
-
-    if (password.length < 8) {
-      err.textContent = 'Password must be at least 8 characters.';
-      err.style.display = 'block';
-      return;
-    }
-
-    if (password !== confirm) {
-      err.textContent = 'Passwords do not match.';
-      err.style.display = 'block';
-      return;
-    }
-
-    if (!terms) {
-      err.textContent = 'You must agree to the Terms of Service.';
-      err.style.display = 'block';
-      return;
-    }
-
-    document.getElementById('signupBtnText').style.display = 'none';
-    document.getElementById('signupBtnLoader').style.display = 'inline-block';
-
-    await new Promise(r => setTimeout(r, 1200));
-
-    const routes = {
-      admin: 'dashboard-admin.html',
-      business: 'dashboard-business.html',
-      customer: 'dashboard-customer.html',
-      developer: 'dashboard-developer.html'
-    };
-    window.location.href = routes[role] || 'dashboard-customer.html';
+  // Input focus glow
+  document.querySelectorAll('.auth-field input, .auth-field select').forEach(el => {
+    el.addEventListener('focus', () => el.closest('.auth-field').style.setProperty('--ring', '1'));
+    el.addEventListener('blur', () => el.closest('.auth-field').style.setProperty('--ring', '0'));
   });
 </script>
 

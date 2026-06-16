@@ -47,7 +47,8 @@
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div class="nav-actions" style="display: flex; gap: 1rem;">
+      <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme" style="background: none; border: none; color: var(--text-bright); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px;">🌙</button>
         <a href="login.html" class="btn btn-outline btn-sm">Login</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -154,42 +155,49 @@
     </section>
 
     <!-- AI Features Section -->
-    <section class="section" id="features">
+    <!-- AI Services Section with Search -->
+    <section class="section" id="ai-services">
       <div class="container text-center mb-5">
-        <span class="section-subtitle">AI Products Showcase</span>
-        <h2 class="section-title mt-1 gradient-text">Unleash the Power of AI</h2>
-        <p class="section-description mx-auto mt-2 text-muted" style="max-width: 600px;">Our comprehensive suite of artificial intelligence tools is designed to optimize every aspect of your business operations.</p>
+        <span class="section-subtitle">AI Services Suite</span>
+        <h2 class="section-title mt-1 gradient-text">Explore Our AI Tools</h2>
+        <p class="section-description mx-auto mt-2 text-muted mb-4" style="max-width: 600px;">Experience premium, cutting-edge artificial intelligence systems built to accelerate your workflows.</p>
+        
+        <!-- Tool Search -->
+        <div class="search-container mb-4" style="max-width: 500px; margin: 0 auto;">
+          <input type="text" id="aiToolSearch" placeholder="Search AI tools..." style="width: 100%; padding: 12px 24px; border-radius: 50px; border: 1.5px solid var(--glass-border); background: var(--bg-card); color: var(--text-bright); font-size: 1rem; text-align: center; transition: all 0.3s; outline: none;">
+        </div>
       </div>
-      <div class="container features-grid grid-3" style="gap: 2rem;">
-        <div class="feature-card glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">🧠</div>
-          <h3 class="card-title mb-2">Neural Networks</h3>
-          <p class="card-description text-muted">Advanced deep learning architectures tailored for complex pattern recognition and decision making.</p>
-        </div>
-        <div class="feature-card glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="200">
+      
+      <div class="container features-grid grid-3" id="aiServicesGrid" style="gap: 2rem;">
+        <div class="feature-card glass-card hover-lift text-center ai-tool-card" data-aos="fade-up" data-aos-delay="100">
           <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">💬</div>
-          <h3 class="card-title mb-2">Natural Language</h3>
-          <p class="card-description text-muted">Sophisticated NLP models that understand, interpret, and generate human-like text with context awareness.</p>
+          <h3 class="card-title mb-2">AI Chatbot</h3>
+          <p class="card-description text-muted">Intelligent support assistant capable of long-term context retention and fluid conversations.</p>
         </div>
-        <div class="feature-card glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="300">
-          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">👁️</div>
-          <h3 class="card-title mb-2">Computer Vision</h3>
-          <p class="card-description text-muted">Real-time image and video analysis for automated visual inspection and facial recognition.</p>
+        <div class="feature-card glass-card hover-lift text-center ai-tool-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">🎨</div>
+          <h3 class="card-title mb-2">Image Generator</h3>
+          <p class="card-description text-muted">Generate realistic, ultra-high-definition artwork and photos from simple textual prompts.</p>
         </div>
-        <div class="feature-card glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="400">
+        <div class="feature-card glass-card hover-lift text-center ai-tool-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">✍️</div>
+          <h3 class="card-title mb-2">Content Writer</h3>
+          <p class="card-description text-muted">Draft blogs, press releases, and marketing copies using specialized creative copywriting engines.</p>
+        </div>
+        <div class="feature-card glass-card hover-lift text-center ai-tool-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">💻</div>
+          <h3 class="card-title mb-2">Code Assistant</h3>
+          <p class="card-description text-muted">Write codes, debug syntax errors, and auto-generate boilerplate templates in all major languages.</p>
+        </div>
+        <div class="feature-card glass-card hover-lift text-center ai-tool-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">🎙️</div>
+          <h3 class="card-title mb-2">Voice AI</h3>
+          <p class="card-description text-muted">Convert speech to text with accurate punctuation, or text to hyper-realistic voiceovers.</p>
+        </div>
+        <div class="feature-card glass-card hover-lift text-center ai-tool-card" data-aos="fade-up" data-aos-delay="600">
           <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">📊</div>
-          <h3 class="card-title mb-2">Predictive Analytics</h3>
-          <p class="card-description text-muted">Forecast market trends and customer behavior using historical data and statistical algorithms.</p>
-        </div>
-        <div class="feature-card glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="500">
-          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">⚙️</div>
-          <h3 class="card-title mb-2">AI Automation</h3>
-          <p class="card-description text-muted">Streamline repetitive workflows with intelligent bots that learn and adapt to your processes.</p>
-        </div>
-        <div class="feature-card glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="600">
-          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">📈</div>
-          <h3 class="card-title mb-2">Data Intelligence</h3>
-          <p class="card-description text-muted">Transform raw data into actionable insights through automated ETL pipelines and smart dashboards.</p>
+          <h3 class="card-title mb-2">Data Analytics</h3>
+          <p class="card-description text-muted">Upload custom data sheets to build automated charts, identify anomalies, and forecast metrics.</p>
         </div>
       </div>
     </section>
@@ -227,24 +235,24 @@
         </div>
         <div class="stats-grid grid-2" style="gap: 1.5rem;" data-aos="fade-left">
           <div class="stat-card glass-card text-center hover-lift" style="padding: 2.5rem 1.5rem;">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">⭐</div>
-            <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;" data-count="15" data-suffix="+">15+</div>
-            <div class="stat-label text-muted text-sm text-uppercase">Years Experience</div>
+            <div style="font-size: 2.5rem; margin-bottom: 10px;">👥</div>
+            <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;" data-count="120" data-suffix="k+">120k+</div>
+            <div class="stat-label text-muted text-sm text-uppercase">Active Users</div>
           </div>
           <div class="stat-card glass-card text-center hover-lift" style="padding: 2.5rem 1.5rem; transform: translateY(30px);">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">🌍</div>
-            <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;" data-count="500" data-suffix="+">500+</div>
-            <div class="stat-label text-muted text-sm text-uppercase">Global Clients</div>
+            <div style="font-size: 2.5rem; margin-bottom: 10px;">🤖</div>
+            <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;" data-count="45" data-suffix="+">45+</div>
+            <div class="stat-label text-muted text-sm text-uppercase">AI Models</div>
           </div>
           <div class="stat-card glass-card text-center hover-lift" style="padding: 2.5rem 1.5rem;">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">⚡</div>
-            <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;" data-count="99" data-suffix=".9%">99.9%</div>
-            <div class="stat-label text-muted text-sm text-uppercase">Uptime SLA</div>
+            <div style="font-size: 2.5rem; margin-bottom: 10px;">🚀</div>
+            <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;" data-count="1" data-suffix=".8M+">1.8M+</div>
+            <div class="stat-label text-muted text-sm text-uppercase">Projects Completed</div>
           </div>
           <div class="stat-card glass-card text-center hover-lift" style="padding: 2.5rem 1.5rem; transform: translateY(30px);">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">🎧</div>
-            <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;">24/7</div>
-            <div class="stat-label text-muted text-sm text-uppercase">Expert Support</div>
+            <div style="font-size: 2.5rem; margin-bottom: 10px;">📈</div>
+            <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;" data-count="99" data-suffix=".8%">99.8%</div>
+            <div class="stat-label text-muted text-sm text-uppercase">Accuracy Rate</div>
           </div>
         </div>
       </div>
@@ -253,29 +261,30 @@
     <!-- How It Works -->
     <section class="section how-it-works">
       <div class="container text-center mb-5">
-        <span class="section-subtitle">Simplified Integration</span>
+        <span class="section-subtitle">Seamless Workflow</span>
         <h2 class="section-title mt-1 gradient-text">How It Works</h2>
+        <p class="section-description mx-auto mt-2 text-muted" style="max-width: 600px;">Get up and running with Stackly AI in four simple steps.</p>
       </div>
       <div class="container grid-4 text-center" style="gap: 2rem;">
         <div data-aos="fade-up" data-aos-delay="100">
-          <div class="mb-3 flex-center mx-auto" style="width: 80px; height: 80px; border-radius: 50%; background: var(--glass-bg); border: 2px solid var(--primary); font-size: 2rem;">1</div>
-          <h3 class="mb-2">Connect Data</h3>
-          <p class="text-muted text-sm">Securely sync your structured and unstructured data via our API.</p>
+          <div class="mb-3 flex-center mx-auto" style="width: 80px; height: 80px; border-radius: 50%; background: var(--glass-bg); border: 2px solid var(--primary); font-size: 2rem; color: var(--primary); font-weight: 800;">1</div>
+          <h3 class="mb-2">Sign Up</h3>
+          <p class="text-muted text-sm">Create a free account and choose your specific role context (User, Developer, Admin).</p>
         </div>
         <div data-aos="fade-up" data-aos-delay="200">
-          <div class="mb-3 flex-center mx-auto" style="width: 80px; height: 80px; border-radius: 50%; background: var(--glass-bg); border: 2px solid var(--secondary); font-size: 2rem;">2</div>
-          <h3 class="mb-2">Train Model</h3>
-          <p class="text-muted text-sm">Our system automatically selects and fine-tunes the best foundation model.</p>
+          <div class="mb-3 flex-center mx-auto" style="width: 80px; height: 80px; border-radius: 50%; background: var(--glass-bg); border: 2px solid var(--accent); font-size: 2rem; color: var(--accent); font-weight: 800;">2</div>
+          <h3 class="mb-2">Choose Tool</h3>
+          <p class="text-muted text-sm">Navigate to the AI tools suite and select the generator or model for your task.</p>
         </div>
         <div data-aos="fade-up" data-aos-delay="300">
-          <div class="mb-3 flex-center mx-auto" style="width: 80px; height: 80px; border-radius: 50%; background: var(--glass-bg); border: 2px solid var(--accent); font-size: 2rem;">3</div>
-          <h3 class="mb-2">Deploy AI</h3>
-          <p class="text-muted text-sm">Push to production instantly with our scalable, globally distributed endpoints.</p>
+          <div class="mb-3 flex-center mx-auto" style="width: 80px; height: 80px; border-radius: 50%; background: var(--glass-bg); border: 2px solid var(--primary); font-size: 2rem; color: var(--primary); font-weight: 800;">3</div>
+          <h3 class="mb-2">Generate Results</h3>
+          <p class="text-muted text-sm">Input your prompts, data sheet, or parameters, and our systems compile results instantly.</p>
         </div>
         <div data-aos="fade-up" data-aos-delay="400">
-          <div class="mb-3 flex-center mx-auto" style="width: 80px; height: 80px; border-radius: 50%; background: var(--gradient-btn); font-size: 2rem;">4</div>
-          <h3 class="mb-2">Scale</h3>
-          <p class="text-muted text-sm">Monitor performance and automatically scale resources as your usage grows.</p>
+          <div class="mb-3 flex-center mx-auto" style="width: 80px; height: 80px; border-radius: 50%; background: var(--gradient-btn); font-size: 2rem; color: white; font-weight: 800;">4</div>
+          <h3 class="mb-2">Download/Share</h3>
+          <p class="text-muted text-sm">Export high-quality outputs or share secure API linkages directly with your team.</p>
         </div>
       </div>
     </section>
@@ -684,20 +693,40 @@
       <div class="container text-center mb-5">
         <span class="section-subtitle">Support</span>
         <h2 class="section-title mt-1 gradient-text">Frequently Asked Questions</h2>
+        <p class="text-muted text-sm">Common questions about our AI tools and platform capabilities.</p>
       </div>
       <div class="container" style="max-width: 800px;" data-aos="fade-up">
-        <div class="glass-card mb-3 p-4">
-          <h4 style="color: white; margin-bottom: 10px;">How secure is my data when training models?</h4>
-          <p class="text-muted text-sm m-0">We use AES-256 encryption at rest and TLS 1.3 in transit. Your data is isolated in secure VPCs, and we never use your proprietary data to train our foundational models.</p>
-        </div>
-        <div class="glass-card mb-3 p-4">
-          <h4 style="color: white; margin-bottom: 10px;">How quickly can we integrate the STACKLY AI API?</h4>
-          <p class="text-muted text-sm m-0">Most teams complete full integration within 48 hours. Our comprehensive documentation and SDKs for Python, Node.js, and Java make the process seamless.</p>
-        </div>
-        <div class="glass-card mb-3 p-4">
-          <h4 style="color: white; margin-bottom: 10px;">Do you offer custom model fine-tuning?</h4>
-          <p class="text-muted text-sm m-0">Yes, our Professional and Enterprise tiers include tools for fine-tuning our foundation models on your specific datasets for highly specialized tasks.</p>
-        </div>
+        <details class="glass-card mb-3 p-4 faq-item" style="cursor: pointer; outline: none; border: 1px solid var(--glass-border);">
+          <summary style="font-weight: 600; font-size: 1.1rem; color: var(--text-bright); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            <span>What AI tools are included in the AI Services suite?</span>
+            <span class="faq-icon" style="color: var(--primary);">▼</span>
+          </summary>
+          <p class="text-muted text-sm mt-3 mb-0">Our suite includes an AI Chatbot (conversational agent), Image Generator (text-to-image), Content Writer (copywriting generator), Code Assistant (syntax correction & autocomplete), Voice AI (voiceovers & transcripts), and Data Analytics (smart charts & forecasts).</p>
+        </details>
+        
+        <details class="glass-card mb-3 p-4 faq-item" style="cursor: pointer; outline: none; border: 1px solid var(--glass-border);">
+          <summary style="font-weight: 600; font-size: 1.1rem; color: var(--text-bright); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            <span>How secure is my proprietary data?</span>
+            <span class="faq-icon" style="color: var(--primary);">▼</span>
+          </summary>
+          <p class="text-muted text-sm mt-3 mb-0">We use AES-256 encryption at rest and TLS 1.3 in transit. Your data is isolated in secure VPCs, and we never use your private outputs or training data to update our public foundation models.</p>
+        </details>
+
+        <details class="glass-card mb-3 p-4 faq-item" style="cursor: pointer; outline: none; border: 1px solid var(--glass-border);">
+          <summary style="font-weight: 600; font-size: 1.1rem; color: var(--text-bright); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            <span>Can I try Stackly AI tools for free?</span>
+            <span class="faq-icon" style="color: var(--primary);">▼</span>
+          </summary>
+          <p class="text-muted text-sm mt-3 mb-0">Yes! We offer a 14-day free trial containing 1,000 complimentary credits to test any of our AI features (Chat, Code, Image, Content, and Voice) with no credit card required.</p>
+        </details>
+
+        <details class="glass-card mb-3 p-4 faq-item" style="cursor: pointer; outline: none; border: 1px solid var(--glass-border);">
+          <summary style="font-weight: 600; font-size: 1.1rem; color: var(--text-bright); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            <span>What is the difference between User and Developer roles?</span>
+            <span class="faq-icon" style="color: var(--primary);">▼</span>
+          </summary>
+          <p class="text-muted text-sm mt-3 mb-0">Users access the interactive user dashboard for on-demand generation. Developers get API key consoles, documentation access, and webhook listeners to integrate Stackly engines into their own applications.</p>
+        </details>
       </div>
     </section>
 
@@ -767,8 +796,8 @@
       <div class="footer-bottom flex-between pt-4 border-top text-muted text-sm" style="border-color: var(--glass-border); flex-wrap: wrap; gap: 1rem;">
         <p class="m-0">© 2026 STACKLY AI. All rights reserved.</p>
         <div class="footer-bottom-links" style="display: flex; gap: 20px;">
-          <a href="404.html" class="hover-text-primary">Privacy Policy</a>
-          <a href="404.html" class="hover-text-primary">Terms of Service</a>
+          <a href="privacy.html" class="hover-text-primary">Privacy Policy</a>
+          <a href="terms.html" class="hover-text-primary">Terms of Service</a>
           <a href="404.html" class="hover-text-primary">Cookie Policy</a>
         </div>
       </div>
