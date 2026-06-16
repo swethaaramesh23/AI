@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webhooks - Developer</title>
+  <link rel="stylesheet" href="css/dashboard-new.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dash-body">
+<div class="dash-overlay" id="dashOverlay"></div>
+<div class="dash-layout">
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-sidebar-header">
+      <span class="dash-sidebar-brand-text" style="color:white; font-size:1.2rem; font-weight:bold;">STACKLY AI</span>
+      <button class="dash-collapse-btn" id="collapseBtn" title="Toggle Sidebar"><span class="collapse-icon">«</span></button>
+    </div>
+    <nav class="dash-nav">
+      <div class="dash-nav-group">
+        <div class="dash-nav-label">MAIN</div>
+        <a href="dashboard-developer.html" class="dash-nav-item"><span class="nav-text">API Console</span></a>
+        <a href="dash-dev-keys.html" class="dash-nav-item"><span class="nav-text">API Keys</span></a>
+        <a href="dash-dev-docs.html" class="dash-nav-item"><span class="nav-text">Documentation</span></a>
+        <a href="dash-dev-webhooks.html" class="dash-nav-item active"><span class="nav-text">Webhooks</span></a>
+      </div>
+      <div class="dash-nav-group">
+        <div class="dash-nav-label">ACCOUNT</div>
+        <a href="dashboard-settings.html" class="dash-nav-item">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-text">Settings</span>
+        </a>
+        <a href="dashboard-profile.html" class="dash-nav-item">
+          <span class="nav-icon">👤</span>
+          <span class="nav-text">Profile</span>
+        </a>
+        <a href="dashboard-notifications.html" class="dash-nav-item">
+          <span class="nav-icon">🔔</span>
+          <span class="nav-text">Notifications</span>
+        </a>
+        <a href="dashboard-help.html" class="dash-nav-item">
+          <span class="nav-icon">❓</span>
+          <span class="nav-text">Help & Support</span>
+        </a>
+      </div>
+    </nav>
+    <div class="dash-signout">
+      <a href="login.html" style="display:flex; align-items:center; gap:10px; color:#6C63FF; text-decoration:none; padding:10px 20px; font-weight:600;">
+        <span class="nav-icon">🚪</span>
+        <span class="nav-text">Sign Out</span>
+      </a>
+    </div>
+  </aside>
+  <div class="dash-main" id="dashMain">
+    <header class="dash-topbar">
+      <div class="dash-topbar-left" style="display: flex; align-items: center; gap: 15px;">
+        <button class="dash-mobile-toggle" id="mobileToggle">☰</button>
+        <div class="dash-topbar-title">Webhooks</div>
+      </div>
+    </header>
+    <div class="dash-content">
+      <div class="dash-table-card">
+        <div class="dash-table-header"><h3>Configured Endpoints</h3><button style="background:#6C63FF;color:white;border:none;padding:5px 10px;border-radius:4px;">Add Endpoint</button></div>
+        <table class="dash-table" style="width:100%;">
+          <tr><th>URL</th><th>Events</th><th>Status</th></tr>
+          <tr><td>https://api.example.com/webhook</td><td>job.completed, job.failed</td><td>Active</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const sidebar = document.getElementById('dashSidebar');
+  const main = document.getElementById('dashMain');
+  const collapseBtn = document.getElementById('collapseBtn');
+  const overlay = document.getElementById('dashOverlay');
+  const mobileToggle = document.getElementById('mobileToggle');
+  if(collapseBtn) collapseBtn.addEventListener('click', () => { sidebar.classList.toggle('collapsed'); main.classList.toggle('collapsed'); });
+  if(mobileToggle) mobileToggle.addEventListener('click', () => { sidebar.classList.toggle('mobile-open'); overlay.classList.toggle('show'); });
+  if(overlay) overlay.addEventListener('click', () => { sidebar.classList.remove('mobile-open'); overlay.classList.remove('show'); });
+</script>
+</body>
+</html>

@@ -20,7 +20,8 @@
     <div class="preloader-content" style="text-align: center; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center;">
       <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: 2px; font-family: var(--font-heading);">Think. Learn. Innovate.</h2>
       <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: rgba(255,255,255,0.8);">Loading AI Experience...</p>
-      <div style="font-size: 3rem; font-weight: 800; color: var(--primary); font-variant-numeric: tabular-nums;"><span id="preloader-percent">0</span>%</div>
+      <div class="loader-spinner" style="width: 60px; height: 60px; border: 5px solid rgba(255,255,255,0.1); border-top-color: var(--primary); border-radius: 50%; animation: preloaderSpin 1s linear infinite;"></div>
+      <style>@keyframes preloaderSpin { 100% { transform: rotate(360deg); } }</style>
     </div>
   </div>
 
@@ -28,7 +29,7 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
-        <img src="logo.webp" alt="STACKLY AI" class="nav-logo-img" style="max-height: 40px;">
+        <img src="lo.webp" alt="STACKLY AI" class="nav-logo-img" style="max-height: 70px;">
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
@@ -287,42 +288,42 @@
           <div class="mx-auto flex-center mb-3" style="width: 50px; height: 50px; border-radius: 12px; background: rgba(108, 99, 255, 0.2); color: var(--primary); font-size: 1.5rem;">👁️</div>
           <h3 class="mb-2">STACKLY AI Vision</h3>
           <p class="text-muted text-sm mb-4">Enterprise-grade API for image classification, OCR, and real-time video stream analysis.</p>
-          <a href="#" class="btn btn-outline btn-sm">Try Demo</a>
+          <a href="404.html" class="btn btn-outline btn-sm">Try Demo</a>
         </div>
 
         <div class="glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="100">
           <div class="mx-auto flex-center mb-3" style="width: 50px; height: 50px; border-radius: 12px; background: rgba(0, 212, 255, 0.2); color: var(--secondary); font-size: 1.5rem;">💬</div>
           <h3 class="mb-2">STACKLY AI Chat</h3>
           <p class="text-muted text-sm mb-4">Embeddable, context-aware conversational agents powered by our proprietary LLMs.</p>
-          <a href="#" class="btn btn-outline btn-sm">Try Demo</a>
+          <a href="404.html" class="btn btn-outline btn-sm">Try Demo</a>
         </div>
 
         <div class="glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="200">
           <div class="mx-auto flex-center mb-3" style="width: 50px; height: 50px; border-radius: 12px; background: rgba(168, 85, 247, 0.2); color: var(--accent); font-size: 1.5rem;">📊</div>
           <h3 class="mb-2">STACKLY AI Analytics</h3>
           <p class="text-muted text-sm mb-4">No-code dashboard builder that automatically detects anomalies and trends in your databases.</p>
-          <a href="#" class="btn btn-outline btn-sm">Try Demo</a>
+          <a href="404.html" class="btn btn-outline btn-sm">Try Demo</a>
         </div>
 
         <div class="glass-card hover-lift text-center" data-aos="fade-up">
           <div class="mx-auto flex-center mb-3" style="width: 50px; height: 50px; border-radius: 12px; background: rgba(34, 197, 94, 0.2); color: #22C55E; font-size: 1.5rem;">⚙️</div>
           <h3 class="mb-2">STACKLY AI Automate</h3>
           <p class="text-muted text-sm mb-4">Intelligent workflow engine that connects your apps and automates cognitive tasks.</p>
-          <a href="#" class="btn btn-outline btn-sm">Try Demo</a>
+          <a href="404.html" class="btn btn-outline btn-sm">Try Demo</a>
         </div>
 
         <div class="glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="100">
           <div class="mx-auto flex-center mb-3" style="width: 50px; height: 50px; border-radius: 12px; background: rgba(245, 158, 11, 0.2); color: #F59E0B; font-size: 1.5rem;">📈</div>
           <h3 class="mb-2">STACKLY AI Predict</h3>
           <p class="text-muted text-sm mb-4">Time-series forecasting module tailored for retail demand and financial risk modeling.</p>
-          <a href="#" class="btn btn-outline btn-sm">Try Demo</a>
+          <a href="404.html" class="btn btn-outline btn-sm">Try Demo</a>
         </div>
 
         <div class="glass-card hover-lift text-center" data-aos="fade-up" data-aos-delay="200">
           <div class="mx-auto flex-center mb-3" style="width: 50px; height: 50px; border-radius: 12px; background: rgba(239, 68, 68, 0.2); color: #EF4444; font-size: 1.5rem;">🛡️</div>
           <h3 class="mb-2">STACKLY AI Guard</h3>
           <p class="text-muted text-sm mb-4">Content moderation and security layer that prevents PII leakage and filters toxic inputs.</p>
-          <a href="#" class="btn btn-outline btn-sm">Try Demo</a>
+          <a href="404.html" class="btn btn-outline btn-sm">Try Demo</a>
         </div>
 
       </div>
@@ -395,17 +396,17 @@
   <!-- Footer -->
   <footer class="footer bg-darker" style="padding: 5rem 0 2rem; border-top: 1px solid var(--glass-border);">
     <div class="container">
-      <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 4rem;">
+      <div class="footer-grid">
         <div class="footer-about">
           <a href="index.html" class="footer-logo mb-3" style="display: inline-block;">
-            <img src="logo.webp" alt="STACKLY AI" class="footer-logo-img" style="height: 40px;">
+            <img src="lo.webp" alt="STACKLY AI" class="footer-logo-img" style="height: 70px;">
           </a>
           <p class="footer-description text-muted mt-3 mb-4">Empowering businesses with cutting-edge AI solutions. Transform your operations with intelligent automation and data-driven insights.</p>
           <div class="footer-social" style="display: flex; gap: 15px;">
-            <a href="https://twitter.com/stacklyai" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="Twitter" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">𝕏</a>
-            <a href="https://linkedin.com/company/stacklyai" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">in</a>
-            <a href="https://github.com/stacklyai" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="GitHub" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">⌨</a>
-            <a href="https://youtube.com/@stacklyai" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="YouTube" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">▶</a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="Twitter" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">𝕏</a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">in</a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="GitHub" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">⌨</a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="YouTube" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">▶</a>
           </div>
         </div>
         <div class="footer-links-col">
@@ -442,9 +443,9 @@
       <div class="footer-bottom flex-between pt-4 border-top text-muted text-sm" style="border-color: var(--glass-border); flex-wrap: wrap; gap: 1rem;">
         <p class="m-0">© 2026 STACKLY AI. All rights reserved.</p>
         <div class="footer-bottom-links" style="display: flex; gap: 20px;">
-          <a href="#" class="hover-text-primary">Privacy Policy</a>
-          <a href="#" class="hover-text-primary">Terms of Service</a>
-          <a href="#" class="hover-text-primary">Cookie Policy</a>
+          <a href="404.html" class="hover-text-primary">Privacy Policy</a>
+          <a href="404.html" class="hover-text-primary">Terms of Service</a>
+          <a href="404.html" class="hover-text-primary">Cookie Policy</a>
         </div>
       </div>
     </div>

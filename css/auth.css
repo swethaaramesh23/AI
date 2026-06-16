@@ -56,7 +56,7 @@
 }
 
 .auth-navbar .nav-links-auth a:hover {
-  color: #e85d04;
+  color: #6C63FF;
 }
 
 .auth-navbar .nav-login-btn {
@@ -486,4 +486,104 @@
 @media (max-width: 320px) {
   .auth-card-new { padding: 1.5rem 0.9rem; }
   .auth-card-new h1 { font-size: 1.2rem; }
+}
+
+/* ============================================================
+   DARK THEME OVERRIDES (MATCHING HOMEPAGE)
+   ============================================================ */
+.auth-page-wrapper {
+  background: #0a0e27;
+  color: #fff;
+}
+
+.auth-navbar {
+  background: #0a0e27;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-navbar .nav-links-auth a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.auth-navbar .nav-links-auth a:hover {
+  color: #6C63FF;
+}
+
+.auth-nav-hamburger span {
+  background: #fff;
+}
+
+.auth-card-new {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.auth-card-new h1 {
+  color: #fff;
+}
+
+.auth-tagline {
+  color: #6C63FF;
+}
+
+.auth-field input,
+.auth-field select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.auth-field input:focus,
+.auth-field select:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #6C63FF;
+}
+
+.auth-field .field-icon,
+.auth-field .field-icon-right {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.auth-social-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.auth-social-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.auth-divider span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.auth-footer, .auth-footer a {
+  color: rgba(255, 255, 255, 0.7);
+}
+.auth-footer a:hover {
+  color: #6C63FF;
+}
+
+.auth-mobile-drawer {
+  background: #0a0e27;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-mobile-drawer a {
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-mobile-close {
+  color: #fff;
 }

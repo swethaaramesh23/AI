@@ -12,6 +12,7 @@
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/auth.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
@@ -20,7 +21,7 @@
   <!-- ===== NAVBAR ===== -->
   <nav class="auth-navbar" id="authNavbar">
     <a href="index.html" class="nav-brand">
-      <img src="logo.webp" alt="STACKLY AI">
+       <img src="lo.webp" alt="STACKLY AI" class="nav-logo-img" style="max-height: 70px;">
     </a>
 
     <ul class="nav-links-auth" id="authNavLinks">
@@ -53,15 +54,15 @@
       <a href="pricing.html">Pricing</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
-      <a href="login.html" style="color:#e85d04;font-weight:700;">Login</a>
+      <a href="login.html" style="color:#3a27e9;font-weight:700;">Login</a>
     </div>
   </div>
 
   <!-- ===== AUTH BODY ===== -->
   <main class="auth-body">
-    <div class="auth-card-new">
+    <div class="auth-card-new" data-aos="fade-up">
 
-      <p class="auth-tagline">Welcome to STACKLY AI</p>
+      <p class="auth-tagline" style="color: rgb(67, 22, 231);">Welcome to STACKLY AI</p>
       <h1>Welcome Back!</h1>
 
       <!-- Alert -->
@@ -101,11 +102,11 @@
             <input type="checkbox" id="rememberMe">
             Remember Me
           </label>
-          <a href="#" class="auth-forgot">Forgot Password?</a>
+          <a href="#" class="auth-forgot" style="color: rgb(68, 34, 221);">Forgot Password?</a>
         </div>
 
         <!-- Submit -->
-        <button type="submit" class="auth-btn-main" id="loginBtn">
+        <button type="submit" class="auth-btn-main" id="loginBtn" style="background-color: rgb(68, 7, 236); border-color: purple;">
           <span id="loginBtnText">Sign In ➜</span>
           <span id="loginBtnLoader" style="display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite;"></span>
         </button>
@@ -113,20 +114,25 @@
       </form>
 
       <!-- Social Login -->
-      <div class="auth-divider">OR SIGN IN WITH</div>
+      <div class="auth-divider" style="color: rgb(68, 34, 221);">OR SIGN IN WITH</div>
 
       <div class="auth-socials">
         <button class="social-btn" title="Google" type="button">
-          <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.2l6.8-6.8C35.6 2.1 30.1 0 24 0 14.8 0 6.9 5.3 3.1 13.1l7.9 6.1C12.9 13 18 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.1-4.4 6.7l6.9 5.4c4-3.7 6.2-9.1 6.2-16.1z"/><path fill="#FBBC05" d="M11 28.2c-.6-1.8-.9-3.7-.9-5.7s.3-3.9.9-5.7l-7.9-6.1C1.1 13.7 0 18.7 0 24s1.1 10.3 3.1 14.3l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.1 0 11.2-2 14.9-5.5l-6.9-5.4c-2 1.3-4.6 2.1-8 2.1-6 0-11.1-3.5-13-8.7l-7.9 6.1C6.9 42.7 14.8 48 24 48z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 48 48">
+            <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.2l6.8-6.8C35.6 2.1 30.1 0 24 0 14.8 0 6.9 5.3 3.1 13.1l7.9 6.1C12.9 13 18 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.1-4.4 6.7l6.9 5.4c4-3.7 6.2-9.1 6.2-16.1z"/>
+            <path fill="#FBBC05" d="M11 28.2c-.6-1.8-.9-3.7-.9-5.7s.3-3.9.9-5.7l-7.9-6.1C1.1 13.7 0 18.7 0 24s1.1 10.3 3.1 14.3l7.9-6.1z"/>
+            <path fill="#34A853" d="M24 48c6.1 0 11.2-2 14.9-5.5l-6.9-5.4c-2 1.3-4.6 2.1-8 2.1-6 0-11.1-3.5-13-8.7l-7.9 6.1C6.9 42.7 14.8 48 24 48z"/></svg>
         </button>
         <button class="social-btn" title="Facebook" type="button">
-          <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#1877F2" d="M48 24C48 10.7 37.3 0 24 0S0 10.7 0 24c0 12 8.8 21.9 20.2 23.7V30.9h-6.1V24h6.1v-5.3c0-6 3.6-9.3 9-9.3 2.6 0 5.4.5 5.4.5v5.9h-3c-3 0-3.9 1.9-3.9 3.7V24h6.7l-1.1 6.9h-5.6v16.8C39.2 45.9 48 36 48 24z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 48 48">
+            <path fill="#1877F2" d="M48 24C48 10.7 37.3 0 24 0S0 10.7 0 24c0 12 8.8 21.9 20.2 23.7V30.9h-6.1V24h6.1v-5.3c0-6 3.6-9.3 9-9.3 2.6 0 5.4.5 5.4.5v5.9h-3c-3 0-3.9 1.9-3.9 3.7V24h6.7l-1.1 6.9h-5.6v16.8C39.2 45.9 48 36 48 24z"/></svg>
         </button>
         <button class="social-btn" title="Apple" type="button">
-          <svg width="20" height="20" viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-43.1-154.6-110.5C100 483.1 75.5 401.9 75.5 325.7c0-41.4 4.5-84.8 26-121 20.7-34.4 54-59.7 92.8-61.6 60.5-2.7 92.4 40.2 164.7 40.2 69.8 0 108.4-40.2 184.8-40.2 35.2-.2 135.2 17 201 105.4zM551.9 164.4C564.3 125.2 580 82.8 590.6 51c11.9-34.5 35.2-78.3 70.8-90.6l.5-.3c-29.3-1.1-58.4 4.6-84.4 17.1-52.4 25.3-81.9 84.5-81.9 141.3 0 1.5-.3 3 0 4.5 1.2 1.2 2.5 2.3 3.8 3.4 10.6 6.3 22.7 10.7 35.3 13.6 8.9 2 17.6 3.9 17 24.4z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 814 1000">
+            <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-43.1-154.6-110.5C100 483.1 75.5 401.9 75.5 325.7c0-41.4 4.5-84.8 26-121 20.7-34.4 54-59.7 92.8-61.6 60.5-2.7 92.4 40.2 164.7 40.2 69.8 0 108.4-40.2 184.8-40.2 35.2-.2 135.2 17 201 105.4zM551.9 164.4C564.3 125.2 580 82.8 590.6 51c11.9-34.5 35.2-78.3 70.8-90.6l.5-.3c-29.3-1.1-58.4 4.6-84.4 17.1-52.4 25.3-81.9 84.5-81.9 141.3 0 1.5-.3 3 0 4.5 1.2 1.2 2.5 2.3 3.8 3.4 10.6 6.3 22.7 10.7 35.3 13.6 8.9 2 17.6 3.9 17 24.4z"/></svg>
         </button>
       </div>
-
       <p class="auth-footer-link">New to Stackly? <a href="signup.html">Create an account</a></p>
 
       <div class="auth-back-home">
@@ -196,6 +202,11 @@
 
     window.location.href = routes[role] || 'dashboard-customer.html';
   });
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true });
 </script>
 
 <style>

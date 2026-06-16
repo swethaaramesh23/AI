@@ -12,6 +12,7 @@
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/auth.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
@@ -20,7 +21,7 @@
   <!-- ===== NAVBAR ===== -->
   <nav class="auth-navbar" id="authNavbar">
     <a href="index.html" class="nav-brand">
-      <img src="logo.webp" alt="STACKLY AI">
+      <img src="lo.webp" alt="STACKLY AI">
     </a>
 
     <ul class="nav-links-auth" id="authNavLinks">
@@ -53,15 +54,15 @@
       <a href="pricing.html">Pricing</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
-      <a href="login.html" style="color:#e85d04;font-weight:700;">Login</a>
+      <a href="login.html" style="color:#2e04e8;font-weight:700;">Login</a>
     </div>
   </div>
 
   <!-- ===== AUTH BODY ===== -->
   <main class="auth-body">
-    <div class="auth-card-new" style="max-width:500px;">
+    <div class="auth-card-new" style="max-width:500px;" data-aos="fade-up">
 
-      <p class="auth-tagline">Join the AI revolution with STACKLY</p>
+      <p class="auth-tagline" style="color: #2e04e8;">Join the AI revolution with STACKLY</p>
       <h1>Create Account</h1>
 
       <!-- Alert -->
@@ -108,6 +109,17 @@
           <span class="field-icon-right" id="toggleSignupPw">👁</span>
         </div>
 
+        <!-- Password Strength -->
+        <div class="password-strength-bar" id="strengthBar" style="display:none; margin:-8px 0 8px; padding: 0 4px;">
+          <div style="display:flex; gap:4px; margin-bottom:4px;">
+            <div class="strength-segment" style="flex:1; height:4px; border-radius:2px; background:#e0e5ef; transition:background 0.3s;"></div>
+            <div class="strength-segment" style="flex:1; height:4px; border-radius:2px; background:#e0e5ef; transition:background 0.3s;"></div>
+            <div class="strength-segment" style="flex:1; height:4px; border-radius:2px; background:#e0e5ef; transition:background 0.3s;"></div>
+            <div class="strength-segment" style="flex:1; height:4px; border-radius:2px; background:#e0e5ef; transition:background 0.3s;"></div>
+          </div>
+          <span id="strengthText" style="font-size:0.72rem; font-weight:600; color:#888;"></span>
+        </div>
+
         <!-- Confirm Password -->
         <div class="auth-field">
           <span class="field-icon">🔒</span>
@@ -115,14 +127,15 @@
           <span class="field-icon-right" id="toggleConfirmPw">👁</span>
         </div>
 
+      
         <!-- Terms -->
         <div class="auth-terms">
           <input type="checkbox" id="terms" required>
-          <span>I agree to Stackly's <a href="#">Terms of Service</a> &amp; <a href="#">Privacy Policy</a></span>
+          <span style="color: #2e04e8;">I agree to Stackly's <a href="#" style="color: #2e04e8;">Terms of Service</a> &amp; <a href="#" style="color: #2e04e8;">Privacy Policy</a></span>
         </div>
 
         <!-- Submit -->
-        <button type="submit" class="auth-btn-main" id="signupBtn">
+        <button type="submit" class="auth-btn-main" id="signupBtn" style="background-color: #2e04e8; border-color: #2e04e8;">
           <span id="signupBtnText">Create Account 👤</span>
           <span id="signupBtnLoader" style="display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite;"></span>
         </button>
@@ -130,7 +143,7 @@
       </form>
 
       <!-- Social Signup -->
-      <div class="auth-divider">OR SIGN UP WITH</div>
+      <div class="auth-divider" style="color: #2e04e8;">OR SIGN UP WITH</div>
 
       <div class="auth-socials">
         <button class="social-btn" title="Google" type="button">
@@ -140,11 +153,12 @@
           <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#1877F2" d="M48 24C48 10.7 37.3 0 24 0S0 10.7 0 24c0 12 8.8 21.9 20.2 23.7V30.9h-6.1V24h6.1v-5.3c0-6 3.6-9.3 9-9.3 2.6 0 5.4.5 5.4.5v5.9h-3c-3 0-3.9 1.9-3.9 3.7V24h6.7l-1.1 6.9h-5.6v16.8C39.2 45.9 48 36 48 24z"/></svg>
         </button>
         <button class="social-btn" title="Apple" type="button">
-          <svg width="20" height="20" viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-43.1-154.6-110.5C100 483.1 75.5 401.9 75.5 325.7c0-41.4 4.5-84.8 26-121 20.7-34.4 54-59.7 92.8-61.6 60.5-2.7 92.4 40.2 164.7 40.2 69.8 0 108.4-40.2 184.8-40.2 35.2-.2 135.2 17 201 105.4zM551.9 164.4C564.3 125.2 580 82.8 590.6 51c11.9-34.5 35.2-78.3 70.8-90.6l.5-.3c-29.3-1.1-58.4 4.6-84.4 17.1-52.4 25.3-81.9 84.5-81.9 141.3 0 1.5-.3 3 0 4.5 1.2 1.2 2.5 2.3 3.8 3.4 10.6 6.3 22.7 10.7 35.3 13.6 8.9 2 17.6 3.9 17 24.4z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 814 1000">
+            <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-43.1-154.6-110.5C100 483.1 75.5 401.9 75.5 325.7c0-41.4 4.5-84.8 26-121 20.7-34.4 54-59.7 92.8-61.6 60.5-2.7 92.4 40.2 164.7 40.2 69.8 0 108.4-40.2 184.8-40.2 35.2-.2 135.2 17 201 105.4zM551.9 164.4C564.3 125.2 580 82.8 590.6 51c11.9-34.5 35.2-78.3 70.8-90.6l.5-.3c-29.3-1.1-58.4 4.6-84.4 17.1-52.4 25.3-81.9 84.5-81.9 141.3 0 1.5-.3 3 0 4.5 1.2 1.2 2.5 2.3 3.8 3.4 10.6 6.3 22.7 10.7 35.3 13.6 8.9 2 17.6 3.9 17 24.4z"/></svg>
         </button>
       </div>
 
-      <p class="auth-footer-link">Already have an account? <a href="login.html">Login Here</a></p>
+      <p class="auth-footer-link" style="color: #2e04e8;">Already have an account? <a href="login.html" style="color: #2e04e8;">Login Here</a></p>
 
       <div class="auth-back-home">
         <a href="index.html">← Back To Home</a>
@@ -178,6 +192,32 @@
   }
   makeToggle('toggleSignupPw', 'signupPassword');
   makeToggle('toggleConfirmPw', 'signupConfirm');
+
+  // Password strength indicator
+  document.getElementById('signupPassword').addEventListener('input', function() {
+    const val = this.value;
+    const bar = document.getElementById('strengthBar');
+    const segments = bar.querySelectorAll('.strength-segment');
+    const text = document.getElementById('strengthText');
+    
+    if (val.length === 0) { bar.style.display = 'none'; return; }
+    bar.style.display = 'block';
+    
+    let score = 0;
+    if (val.length >= 8) score++;
+    if (/[A-Z]/.test(val)) score++;
+    if (/[0-9]/.test(val)) score++;
+    if (/[^A-Za-z0-9]/.test(val)) score++;
+    
+    const colors = ['#ef4444', '#f59e0b', '#22c55e', '#16a34a'];
+    const labels = ['Weak', 'Fair', 'Good', 'Strong'];
+    
+    segments.forEach((seg, i) => {
+      seg.style.background = i < score ? colors[Math.min(score-1, 3)] : '#e0e5ef';
+    });
+    text.textContent = labels[Math.min(score-1, 3)] || 'Weak';
+    text.style.color = colors[Math.min(score-1, 3)];
+  });
 
   // Form submit
   document.getElementById('signupForm').addEventListener('submit', async (e) => {
@@ -231,6 +271,11 @@
     };
     window.location.href = routes[role] || 'dashboard-customer.html';
   });
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true });
 </script>
 
 <style>

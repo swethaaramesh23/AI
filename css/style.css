@@ -229,6 +229,12 @@ p {
   padding: 0 2rem;
 }
 
+.container-fluid {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
 .section {
   padding: 8rem 0;
   position: relative;
@@ -791,10 +797,7 @@ p {
    10. Company Intro Section
    ============================================================ */
 .intro-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+  display: block;
 }
 
 .intro-image {
@@ -894,10 +897,7 @@ p {
    12. Why Choose Us
    ============================================================ */
 .why-choose {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+  display: block;
 }
 
 .why-choose-content {
@@ -1011,7 +1011,7 @@ p {
    ============================================================ */
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
 
@@ -1024,6 +1024,19 @@ p {
   padding: 2rem 1rem;
   text-align: center;
   transition: var(--transition);
+  animation: float 6s ease-in-out infinite;
+}
+
+.tech-item:nth-child(2n) {
+  animation-delay: 1.5s;
+}
+
+.tech-item:nth-child(3n) {
+  animation-delay: 3s;
+}
+
+.tech-item:nth-child(4n) {
+  animation-delay: 4.5s;
 }
 
 .tech-item:hover {
@@ -1613,9 +1626,9 @@ p {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
   gap: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .footer-logo {
@@ -3732,5 +3745,33 @@ p {
   
   .footer-logo-img {
     height: 30px !important;
+  }
+}
+
+/* --- Custom Additions --- */
+.tools-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .tools-showcase {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tools-showcase {
+    grid-template-columns: 1fr;
+  }
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }

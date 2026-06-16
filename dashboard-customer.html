@@ -16,10 +16,11 @@
 
 <div class="dash-layout">
 
-  <!-- SIDEBAR -->
+  <!-- ===== SIDEBAR ===== -->
   <aside class="dash-sidebar" id="dashSidebar">
     <div class="dash-sidebar-header">
       <a href="index.html" class="dash-sidebar-brand">
+        <img src="logo.webp" alt="STACKLY AI" style="height:28px; filter:brightness(10);">
         <span class="dash-sidebar-brand-text">STACKLY AI</span>
       </a>
       <button class="dash-collapse-btn" id="collapseBtn" title="Toggle Sidebar">
@@ -29,37 +30,42 @@
 
     <nav class="dash-nav">
       <div class="dash-nav-group">
-        <div class="dash-nav-label">MY WORKSPACE</div>
-        <a href="#" class="dash-nav-item active">
-          <span class="nav-icon">🏠</span>
-          <span class="nav-text">Dashboard</span>
+        <div class="dash-nav-label">MAIN</div>
+        <a href="dashboard-customer.html" class="dash-nav-item active">
+          <span class="nav-icon">📊</span>
+          <span class="nav-text">My Dashboard</span>
         </a>
-        <a href="#" class="dash-nav-item">
+        <a href="dash-cust-projects.html" class="dash-nav-item">
+          <span class="nav-icon">🚀</span>
+          <span class="nav-text">My Projects</span>
+        </a>
+        <a href="dash-cust-chat.html" class="dash-nav-item">
           <span class="nav-icon">💬</span>
           <span class="nav-text">Chat History</span>
         </a>
-        <a href="#" class="dash-nav-item">
-          <span class="nav-icon">🖼️</span>
-          <span class="nav-text">Generated Images</span>
-        </a>
-        <a href="#" class="dash-nav-item">
-          <span class="nav-icon">📁</span>
-          <span class="nav-text">My Files</span>
+        <a href="dash-cust-sub.html" class="dash-nav-item">
+          <span class="nav-icon">💳</span>
+          <span class="nav-text">Subscription</span>
         </a>
       </div>
+
       <div class="dash-nav-group">
         <div class="dash-nav-label">ACCOUNT</div>
-        <a href="#" class="dash-nav-item">
-          <span class="nav-icon">💳</span>
-          <span class="nav-text">Billing & Plan</span>
-        </a>
-        <a href="#" class="dash-nav-item">
+        <a href="dashboard-settings.html" class="dash-nav-item">
           <span class="nav-icon">⚙️</span>
           <span class="nav-text">Settings</span>
         </a>
-        <a href="index.html" class="dash-nav-item">
-          <span class="nav-icon">🏠</span>
-          <span class="nav-text">Back To Store</span>
+        <a href="dashboard-profile.html" class="dash-nav-item">
+          <span class="nav-icon">👤</span>
+          <span class="nav-text">Profile</span>
+        </a>
+        <a href="dashboard-notifications.html" class="dash-nav-item">
+          <span class="nav-icon">🔔</span>
+          <span class="nav-text">Notifications</span>
+        </a>
+        <a href="dashboard-help.html" class="dash-nav-item">
+          <span class="nav-icon">❓</span>
+          <span class="nav-text">Help & Support</span>
         </a>
       </div>
     </nav>
@@ -84,11 +90,14 @@
           <div class="dash-topbar-subtitle">Welcome back! 👋</div>
         </div>
       </div>
-      <div class="dash-topbar-right">
+      <div class="dash-topbar-right" style="display: flex; align-items: center; gap: 1rem;">
         <button class="btn-sm-primary" onclick="location.href='#'">+ New Project</button>
-        <a href="login.html" class="dash-logout-btn" id="logoutBtn">
-          <span>↪</span> Logout
-        </a>
+
+        <div class="dash-profile" style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 4px 12px 4px 4px; border-radius: 50px; background: #fff; border: 1px solid #e0e5ef; transition: all 0.2s;">
+          <img src="images/8.webp" alt="Customer Profile" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+          <span style="font-weight: 600; font-size: 0.85rem; color: #1a1a2e;" class="hidden-mobile">Customer</span>
+          <span style="color: #888; font-size: 0.7rem; margin-left: 5px;">▼</span>
+        </div>
       </div>
     </header>
 
@@ -227,10 +236,7 @@
     overlay.classList.remove('show');
   });
 
-  document.getElementById('logoutBtn').addEventListener('click', (e) => {
-    e.preventDefault();
-    window.location.href = 'login.html';
-  });
+
 
   window.addEventListener('DOMContentLoaded', () => {
     new Chart(document.getElementById('usageChart'), {

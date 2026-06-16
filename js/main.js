@@ -31,23 +31,28 @@
   }
 
   window.addEventListener('load', () => {
-    // Ensure 100% on load
     if (percentEl) {
       clearInterval(interval);
       percentEl.textContent = '100';
     }
-
-    setTimeout(() => {
-      preloader.classList.add('loaded');
-      preloader.addEventListener('transitionend', () => {
-        preloader.style.display = 'none';
-      }, { once: true });
-      // Fallback if transitionend doesn't fire
-      setTimeout(() => {
-        preloader.style.display = 'none';
-      }, 1500);
-    }, 300); // reduced delay slightly for snappier exit
   });
+
+  // Force preloader to close after 2.5 seconds exactly
+  setTimeout(() => {
+    if (percentEl && percent < 100) {
+      clearInterval(interval);
+      percentEl.textContent = '100';
+    }
+    preloader.classList.add('loaded');
+    preloader.addEventListener('transitionend', () => {
+      preloader.style.display = 'none';
+    }, { once: true });
+    
+    // Fallback if transitionend doesn't fire
+    setTimeout(() => {
+      preloader.style.display = 'none';
+    }, 500);
+  }, 2500);
 })();
 
 /* ---------------------------------------------------------------
@@ -280,7 +285,7 @@ function initTestimonialSlider() {
     dotsContainer.innerHTML = '';
     slides.forEach((_, i) => {
       const dot = document.createElement('button');
-      dot.classList.add('slider-dot');
+      dot.classList.add('testimonial-dot');
       dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
       if (i === 0) dot.classList.add('active');
       dot.addEventListener('click', () => goToSlide(i));
@@ -290,7 +295,7 @@ function initTestimonialSlider() {
 
   function updateDots() {
     if (!dotsContainer) return;
-    const dots = dotsContainer.querySelectorAll('.slider-dot');
+    const dots = dotsContainer.querySelectorAll('.testimonial-dot');
     dots.forEach((dot, i) => {
       dot.classList.toggle('active', i === currentIndex);
     });
@@ -419,43 +424,142 @@ function initNewsletter() {
 /* ---------------------------------------------------------------
    9. BLOG CATEGORY FILTER
    --------------------------------------------------------------- */
+/* ---------------------------------------------------------------
+   9. BLOG CATEGORY FILTER & PAGINATION
+   --------------------------------------------------------------- */
 function initBlogFilter() {
   const filterBtns = document.querySelectorAll('.blog-filter-btn');
   const blogCards = document.querySelectorAll('.blog-card');
-  if (!filterBtns.length || !blogCards.length) return;
+  const searchInput = document.querySelector('.blog-search-input');
+  const pagePrev = document.querySelector('.blog-page-prev');
+  const pageNext = document.querySelector('.blog-page-next');
+  const pageNums = document.querySelectorAll('.blog-page-num');
 
+  if (!blogCards.length) return;
+
+  let currentPage = 1;
+  const postsPerPage = 2;
+  let currentFilter = 'all';
+  let searchQuery = '';
+
+  function updateBlogView() {
+    // 1. Filter by category and search
+    const filteredCards = Array.from(blogCards).filter(card => {
+      const category = card.getAttribute('data-category') || '';
+      const title = card.querySelector('.blog-card-title').textContent.toLowerCase();
+      const excerpt = card.querySelector('.blog-card-excerpt').textContent.toLowerCase();
+      const matchesFilter = (currentFilter === 'all' || category === currentFilter);
+      const matchesSearch = (!searchQuery || title.includes(searchQuery) || excerpt.includes(searchQuery));
+      return matchesFilter && matchesSearch;
+    });
+
+    // 2. Paginate filtered list
+    const totalPages = Math.ceil(filteredCards.length / postsPerPage) || 1;
+    if (currentPage > totalPages) currentPage = totalPages;
+    if (currentPage < 1) currentPage = 1;
+
+    const startIdx = (currentPage - 1) * postsPerPage;
+    const endIdx = startIdx + postsPerPage;
+
+    // Show/hide cards
+    blogCards.forEach(card => {
+      const isFiltered = filteredCards.includes(card);
+      if (isFiltered) {
+        const idx = filteredCards.indexOf(card);
+        if (idx >= startIdx && idx < endIdx) {
+          card.style.display = '';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        } else {
+          card.style.display = 'none';
+        }
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // 3. Update pagination buttons
+    if (pagePrev) {
+      pagePrev.disabled = (currentPage === 1);
+      pagePrev.style.opacity = (currentPage === 1) ? '0.5' : '1';
+      pagePrev.style.pointerEvents = (currentPage === 1) ? 'none' : 'auto';
+    }
+    if (pageNext) {
+      pageNext.disabled = (currentPage === totalPages);
+      pageNext.style.opacity = (currentPage === totalPages) ? '0.5' : '1';
+      pageNext.style.pointerEvents = (currentPage === totalPages) ? 'none' : 'auto';
+    }
+
+    pageNums.forEach(btn => {
+      const pageVal = parseInt(btn.getAttribute('data-page'), 10);
+      if (pageVal > totalPages) {
+        btn.style.display = 'none';
+      } else {
+        btn.style.display = '';
+        if (pageVal === currentPage) {
+          btn.className = 'btn btn-primary blog-page-num';
+        } else {
+          btn.className = 'btn btn-outline blog-page-num';
+        }
+      }
+    });
+  }
+
+  // Event Listeners
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Update active button
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
-      const category = btn.getAttribute('data-filter') || btn.getAttribute('data-category') || 'all';
-
-      blogCards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
-
-        if (category === 'all' || cardCategory === category) {
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(20px)';
-          card.style.display = '';
-          // Trigger reflow
-          void card.offsetWidth;
-          requestAnimationFrame(() => {
-            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          });
-        } else {
-          card.style.transition = 'opacity 0.3s ease';
-          card.style.opacity = '0';
-          setTimeout(() => {
-            card.style.display = 'none';
-          }, 300);
-        }
-      });
+      currentFilter = btn.getAttribute('data-filter') || 'all';
+      currentPage = 1;
+      updateBlogView();
     });
   });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      currentPage = 1;
+      updateBlogView();
+    });
+  }
+
+  pageNums.forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentPage = parseInt(btn.getAttribute('data-page'), 10);
+      updateBlogView();
+    });
+  });
+
+  if (pagePrev) {
+    pagePrev.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        updateBlogView();
+      }
+    });
+  }
+
+  if (pageNext) {
+    pageNext.addEventListener('click', () => {
+      const filteredCards = Array.from(blogCards).filter(card => {
+        const category = card.getAttribute('data-category') || '';
+        const title = card.querySelector('.blog-card-title').textContent.toLowerCase();
+        const excerpt = card.querySelector('.blog-card-excerpt').textContent.toLowerCase();
+        const matchesFilter = (currentFilter === 'all' || category === currentFilter);
+        const matchesSearch = (!searchQuery || title.includes(searchQuery) || excerpt.includes(searchQuery));
+        return matchesFilter && matchesSearch;
+      });
+      const totalPages = Math.ceil(filteredCards.length / postsPerPage) || 1;
+      if (currentPage < totalPages) {
+        currentPage++;
+        updateBlogView();
+      }
+    });
+  }
+
+  // Initialize view
+  updateBlogView();
 }
 
 /* ---------------------------------------------------------------

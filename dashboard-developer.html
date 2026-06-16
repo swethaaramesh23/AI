@@ -16,10 +16,11 @@
 
 <div class="dash-layout">
 
-  <!-- SIDEBAR -->
+  <!-- ===== SIDEBAR ===== -->
   <aside class="dash-sidebar" id="dashSidebar">
     <div class="dash-sidebar-header">
       <a href="index.html" class="dash-sidebar-brand">
+        <img src="logo.webp" alt="STACKLY AI" style="height:28px; filter:brightness(10);">
         <span class="dash-sidebar-brand-text">STACKLY AI</span>
       </a>
       <button class="dash-collapse-btn" id="collapseBtn" title="Toggle Sidebar">
@@ -29,37 +30,42 @@
 
     <nav class="dash-nav">
       <div class="dash-nav-group">
-        <div class="dash-nav-label">DEVELOPER</div>
-        <a href="#" class="dash-nav-item active">
+        <div class="dash-nav-label">MAIN</div>
+        <a href="dashboard-developer.html" class="dash-nav-item active">
+          <span class="nav-icon">🤖</span>
+          <span class="nav-text">API Console</span>
+        </a>
+        <a href="dash-dev-keys.html" class="dash-nav-item">
           <span class="nav-icon">🔑</span>
           <span class="nav-text">API Keys</span>
         </a>
-        <a href="#" class="dash-nav-item">
-          <span class="nav-icon">📡</span>
-          <span class="nav-text">Endpoints</span>
-        </a>
-        <a href="#" class="dash-nav-item">
-          <span class="nav-icon">📊</span>
-          <span class="nav-text">Analytics</span>
-        </a>
-        <a href="#" class="dash-nav-item">
+        <a href="dash-dev-docs.html" class="dash-nav-item">
           <span class="nav-icon">📖</span>
           <span class="nav-text">Documentation</span>
         </a>
+        <a href="dash-dev-webhooks.html" class="dash-nav-item">
+          <span class="nav-icon">⚡</span>
+          <span class="nav-text">Webhooks</span>
+        </a>
       </div>
+
       <div class="dash-nav-group">
         <div class="dash-nav-label">ACCOUNT</div>
-        <a href="#" class="dash-nav-item">
-          <span class="nav-icon">💳</span>
-          <span class="nav-text">Billing</span>
-        </a>
-        <a href="#" class="dash-nav-item">
+        <a href="dashboard-settings.html" class="dash-nav-item">
           <span class="nav-icon">⚙️</span>
           <span class="nav-text">Settings</span>
         </a>
-        <a href="index.html" class="dash-nav-item">
-          <span class="nav-icon">🏠</span>
-          <span class="nav-text">Back To Store</span>
+        <a href="dashboard-profile.html" class="dash-nav-item">
+          <span class="nav-icon">👤</span>
+          <span class="nav-text">Profile</span>
+        </a>
+        <a href="dashboard-notifications.html" class="dash-nav-item">
+          <span class="nav-icon">🔔</span>
+          <span class="nav-text">Notifications</span>
+        </a>
+        <a href="dashboard-help.html" class="dash-nav-item">
+          <span class="nav-icon">❓</span>
+          <span class="nav-text">Help & Support</span>
         </a>
       </div>
     </nav>
@@ -84,10 +90,15 @@
           <div class="dash-topbar-subtitle">Developer Console</div>
         </div>
       </div>
-      <div class="dash-topbar-right">
+      <div class="dash-topbar-right" style="display: flex; align-items: center; gap: 1rem;">
         <a href="#" class="dash-logout-btn" style="border-color:#e85d04;color:#e85d04;">Read Docs ↗</a>
         <button class="btn-sm-primary" onclick="alert('New API key generated!')">+ Create New Key</button>
-        <a href="login.html" class="dash-logout-btn" id="logoutBtn">↪ Logout</a>
+
+        <div class="dash-profile" style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 4px 12px 4px 4px; border-radius: 50px; background: #fff; border: 1px solid #e0e5ef; transition: all 0.2s;">
+          <img src="images/7.webp" alt="Developer Profile" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+          <span style="font-weight: 600; font-size: 0.85rem; color: #1a1a2e;" class="hidden-mobile">Developer</span>
+          <span style="color: #888; font-size: 0.7rem; margin-left: 5px;">▼</span>
+        </div>
       </div>
     </header>
 
@@ -235,10 +246,7 @@
     overlay.classList.remove('show');
   });
 
-  document.getElementById('logoutBtn').addEventListener('click', (e) => {
-    e.preventDefault();
-    window.location.href = 'login.html';
-  });
+
 
   window.addEventListener('DOMContentLoaded', () => {
     const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
