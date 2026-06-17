@@ -17,7 +17,7 @@
 
 
 
-  <!-- Navigation -->
+ <!-- Navigation -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
@@ -25,14 +25,15 @@
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html" class="active">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="solutions.html">Solutions</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div class="nav-actions" style="display: flex; gap: 1rem;">
+      <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme" style="background: none; border: none; color: var(--text-bright); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px;"><i class="fa-solid fa-moon"></i></button>
         <a href="login.html" class="btn btn-outline btn-sm">Login</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -40,7 +41,6 @@
       </button>
     </div>
   </nav>
-
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <ul class="mobile-menu-links">
@@ -57,12 +57,12 @@
 
   <main style="flex: 1; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding-top: 80px;">
     <!-- Abstract Background -->
-    <div style="position: absolute; top: -10%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(108, 99, 255, 0.15) 0%, transparent 70%); border-radius: 50%; filter: blur(50px); z-index: -1;"></div>
-    <div style="position: absolute; bottom: -10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%); border-radius: 50%; filter: blur(50px); z-index: -1;"></div>
+    <div style="position: absolute; top: -10%; left: -10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(108, 99, 255, 0.15) 0%, transparent 70%); border-radius: 50%; filter: blur(50px); z-index: -1;"></div>
+    <div style="position: absolute; bottom: -10%; right: -10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%); border-radius: 50%; filter: blur(50px); z-index: -1;"></div>
 
     <div class="container text-center page-enter" style="max-width: 600px;">
-      <h1 style="font-size: clamp(6rem, 15vw, 10rem); line-height: 1; margin: 0; background: var(--gradient-btn); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 10px 30px rgba(108, 99, 255, 0.2);">404</h1>
-      <h2 class="mb-3" style="font-size: 2rem;">Page Not Found</h2>
+      <h1 style="font-size: clamp(3rem, 8vw, 6rem); line-height: 1; margin: 0; background: var(--gradient-btn); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 10px 30px rgba(108, 99, 255, 0.2);">404</h1>
+      <h2 class="mb-3" style="font-size: 1.5rem;">Page Not Found</h2>
       <p class="text-muted mb-5 text-lg">The page may have been moved, deleted, or the URL may be incorrect. Let our AI guide you back to the right destination.</p>
       
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
