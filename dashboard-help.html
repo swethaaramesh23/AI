@@ -8,52 +8,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/dashboard-new.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <script src="js/dashboard.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="dash-body">
 
 <div class="dash-overlay" id="dashOverlay"></div>
 <div class="dash-layout">
   <aside class="dash-sidebar" id="dashSidebar">
+    <!-- Dynamically populated by js/dashboard.js -->
     <div class="dash-sidebar-header">
       <a href="index.html" class="dash-sidebar-brand"><span class="dash-sidebar-brand-text">STACKLY AI</span></a>
-      <button class="dash-collapse-btn" id="collapseBtn"><span class="collapse-icon">«</span></button>
+      <button class="dash-collapse-btn" id="collapseBtn"><span class="collapse-icon">&lt;&lt;</span></button>
     </div>
-    <nav class="dash-nav">
-      <div class="dash-nav-group">
-        <div class="dash-nav-label">MAIN</div>
-        <a href="dashboard-admin.html" class="dash-nav-item"><span class="nav-icon">📊</span><span class="nav-text">Dashboard</span></a>
-        <a href="dashboard-users.html" class="dash-nav-item"><span class="nav-icon">👥</span><span class="nav-text">User Management</span></a>
-        <a href="dashboard-developer.html" class="dash-nav-item"><span class="nav-icon">🤖</span><span class="nav-text">AI Services</span></a>
-        <a href="dashboard-business.html" class="dash-nav-item"><span class="nav-icon">📈</span><span class="nav-text">Analytics</span></a>
-        <a href="dashboard-reports.html" class="dash-nav-item"><span class="nav-icon">📄</span><span class="nav-text">Reports</span></a>
-      </div>
-      <div class="dash-nav-group">
-        <div class="dash-nav-label">ACCOUNT</div>
-        <a href="dashboard-settings.html" class="dash-nav-item"><span class="nav-icon">⚙️</span><span class="nav-text">Settings</span></a>
-        <a href="dashboard-profile.html" class="dash-nav-item"><span class="nav-icon">👤</span><span class="nav-text">Profile</span></a>
-        <a href="dashboard-notifications.html" class="dash-nav-item"><span class="nav-icon">🔔</span><span class="nav-text">Notifications</span></a>
-        <a href="dashboard-help.html" class="dash-nav-item active"><span class="nav-icon">❓</span><span class="nav-text">Help & Support</span></a>
-      </div>
-    </nav>
-    <div class="dash-signout"><a href="login.html"><span class="nav-icon">🚪</span><span class="nav-text">Sign Out</span></a></div>
   </aside>
 
   <div class="dash-main" id="dashMain">
-    <header class="dash-topbar">
-      <div class="dash-topbar-left" style="display: flex; align-items: center; gap: 15px;">
-        <button class="dash-mobile-toggle" id="mobileToggle">☰</button>
-        <div>
-          <div class="dash-topbar-title">Help & Support</div>
-          <div class="dash-topbar-subtitle">Get assistance with STACKLY AI</div>
-        </div>
-      </div>
-      <div class="dash-topbar-right" style="display: flex; align-items: center; gap: 1rem;">
-        <div class="dash-profile" style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 4px 12px 4px 4px; border-radius: 50px; background: #fff; border: 1px solid #e0e5ef;">
-          <img src="images/3.webp" alt="Admin Profile" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
-          <span style="font-weight: 600; font-size: 0.85rem; color: #1a1a2e;" class="hidden-mobile">Admin</span>
-          <span style="color: #888; font-size: 0.7rem; margin-left: 5px;">▼</span>
-        </div>
-      </div>
+    <header class="dash-topbar" data-title="Help & Support" data-subtitle="Get assistance with STACKLY AI">
+      <!-- Dynamically populated by js/dashboard.js -->
     </header>
 
     <div class="dash-content">
@@ -61,36 +34,14 @@
         <h3>How can we help you today?</h3>
         <p style="color:#666; margin-bottom:1.5rem; margin-top:0.5rem; font-size: 0.95rem;">Need assistance? Contact our support team or check the documentation for quick answers.</p>
         <div style="display:flex; flex-direction:column; gap:1rem;">
-          <a href="#" style="padding:1.2rem; border:1px solid #e0e5ef; border-radius:8px; text-decoration:none; color:#1a1a2e; font-weight:600; display: flex; align-items: center; gap: 15px; background: #fafbfc; transition: background 0.2s;"><span style="font-size: 1.4rem;">📖</span> Read Documentation</a>
-          <a href="mailto:support@stackly.ai" style="padding:1.2rem; border:1px solid #e0e5ef; border-radius:8px; text-decoration:none; color:#1a1a2e; font-weight:600; display: flex; align-items: center; gap: 15px; background: #fafbfc; transition: background 0.2s;"><span style="font-size: 1.4rem;">📧</span> Contact Support</a>
-          <a href="#" style="padding:1.2rem; border:1px solid #e0e5ef; border-radius:8px; text-decoration:none; color:#1a1a2e; font-weight:600; display: flex; align-items: center; gap: 15px; background: #fafbfc; transition: background 0.2s;"><span style="font-size: 1.4rem;">💬</span> Start Live Chat</a>
+          <a href="dash-dev-docs.html" style="padding:1.2rem; border:1px solid #e0e5ef; border-radius:8px; text-decoration:none; color:#1a1a2e; font-weight:600; display: flex; align-items: center; gap: 15px; background: #fafbfc; transition: background 0.2s;"><span style="font-size: 1.2rem; color: var(--primary);"><i class="fa-solid fa-book"></i></span> Read Documentation</a>
+          <a href="mailto:support@stackly.ai" style="padding:1.2rem; border:1px solid #e0e5ef; border-radius:8px; text-decoration:none; color:#1a1a2e; font-weight:600; display: flex; align-items: center; gap: 15px; background: #fafbfc; transition: background 0.2s;"><span style="font-size: 1.2rem; color: var(--secondary);"><i class="fa-solid fa-envelope"></i></span> Contact Support</a>
+          <a href="#" style="padding:1.2rem; border:1px solid #e0e5ef; border-radius:8px; text-decoration:none; color:#1a1a2e; font-weight:600; display: flex; align-items: center; gap: 15px; background: #fafbfc; transition: background 0.2s;"><span style="font-size: 1.2rem; color: var(--accent);"><i class="fa-solid fa-comments"></i></span> Start Live Chat</a>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<script>
-  const sidebar = document.getElementById('dashSidebar');
-  const main = document.getElementById('dashMain');
-  const collapseBtn = document.getElementById('collapseBtn');
-  const overlay = document.getElementById('dashOverlay');
-  const mobileToggle = document.getElementById('mobileToggle');
-
-  collapseBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('collapsed');
-    main.classList.toggle('collapsed');
-  });
-
-  mobileToggle.addEventListener('click', () => {
-    sidebar.classList.toggle('mobile-open');
-    overlay.classList.toggle('show');
-  });
-
-  overlay.addEventListener('click', () => {
-    sidebar.classList.remove('mobile-open');
-    overlay.classList.remove('show');
-  });
-</script>
 </body>
 </html>

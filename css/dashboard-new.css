@@ -106,6 +106,10 @@ body.dash-body {
 
 .dash-collapse-btn:hover { background: rgba(255,255,255,0.15); }
 
+.dash-sidebar-close-btn {
+  display: none;
+}
+
 .dash-sidebar.collapsed .dash-collapse-btn .collapse-icon { transform: rotate(180deg); }
 
 .collapse-icon {
@@ -264,8 +268,12 @@ body.dash-body {
   justify-content: space-between;
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 200;
   gap: 1rem;
+  /* Solid background ensures visibility while scrolling in light mode */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
 }
 
 .dash-topbar-left {
@@ -334,6 +342,53 @@ body.dash-body {
 .dash-content {
   padding: 2rem;
   flex: 1;
+  /* No top overlap since topbar is sticky in normal flow */
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   DASHBOARD BANNER IMAGE
+   ============================================================ */
+.dash-banner {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  position: relative;
+  height: 180px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+}
+
+.dash-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dash-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(37,99,235,0.72) 0%, rgba(6,182,212,0.50) 100%);
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  gap: 1rem;
+}
+
+.dash-banner-overlay h2 {
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+
+.dash-banner-overlay p {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.95rem;
+  margin: 4px 0 0;
 }
 
 /* ============================================================
@@ -604,33 +659,193 @@ body.dash-body {
 
 @media (max-width: 768px) {
   .hidden-mobile { display: none !important; }
+
+  .dash-search-container {
+    display: none !important;
+  }
+
+  .dash-topbar-subtitle {
+    display: none !important;
+  }
+
+  .dash-table-card {
+    overflow-x: auto !important;
+  }
+
   .dash-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px !important;
     transform: translateX(-100%);
-    width: 240px !important;
+    transition: transform 0.3s ease;
+    z-index: 1010 !important;
   }
 
   .dash-sidebar.mobile-open {
-    transform: translateX(0);
+    transform: translateX(0) !important;
   }
 
+  /* On mobile the sidebar is never in collapsed icon-only mode */
   .dash-sidebar.collapsed {
+    width: 260px !important;
     transform: translateX(-100%);
+  }
+
+  .dash-sidebar.mobile-open.collapsed {
+    transform: translateX(0) !important;
+  }
+
+  .dash-sidebar-close-btn {
+    display: block !important;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 0 5px;
+    line-height: 1;
+  }
+
+  .dash-collapse-btn {
+    display: none !important;
+  }
+
+  /* Ensure text is always visible on mobile sidebar menu */
+  .dash-sidebar .dash-nav-item .nav-text {
+    opacity: 1 !important;
+    display: inline-block !important;
+    width: auto !important;
+    overflow: visible !important;
+  }
+
+  .dash-sidebar .dash-signout a span.nav-text {
+    opacity: 1 !important;
+    display: inline-block !important;
+    width: auto !important;
+    overflow: visible !important;
+  }
+
+  .dash-sidebar .dash-nav-label {
+    opacity: 1 !important;
+    height: auto !important;
+    padding: 0.7rem 1.2rem 0.3rem !important;
   }
 
   .dash-main {
     margin-left: 0 !important;
+    width: 100% !important;
+    min-width: 0;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  /* Responsive header style */
+  .dash-topbar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    height: 60px !important;
+    padding: 0 15px !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    z-index: 1000 !important;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Fix for light theme header visibility while scrolling */
+  body[data-theme="light"] .dash-topbar,
+  [data-theme="light"] .dash-topbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+  }
+
+  body:not([data-theme="dark"]) .dash-topbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+  }
+
+  .dash-topbar-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 1;
+  }
+
+  /* Set logo width */
+  .dash-topbar-logo {
+    width: 120px !important;
+    height: auto !important;
+    max-height: 35px !important;
+    display: block !important;
   }
 
   .dash-mobile-toggle {
-    display: flex;
+    display: flex !important;
+    order: -1; /* Place hamburger menu to the left/center next to logo */
   }
 
+  /* Replace title with "Dashboard" */
+  .dash-desktop-title-container {
+    display: none !important;
+  }
+
+  .dash-mobile-title {
+    display: block !important;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1a1a2e !important; /* Ensure visible in light/day mode */
+  }
+
+  [data-theme="dark"] .dash-mobile-title {
+    color: #ffffff !important;
+  }
+
+  /* Hide search bar and logout button in header */
+  .dash-search-container,
+  .dash-logout-btn,
+  .hidden-mobile {
+    display: none !important;
+  }
+
+  /* Profile image on the right */
+  .dash-topbar-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+  }
+
+  .dash-profile {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .dash-profile img {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    object-fit: cover;
+  }
+
+  .dash-profile span {
+    display: none !important;
+  }
+
+  /* Dashboard cards start below the header */
   .dash-content {
+    margin-top: 80px !important;
     padding: 1.2rem;
-  }
-
-  .dash-topbar {
-    padding: 0 1rem;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
   }
 
   .dash-stats-grid {
@@ -643,7 +858,7 @@ body.dash-body {
 
 @media (max-width: 500px) {
   .dash-stats-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr; /* Display one stat card per row on small mobiles */
     gap: 0.7rem;
   }
 
@@ -696,6 +911,32 @@ body.dash-body {
 img, video, iframe {
   max-width: 100%;
   height: auto;
+}
+
+/* Profile desktop styling */
+.dash-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 4px 12px 4px 4px;
+  border-radius: 50px;
+  background: #ffffff;
+  border: 1px solid #e0e5ef;
+  transition: all 0.2s;
+}
+
+.dash-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dash-profile span {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #1a1a2e;
 }
 
 /* Topbar Profile Dropdown Styling */
@@ -817,4 +1058,213 @@ img, video, iframe {
   background: #1e293b;
   border-color: #334155;
   color: #ffffff;
+}
+
+/* Centralized search container styling */
+.dash-search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 380px;
+  width: 100%;
+  background: #f1f5f9;
+  border-radius: 50px;
+  padding: 6px 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.dash-search-container .search-icon {
+  color: #64748b;
+  margin-right: 8px;
+  font-size: 0.9rem;
+}
+
+.dash-search-container input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 0.875rem;
+  color: #1f2937;
+  outline: none;
+}
+
+.dash-search-container input::placeholder {
+  color: #9ca3af;
+}
+
+/* Dark mode for search container */
+[data-theme="dark"] .dash-search-container {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+[data-theme="dark"] .dash-search-container input {
+  color: #f3f4f6;
+}
+
+[data-theme="dark"] .dash-search-container .search-icon {
+  color: #94a3b8;
+}
+
+/* Topbar logo responsiveness */
+.dash-topbar-logo {
+  height: 32px;
+  border-radius: 4px;
+  transition: height 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .dash-topbar-logo {
+    height: 38px;
+  }
+}
+
+/* ============================================================
+   LIGHT / DAY MODE FIXES
+   ============================================================ */
+
+/* Ensure topbar is always opaque & visible in light mode during scroll */
+body.dash-body .dash-topbar {
+  background: #ffffff;
+}
+
+[data-theme="dark"] body.dash-body .dash-topbar,
+[data-theme="dark"] .dash-topbar {
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.30);
+}
+
+/* Light mode topbar text */
+body.dash-body .dash-topbar-title { color: #1a1a2e; }
+body.dash-body .dash-topbar-subtitle { color: #64748b; }
+[data-theme="dark"] .dash-topbar-title { color: #ffffff; }
+[data-theme="dark"] .dash-topbar-subtitle { color: #94a3b8; }
+
+/* Mobile toggle icon always visible */
+.dash-mobile-toggle {
+  color: #1a1a2e;
+}
+[data-theme="dark"] .dash-mobile-toggle {
+  color: #ffffff;
+}
+
+/* ============================================================
+   FOOTER VISIBILITY (light and dark mode)
+   ============================================================ */
+
+/* Dashboard pages don't typically have the public footer,
+   but the public pages footer needs to be clearly readable. */
+.footer {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+/* Light mode footer should stay dark for visual contrast */
+[data-theme="light"] .footer,
+body[data-theme="light"] .footer {
+  background: #1e293b !important;
+  color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .footer .text-muted,
+body[data-theme="light"] .footer .text-muted,
+.footer .text-muted {
+  color: #94a3b8 !important;
+}
+
+[data-theme="light"] .footer h4,
+[data-theme="light"] .footer .footer-title,
+.footer h4, .footer .footer-title {
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .footer a,
+.footer a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+[data-theme="light"] .footer a:hover,
+.footer a:hover {
+  color: #38bdf8 !important;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
+  padding-top: 1.5rem !important;
+}
+
+.footer-bottom p, .footer-bottom a {
+  color: #94a3b8 !important;
+}
+
+/* ============================================================
+   MOBILE SIDEBAR — Nav labels ALWAYS visible
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Override the collapsed-state hiding rules so text is always shown */
+  .dash-sidebar .dash-nav-item .nav-text {
+    opacity: 1 !important;
+    width: auto !important;
+    display: inline !important;
+    overflow: visible !important;
+    white-space: nowrap;
+  }
+
+  .dash-sidebar .dash-nav-item {
+    justify-content: flex-start !important;
+    padding: 12px 1.2rem !important;
+    gap: 12px !important;
+  }
+
+  .dash-sidebar .dash-nav-item.active {
+    border-radius: 0 50px 50px 0 !important;
+    margin-right: 12px !important;
+  }
+
+  .dash-sidebar .dash-nav-label {
+    opacity: 1 !important;
+    height: auto !important;
+    padding: 0.7rem 1.2rem 0.3rem !important;
+  }
+
+  .dash-sidebar .dash-sidebar-brand-text {
+    opacity: 1 !important;
+    width: auto !important;
+  }
+
+  .dash-sidebar .dash-signout a .nav-text {
+    opacity: 1 !important;
+    width: auto !important;
+    display: inline !important;
+    overflow: visible !important;
+  }
+
+  /* Dashboard content — no margin-top needed since topbar is fixed on mobile */
+  .dash-content {
+    margin-top: 0 !important;
+    padding-top: 84px !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Responsive banner */
+  .dash-banner {
+    height: 130px !important;
+    border-radius: 10px !important;
+  }
+
+  .dash-banner-overlay h2 {
+    font-size: 1.15rem !important;
+  }
+
+  .dash-banner-overlay p {
+    font-size: 0.8rem !important;
+  }
+
+  .dash-charts-grid {
+    grid-template-columns: 1fr !important;
+  }
 }

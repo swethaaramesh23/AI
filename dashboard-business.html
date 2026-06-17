@@ -8,7 +8,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/dashboard-new.css">
+  <link rel="stylesheet" href="css/animations.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/dashboard.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="dash-body">
 
@@ -18,87 +21,22 @@
 
   <!-- ===== SIDEBAR ===== -->
   <aside class="dash-sidebar" id="dashSidebar">
+    <!-- Dynamically populated by js/dashboard.js -->
     <div class="dash-sidebar-header">
       <a href="index.html" class="dash-sidebar-brand">
-        
         <span class="dash-sidebar-brand-text">STACKLY AI</span>
       </a>
       <button class="dash-collapse-btn" id="collapseBtn" title="Toggle Sidebar">
-        <span class="collapse-icon">«</span>
+        <span class="collapse-icon">&lt;&lt;</span>
       </button>
-    </div>
-
-    <nav class="dash-nav">
-      <div class="dash-nav-group">
-        <div class="dash-nav-label">MAIN</div>
-        <a href="dashboard-business.html" class="dash-nav-item active">
-          <span class="nav-icon">📈</span>
-          <span class="nav-text">Analytics Overview</span>
-        </a>
-        <a href="dash-bus-team.html" class="dash-nav-item">
-          <span class="nav-icon">👥</span>
-          <span class="nav-text">Team Members</span>
-        </a>
-        <a href="dash-bus-reports.html" class="dash-nav-item">
-          <span class="nav-icon">📄</span>
-          <span class="nav-text">Business Reports</span>
-        </a>
-        <a href="dash-bus-billing.html" class="dash-nav-item">
-          <span class="nav-icon">💳</span>
-          <span class="nav-text">Billing</span>
-        </a>
-      </div>
-
-      <div class="dash-nav-group">
-        <div class="dash-nav-label">ACCOUNT</div>
-        <a href="dashboard-settings.html" class="dash-nav-item">
-          <span class="nav-icon">⚙️</span>
-          <span class="nav-text">Settings</span>
-        </a>
-        <a href="dashboard-profile.html" class="dash-nav-item">
-          <span class="nav-icon">👤</span>
-          <span class="nav-text">Profile</span>
-        </a>
-        <a href="dashboard-notifications.html" class="dash-nav-item">
-          <span class="nav-icon">🔔</span>
-          <span class="nav-text">Notifications</span>
-        </a>
-        <a href="dashboard-help.html" class="dash-nav-item">
-          <span class="nav-icon">❓</span>
-          <span class="nav-text">Help & Support</span>
-        </a>
-      </div>
-    </nav>
-
-    <div class="dash-signout">
-      <a href="login.html">
-        <span class="nav-icon">🚪</span>
-        <span class="nav-text">Sign Out</span>
-      </a>
     </div>
   </aside>
 
   <!-- MAIN -->
   <div class="dash-main" id="dashMain">
 
-    <header class="dash-topbar">
-      <div class="dash-topbar-left" style="display: flex; align-items: center; gap: 15px;">
-        <img src="logo.webp" alt="STACKLY AI" style="height:32px; border-radius:4px;">
-        <button class="dash-mobile-toggle" id="mobileToggle">☰</button>
-        <div>
-          <div class="dash-topbar-title">Business Dashboard</div>
-          <div class="dash-topbar-subtitle">Enterprise Analytics Overview</div>
-        </div>
-      </div>
-      <div class="dash-topbar-right" style="display: flex; align-items: center; gap: 1rem;">
-        <button class="btn-sm-primary" onclick="location.href='#'">+ New Report</button>
-
-        <div class="dash-profile" style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 4px 12px 4px 4px; border-radius: 50px; background: #fff; border: 1px solid #e0e5ef; transition: all 0.2s;">
-          <img src="images/4.webp" alt="Business User Profile" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
-          <span style="font-weight: 600; font-size: 0.85rem; color: #1a1a2e;" class="hidden-mobile">Manager</span>
-          <span style="color: #888; font-size: 0.7rem; margin-left: 5px;">▼</span>
-        </div>
-      </div>
+    <header class="dash-topbar" data-title="Business Dashboard" data-subtitle="Enterprise Analytics Overview">
+      <!-- Dynamically populated by js/dashboard.js -->
     </header>
 
     <div class="dash-content">
@@ -109,17 +47,17 @@
           <div class="stat-body">
             <div class="stat-label">Monthly Spend</div>
             <div class="stat-value">$4,820</div>
-            <div class="stat-trend up">↑ +6.3% vs last month</div>
+            <div class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> +6.3% vs last month</div>
           </div>
-          <div class="stat-icon green">💰</div>
+          <div class="stat-icon green"><i class="fa-solid fa-wallet"></i></div>
         </div>
         <div class="dash-stat-card">
           <div class="stat-body">
             <div class="stat-label">Active Users</div>
             <div class="stat-value">48</div>
-            <div class="stat-trend up">↑ 4 new this week</div>
+            <div class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> 4 new this week</div>
           </div>
-          <div class="stat-icon blue">👥</div>
+          <div class="stat-icon blue"><i class="fa-solid fa-users"></i></div>
         </div>
         <div class="dash-stat-card">
           <div class="stat-body">
@@ -127,15 +65,15 @@
             <div class="stat-value">2.8M</div>
             <div class="stat-trend neutral">72% of quota used</div>
           </div>
-          <div class="stat-icon orange">⚡</div>
+          <div class="stat-icon orange"><i class="fa-solid fa-bolt"></i></div>
         </div>
         <div class="dash-stat-card">
           <div class="stat-body">
             <div class="stat-label">Avg Response Time</div>
             <div class="stat-value">124ms</div>
-            <div class="stat-trend up">↑ 12ms faster</div>
+            <div class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> 12ms faster</div>
           </div>
-          <div class="stat-icon purple">⏱️</div>
+          <div class="stat-icon purple"><i class="fa-solid fa-hourglass-half"></i></div>
         </div>
       </div>
 
@@ -170,7 +108,7 @@
       <div class="dash-table-card">
         <div class="dash-table-header">
           <h3>Team Members</h3>
-          <button class="btn-sm-primary" onclick="location.href='#'">+ Invite User</button>
+          <button class="btn-sm-primary" onclick="location.href='404.html'">+ Invite User</button>
         </div>
         <div class="dash-table-wrap">
           <table class="dash-table">
@@ -222,27 +160,6 @@
 </div>
 
 <script>
-  const sidebar = document.getElementById('dashSidebar');
-  const main = document.getElementById('dashMain');
-  const collapseBtn = document.getElementById('collapseBtn');
-  const overlay = document.getElementById('dashOverlay');
-  const mobileToggle = document.getElementById('mobileToggle');
-
-  collapseBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('collapsed');
-    main.classList.toggle('collapsed');
-  });
-  mobileToggle.addEventListener('click', () => {
-    sidebar.classList.toggle('mobile-open');
-    overlay.classList.toggle('show');
-  });
-  overlay.addEventListener('click', () => {
-    sidebar.classList.remove('mobile-open');
-    overlay.classList.remove('show');
-  });
-
-
-
   window.addEventListener('DOMContentLoaded', () => {
     const days = Array.from({length: 30}, (_, i) => `Day ${i + 1}`);
     new Chart(document.getElementById('apiChart'), {
@@ -288,4 +205,3 @@
 </script>
 </body>
 </html>
-

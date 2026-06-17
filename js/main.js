@@ -49,13 +49,18 @@
     }, 500);
   }
 
-  // Hide preloader when page is fully loaded
-  window.addEventListener('load', () => {
-    setTimeout(hidePreloader, 300);
+  // Hide preloader when DOM content is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(hidePreloader, 100);
   });
 
-  // Fallback: Force preloader to close after 1.5 seconds max
-  setTimeout(hidePreloader, 1500);
+  // Hide preloader when page is fully loaded
+  window.addEventListener('load', () => {
+    hidePreloader();
+  });
+
+  // Fallback: Force preloader to close after 500ms max
+  setTimeout(hidePreloader, 500);
 })();
 
 /* ---------------------------------------------------------------
@@ -678,7 +683,7 @@ function initChatbot() {
     if (chatWindow.classList.contains('active') && isFirstOpen) {
       isFirstOpen = false;
       setTimeout(() => {
-        addMessage('Hello! 👋 Welcome to STACKLY AI. How can I help you today?', 'bot');
+        addMessage('Hello! Welcome to STACKLY AI. How can I help you today?', 'bot');
       }, 500);
     }
 
@@ -969,7 +974,7 @@ function initThemeToggle() {
   const themeToggle = document.getElementById('themeToggle');
   if (!themeToggle) return;
 
-  const currentTheme = localStorage.getItem('stackly_theme') || 'light';
+  const currentTheme = localStorage.getItem('stackly_theme') || 'dark';
   applyTheme(currentTheme);
 
   function applyTheme(theme) {

@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/auth.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -34,7 +35,7 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme" style="background: none; border: none; color: var(--text-bright); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px;">🌙</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme" style="background: none; border: none; color: var(--text-bright); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px;"><i class="fa-solid fa-moon"></i></button>
         <a href="login.html" class="btn btn-outline btn-sm">Login</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -62,7 +63,6 @@
   <main class="auth-body">
     <div class="auth-card-new" data-aos="fade-up">
 
-      <p class="auth-tagline">Welcome to STACKLY AI</p>
       <h1>Welcome Back!</h1>
 
       <!-- Alert -->
@@ -72,27 +72,27 @@
 
         <!-- Email -->
         <div class="auth-field">
-          <span class="field-icon">✉️</span>
+          <span class="field-icon"><i class="fa-solid fa-envelope"></i></span>
           <input type="email" id="loginEmail" placeholder="Email Address" required autocomplete="email">
         </div>
 
         <!-- Password -->
         <div class="auth-field">
-          <span class="field-icon">🔒</span>
+          <span class="field-icon"><i class="fa-solid fa-lock"></i></span>
           <input type="password" id="loginPassword" placeholder="Password" required autocomplete="current-password">
-          <span class="field-icon-right" id="toggleLoginPw">👁</span>
+          <span class="field-icon-right" id="toggleLoginPw" style="cursor: pointer;"><i class="fa-solid fa-eye"></i></span>
         </div>
 
         <!-- Role -->
         <div class="auth-field">
-          <span class="field-icon">👤</span>
+          <span class="field-icon"><i class="fa-solid fa-user"></i></span>
           <select id="loginRole" required>
             <option value="" disabled selected>Select Your Role</option>
             <option value="user">User</option>
             <option value="admin">Admin</option>
             <option value="developer">Developer</option>
           </select>
-          <span class="field-icon-right" style="pointer-events:none;">▼</span>
+          <span class="field-icon-right" style="pointer-events:none;"><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem;"></i></span>
         </div>
 
         <!-- Remember / Forgot -->
@@ -106,7 +106,7 @@
 
         <!-- Submit -->
         <button type="submit" class="auth-btn-main" id="loginBtn" style="background-color: rgb(68, 7, 236); border-color: purple;">
-          <span id="loginBtnText">Sign In ➜</span>
+          <span id="loginBtnText">Sign In <i class="fa-solid fa-arrow-right"></i></span>
           <span id="loginBtnLoader" style="display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite;"></span>
         </button>
 
@@ -135,7 +135,7 @@
       <p class="auth-footer-link">New to Stackly? <a href="signup.html">Create an account</a></p>
 
       <div class="auth-back-home">
-        <a href="index.html">← Back To Home</a>
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back To Home</a>
       </div>
 
     </div>
@@ -150,8 +150,13 @@
   document.getElementById('toggleLoginPw').addEventListener('click', () => {
     const pw = document.getElementById('loginPassword');
     const icon = document.getElementById('toggleLoginPw');
-    if (pw.type === 'password') { pw.type = 'text'; icon.textContent = '🙈'; }
-    else { pw.type = 'password'; icon.textContent = '👁'; }
+    if (pw.type === 'password') {
+      pw.type = 'text';
+      icon.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+    } else {
+      pw.type = 'password';
+      icon.innerHTML = '<i class="fa-solid fa-eye"></i>';
+    }
   });
 
   // Forgot password
@@ -178,4 +183,3 @@
 
 </body>
 </html>
-

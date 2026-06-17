@@ -12,6 +12,7 @@
   
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -40,7 +41,8 @@
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div class="nav-actions" style="display: flex; gap: 1rem;">
+      <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme" style="background: none; border: none; color: var(--text-bright); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px;"><i class="fa-solid fa-moon"></i></button>
         <a href="login.html" class="btn btn-outline btn-sm">Login</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -65,14 +67,14 @@
   </div>
 
   <main>
-    <!-- Page Hero Banner -->
+    <!-- Page Hero -->
     <section class="about-hero hero" style="min-height: 50vh; padding-top: 120px; display: flex; flex-direction: column; justify-content: center; text-align: center; background: linear-gradient(to bottom, rgba(10,14,39,1) 0%, rgba(6,9,24,1) 100%);">
       <div class="container page-enter">
         <span class="section-subtitle">ABOUT US</span>
         <h1 class="mt-2 mb-3 gradient-text" style="font-size: clamp(2.5rem, 5vw, 4rem);">Pioneering AI Innovation Since 2018</h1>
         <p class="text-muted mx-auto mb-4" style="max-width: 700px; font-size: 1.2rem;">We are a team of passionate technologists dedicated to building the intelligent systems that will power tomorrow's enterprises.</p>
         <div class="breadcrumb text-sm text-muted">
-          <a href="index.html" class="hover-text-primary">Home</a> <span style="margin: 0 10px;">></span> <span style="color: white;">About Us</span>
+          <a href="index.html" class="hover-text-primary">Home</a> <span style="margin: 0 10px;">&gt;</span> <span style="color: white;">About Us</span>
         </div>
       </div>
     </section>
@@ -96,12 +98,12 @@
     <section class="section bg-darker">
       <div class="container grid-2" style="gap: 2rem;">
         <div class="glass-card text-center hover-lift" style="padding: 3rem;" data-aos="fade-up">
-          <div style="font-size: 3rem; margin-bottom: 1.5rem;">🎯</div>
+          <div style="font-size: 3rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-crosshairs"></i></div>
           <h3 class="mb-3">Our Mission</h3>
           <p class="text-muted">To democratize access to advanced artificial intelligence, enabling organizations to unlock new efficiencies, discover hidden insights, and create unprecedented value for their customers through ethical and transparent AI systems.</p>
         </div>
         <div class="glass-card text-center hover-lift" style="padding: 3rem;" data-aos="fade-up" data-aos-delay="100">
-          <div style="font-size: 3rem; margin-bottom: 1.5rem;">👁️</div>
+          <div style="font-size: 3rem; margin-bottom: 1.5rem;"><i class="fa-solid fa-eye"></i></div>
           <h3 class="mb-3">Our Vision</h3>
           <p class="text-muted">We envision a future where human ingenuity is seamlessly augmented by intelligent automation, where complex global challenges are solved collaboratively by humans and AI, creating a more efficient, sustainable, and prosperous world.</p>
         </div>
@@ -116,32 +118,32 @@
       </div>
       <div class="container values-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
         <div class="value-card glass-card text-center hover-scale" data-aos="zoom-in" data-aos-delay="100">
-          <div style="font-size: 2.5rem; margin-bottom: 1rem;">💡</div>
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-lightbulb"></i></div>
           <h3 class="mb-2">Innovation</h3>
           <p class="text-muted text-sm">We constantly push the boundaries of what's possible, embracing new ideas and challenging the status quo.</p>
         </div>
         <div class="value-card glass-card text-center hover-scale" data-aos="zoom-in" data-aos-delay="200">
-          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🛡️</div>
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-shield-halved"></i> </div>
           <h3 class="mb-2">Integrity</h3>
           <p class="text-muted text-sm">We build ethical, transparent AI systems with a steadfast commitment to data privacy and security.</p>
         </div>
         <div class="value-card glass-card text-center hover-scale" data-aos="zoom-in" data-aos-delay="300">
-          <div style="font-size: 2.5rem; margin-bottom: 1rem;">⭐</div>
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-star"></i></div>
           <h3 class="mb-2">Excellence</h3>
           <p class="text-muted text-sm">We hold ourselves to the highest standards, delivering robust, high-performance solutions without compromise.</p>
         </div>
         <div class="value-card glass-card text-center hover-scale" data-aos="zoom-in" data-aos-delay="400">
-          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤝</div>
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-handshake"></i></div>
           <h3 class="mb-2">Collaboration</h3>
           <p class="text-muted text-sm">We believe the best results come from diverse teams working closely with our clients as true partners.</p>
         </div>
         <div class="value-card glass-card text-center hover-scale" data-aos="zoom-in" data-aos-delay="500">
-          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-crosshairs"></i></div>
           <h3 class="mb-2">Customer Focus</h3>
           <p class="text-muted text-sm">Our success is measured entirely by the tangible value and ROI we deliver to our customers.</p>
         </div>
         <div class="value-card glass-card text-center hover-scale" data-aos="zoom-in" data-aos-delay="600">
-          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌱</div>
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-seedling"></i></div>
           <h3 class="mb-2">Sustainability</h3>
           <p class="text-muted text-sm">We optimize our models for computational efficiency, minimizing the carbon footprint of AI operations.</p>
         </div>
@@ -156,46 +158,54 @@
       </div>
       <div class="container team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
         <div class="team-card glass-card text-center hover-lift" data-aos="fade-up">
-          <div class="team-avatar mx-auto mb-4" style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #6C63FF, #A855F7); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; color: white;">ED</div>
+          <div class="team-avatar mx-auto mb-4" style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem;">
+            <img src="images/Elena Rostova.webp" alt="Dr. Elena Davies" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
           <h3 class="mb-1">Dr. Elena Davies</h3>
-          <p class="text-primary text-sm mb-3">CEO & Founder</p>
+          <p class="text-primary text-sm mb-3">CEO &amp; Founder</p>
           <p class="text-muted text-sm mb-4">Former AI Research Lead at MIT with over 15 years of experience in neural network architecture.</p>
           <div class="flex-center" style="gap: 15px;">
-            <a href="#" class="text-muted hover-text-primary">in</a>
-            <a href="#" class="text-muted hover-text-primary">𝕏</a>
+            <a href="#" class="text-muted hover-text-primary"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="text-muted hover-text-primary"><i class="fa-brands fa-x-twitter"></i></a>
           </div>
         </div>
         
         <div class="team-card glass-card text-center hover-lift" data-aos="fade-up" data-aos-delay="100">
-          <div class="team-avatar mx-auto mb-4" style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #00D4FF, #6C63FF); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; color: white;">MR</div>
+          <div class="team-avatar mx-auto mb-4" style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem;">
+            <img src="images/Dr. Marcus Webb.webp" alt="Marcus Reed" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
           <h3 class="mb-1">Marcus Reed</h3>
           <p class="text-primary text-sm mb-3">Chief Technology Officer</p>
           <p class="text-muted text-sm mb-4">Pioneered scalable infrastructure solutions at major cloud providers before joining STACKLY AI.</p>
           <div class="flex-center" style="gap: 15px;">
-            <a href="#" class="text-muted hover-text-primary">in</a>
-            <a href="#" class="text-muted hover-text-primary">⌨</a>
+            <a href="#" class="text-muted hover-text-primary"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="text-muted hover-text-primary"><i class="fa-solid fa-keyboard"></i></a>
           </div>
         </div>
 
         <div class="team-card glass-card text-center hover-lift" data-aos="fade-up" data-aos-delay="200">
-          <div class="team-avatar mx-auto mb-4" style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #A855F7, #00D4FF); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; color: white;">SK</div>
+          <div class="team-avatar mx-auto mb-4" style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem;">
+            <img src="images/David Chen.webp" alt="Dr. Sarah Kim" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
           <h3 class="mb-1">Dr. Sarah Kim</h3>
           <p class="text-primary text-sm mb-3">Head of AI Research</p>
           <p class="text-muted text-sm mb-4">Author of 20+ published papers on generative models and unsupervised learning techniques.</p>
           <div class="flex-center" style="gap: 15px;">
-            <a href="#" class="text-muted hover-text-primary">in</a>
-            <a href="#" class="text-muted hover-text-primary">𝕏</a>
+            <a href="#" class="text-muted hover-text-primary"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="text-muted hover-text-primary"><i class="fa-brands fa-x-twitter"></i></a>
           </div>
         </div>
 
         <div class="team-card glass-card text-center hover-lift" data-aos="fade-up" data-aos-delay="300">
-          <div class="team-avatar mx-auto mb-4" style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #FF6F00, #A855F7); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; color: white;">JP</div>
+          <div class="team-avatar mx-auto mb-4" style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem;">
+            <img src="images/james.webp" alt="James Patel" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
           <h3 class="mb-1">James Patel</h3>
           <p class="text-primary text-sm mb-3">VP of Engineering</p>
           <p class="text-muted text-sm mb-4">Expert in distributed systems and MLOps, ensuring our platform maintains 99.9% uptime.</p>
           <div class="flex-center" style="gap: 15px;">
-            <a href="#" class="text-muted hover-text-primary">in</a>
-            <a href="#" class="text-muted hover-text-primary">⌨</a>
+            <a href="#" class="text-muted hover-text-primary"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="text-muted hover-text-primary"><i class="fa-solid fa-keyboard"></i></a>
           </div>
         </div>
       </div>
@@ -322,10 +332,10 @@
           </a>
           <p class="footer-description text-muted mt-3 mb-4">Empowering businesses with cutting-edge AI solutions. Transform your operations with intelligent automation and data-driven insights.</p>
           <div class="footer-social" style="display: flex; gap: 15px;">
-             <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="Twitter" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">𝕏</a>
-            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">in</a>
-            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="GitHub" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">⌨</a>
-            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="YouTube" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">▶</a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="Twitter" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="GitHub" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);"><i class="fa-brands fa-github"></i></a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="YouTube" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
         <div class="footer-links-col">
@@ -353,14 +363,20 @@
         <div class="footer-contact-col">
           <h4 class="footer-title mb-3" style="color: white; position: relative; padding-bottom: 10px;">Contact Info<span style="position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--gradient-btn);"></span></h4>
           <ul class="footer-contact text-muted" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
-            <li><span style="margin-right: 10px;">📧</span> hello@stackly.ai</li>
-            <li><span style="margin-right: 10px;">📞</span> +1 (555) 123-4567</li>
-            <li><span style="margin-right: 10px;">📍</span> India, Tamilnadu office</li>
+            <li style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-envelope" style="color: var(--secondary); margin-right: 5px;"></i> hello@stackly.ai
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-phone" style="color: var(--secondary); margin-right: 5px;"></i> 9087654321
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
+              <span><i class="fa-solid fa-location-dot" style="color: var(--secondary); margin-right: 5px;"></i> 17/5W, ST 1, Kallikadu Angappa Nagar, Omalur, Salem, Tamil Nadu, India - 636455</span>
+            </li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom flex-between pt-4 border-top text-muted text-sm" style="border-color: var(--glass-border); flex-wrap: wrap; gap: 1rem;">
-        <p class="m-0">© 2026 STACKLY AI. All rights reserved.</p>
+        <p class="m-0">&copy; 2026 STACKLY AI. All rights reserved.</p>
         <div class="footer-bottom-links" style="display: flex; gap: 20px;">
           <a href="404.html" class="hover-text-primary">Privacy Policy</a>
           <a href="404.html" class="hover-text-primary">Terms of Service</a>
@@ -372,35 +388,33 @@
 
   <!-- AI Chatbot Widget -->
   <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open AI Chat" style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); border: none; font-size: 24px; color: white; cursor: pointer; box-shadow: var(--shadow-glow); z-index: 1000; transition: var(--transition);">
-    💬
+    <i class="fa-solid fa-comments"></i>
   </button>
   <div class="chatbot-window hidden glass-card" id="chatbotWindow" style="position: fixed; bottom: 100px; right: 30px; width: 380px; max-width: calc(100vw - 40px); height: 500px; display: flex; flex-direction: column; padding: 0; overflow: hidden; z-index: 1000; transform-origin: bottom right; transition: all 0.3s ease;">
     <div class="chatbot-header" style="background: var(--gradient-btn); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; color: white;">
       <div class="chatbot-header-info flex" style="gap: 10px; align-items: center;">
-        <span class="chatbot-avatar" style="font-size: 24px;">🤖</span>
+        <span class="chatbot-avatar" style="font-size: 24px;"><i class="fa-solid fa-robot"></i></span>
         <div>
           <h4 style="margin: 0; font-size: 1rem;">STACKLY AI Assistant</h4>
-          <span class="chatbot-status" style="font-size: 0.8rem; opacity: 0.8;">● Online</span>
+          <span class="chatbot-status" style="font-size: 0.8rem; opacity: 0.8;">&bull; Online</span>
         </div>
       </div>
-      <button class="chatbot-close" id="chatbotClose" style="background: transparent; border: none; color: white; cursor: pointer; font-size: 1.2rem;">✕</button>
+      <button class="chatbot-close" id="chatbotClose" style="background: transparent; border: none; color: white; cursor: pointer; font-size: 1.2rem;"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="chatbot-messages" id="chatbotMessages" style="flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; background: rgba(10, 14, 39, 0.5);">
-      <!-- Messages will be injected by JS -->
     </div>
     <div class="chatbot-input" style="display: flex; padding: 15px; border-top: 1px solid var(--glass-border); background: var(--glass-bg);">
       <input type="text" id="chatbotInput" placeholder="Type a message..." autocomplete="off" style="flex: 1; background: transparent; border: none; color: white; outline: none;">
-      <button id="chatbotSend" class="btn btn-primary" style="padding: 8px 15px; border-radius: 8px;">➤</button>
+      <button id="chatbotSend" class="btn btn-primary" style="padding: 8px 15px; border-radius: 8px;"><i class="fa-solid fa-paper-plane"></i></button>
     </div>
   </div>
 
   <!-- Back to Top -->
   <button class="back-to-top hidden" id="backToTop" aria-label="Back to top" style="position: fixed; bottom: 30px; left: 30px; width: 50px; height: 50px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); color: white; font-size: 20px; cursor: pointer; z-index: 999; backdrop-filter: blur(10px); transition: var(--transition);">
-    ↑
+    <i class="fa-solid fa-arrow-up"></i>
   </button>
 
   <!-- JS -->
   <script src="js/main.js"></script>
 </body>
 </html>
-

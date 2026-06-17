@@ -19,6 +19,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -48,7 +49,7 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme" style="background: none; border: none; color: var(--text-bright); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px;">🌙</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme" style="background: none; border: none; color: var(--text-bright); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px;"><i class="fa-solid fa-moon"></i></button>
         <a href="login.html" class="btn btn-outline btn-sm">Login</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -131,7 +132,7 @@
     <section class="section intro-section bg-darker" id="about">
       <div class="container grid-2" style="align-items: center; gap: 4rem;">
         <div class="intro-image" data-aos="fade-right">
-          <img src="images/15.webp" alt="Hands holding AI brain" class="glow-effect" width= "450px" height= "450px: var(--border-radius-lg);">
+          <img src="images/15.webp" alt="Hands holding AI brain" class="glow-effect" width="450" height="450" style="border-radius: var(--border-radius-lg);">
         </div>
         <div class="intro-content" data-aos="fade-left">
           <span class="section-subtitle">Who We Are</span>
@@ -140,11 +141,11 @@
           
           <div class="mission-vision grid-2 mb-4" style="gap: 2rem;">
             <div class="glass-card" style="padding: 1.5rem;">
-              <h4 style="color: white; margin-bottom: 10px;">🎯 Our Mission</h4>
+              <h4 style="color: white; margin-bottom: 10px;"><i class="fa-solid fa-crosshairs"></i> Our Mission</h4>
               <p class="text-muted text-sm m-0">To empower organizations of all sizes with accessible, ethical, and high-performance AI tools that drive measurable growth and operational efficiency.</p>
             </div>
             <div class="glass-card" style="padding: 1.5rem;">
-              <h4 style="color: white; margin-bottom: 10px;">👁️ Our Vision</h4>
+              <h4 style="color: white; margin-bottom: 10px;"><i class="fa-solid fa-eye"></i> Our Vision</h4>
               <p class="text-muted text-sm m-0">To become the global standard for enterprise artificial intelligence, creating a future where human ingenuity is flawlessly amplified by machine intelligence.</p>
             </div>
           </div>
@@ -154,7 +155,6 @@
       </div>
     </section>
 
-    <!-- AI Features Section -->
     <!-- AI Services Section with Search -->
     <section class="section" id="ai-services">
       <div class="container text-center mb-5">
@@ -170,32 +170,32 @@
       
       <div class="container features-grid grid-3" id="aiServicesGrid" style="gap: 2rem;">
         <div class="feature-card glass-card hover-lift text-center ai-tool-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">💬</div>
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;"><i class="fa-solid fa-comments"></i></div>
           <h3 class="card-title mb-2">AI Chatbot</h3>
           <p class="card-description text-muted">Intelligent support assistant capable of long-term context retention and fluid conversations.</p>
         </div>
         <div class="feature-card glass-card hover-lift text-center ai-tool-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">🎨</div>
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;"><i class="fa-solid fa-palette"></i></div>
           <h3 class="card-title mb-2">Image Generator</h3>
           <p class="card-description text-muted">Generate realistic, ultra-high-definition artwork and photos from simple textual prompts.</p>
         </div>
         <div class="feature-card glass-card hover-lift text-center ai-tool-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">✍️</div>
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;"><i class="fa-solid fa-pen-nib"></i></div>
           <h3 class="card-title mb-2">Content Writer</h3>
           <p class="card-description text-muted">Draft blogs, press releases, and marketing copies using specialized creative copywriting engines.</p>
         </div>
         <div class="feature-card glass-card hover-lift text-center ai-tool-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">💻</div>
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;"><i class="fa-solid fa-code"></i></div>
           <h3 class="card-title mb-2">Code Assistant</h3>
           <p class="card-description text-muted">Write codes, debug syntax errors, and auto-generate boilerplate templates in all major languages.</p>
         </div>
         <div class="feature-card glass-card hover-lift text-center ai-tool-card" data-aos="fade-up" data-aos-delay="500">
-          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">🎙️</div>
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;"><i class="fa-solid fa-microphone"></i></div>
           <h3 class="card-title mb-2">Voice AI</h3>
           <p class="card-description text-muted">Convert speech to text with accurate punctuation, or text to hyper-realistic voiceovers.</p>
         </div>
         <div class="feature-card glass-card hover-lift text-center ai-tool-card" data-aos="fade-up" data-aos-delay="600">
-          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;">📊</div>
+          <div class="card-icon mb-3 flex-center mx-auto" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); font-size: 24px;"><i class="fa-solid fa-chart-line"></i></div>
           <h3 class="card-title mb-2">Data Analytics</h3>
           <p class="card-description text-muted">Upload custom data sheets to build automated charts, identify anomalies, and forecast metrics.</p>
         </div>
@@ -211,21 +211,21 @@
           <p class="text-muted mb-4">We don't just provide software; we provide a strategic partnership. Our proven methodologies ensure smooth integration, rapid deployment, and measurable ROI for your AI initiatives.</p>
           <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1.5rem;">
             <li style="display: flex; gap: 1rem;">
-              <div style="background: rgba(108, 99, 255, 0.2); padding: 10px; border-radius: 10px; color: var(--primary);">🚀</div>
+              <div style="background: rgba(108, 99, 255, 0.2); padding: 10px; border-radius: 10px; color: var(--primary);"><i class="fa-solid fa-rocket"></i></div>
               <div>
                 <strong style="color: white; display: block; margin-bottom: 5px;">Rapid Deployment</strong>
                 <span class="text-muted text-sm">Go from concept to production in weeks, not months.</span>
               </div>
             </li>
             <li style="display: flex; gap: 1rem;">
-              <div style="background: rgba(0, 212, 255, 0.2); padding: 10px; border-radius: 10px; color: var(--secondary);">🔒</div>
+              <div style="background: rgba(0, 212, 255, 0.2); padding: 10px; border-radius: 10px; color: var(--secondary);"><i class="fa-solid fa-lock"></i></div>
               <div>
                 <strong style="color: white; display: block; margin-bottom: 5px;">Enterprise Security</strong>
                 <span class="text-muted text-sm">SOC2 Type II certified with end-to-end encryption.</span>
               </div>
             </li>
             <li style="display: flex; gap: 1rem;">
-              <div style="background: rgba(168, 85, 247, 0.2); padding: 10px; border-radius: 10px; color: var(--accent);">💡</div>
+              <div style="background: rgba(168, 85, 247, 0.2); padding: 10px; border-radius: 10px; color: var(--accent);"><i class="fa-solid fa-lightbulb"></i></div>
               <div>
                 <strong style="color: white; display: block; margin-bottom: 5px;">Continuous Innovation</strong>
                 <span class="text-muted text-sm">Models that learn and improve automatically over time.</span>
@@ -235,22 +235,22 @@
         </div>
         <div class="stats-grid grid-2" style="gap: 1.5rem;" data-aos="fade-left">
           <div class="stat-card glass-card text-center hover-lift" style="padding: 2.5rem 1.5rem;">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">👥</div>
+            <div style="font-size: 2.5rem; margin-bottom: 10px;"><i class="fa-solid fa-users"></i></div>
             <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;" data-count="120" data-suffix="k+">120k+</div>
             <div class="stat-label text-muted text-sm text-uppercase">Active Users</div>
           </div>
           <div class="stat-card glass-card text-center hover-lift" style="padding: 2.5rem 1.5rem; transform: translateY(30px);">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">🤖</div>
+            <div style="font-size: 2.5rem; margin-bottom: 10px;"><i class="fa-solid fa-robot"></i></div>
             <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;" data-count="45" data-suffix="+">45+</div>
             <div class="stat-label text-muted text-sm text-uppercase">AI Models</div>
           </div>
           <div class="stat-card glass-card text-center hover-lift" style="padding: 2.5rem 1.5rem;">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">🚀</div>
+            <div style="font-size: 2.5rem; margin-bottom: 10px;"><i class="fa-solid fa-rocket"></i></div>
             <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;" data-count="1" data-suffix=".8M+">1.8M+</div>
             <div class="stat-label text-muted text-sm text-uppercase">Projects Completed</div>
           </div>
           <div class="stat-card glass-card text-center hover-lift" style="padding: 2.5rem 1.5rem; transform: translateY(30px);">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">📈</div>
+            <div style="font-size: 2.5rem; margin-bottom: 10px;"><i class="fa-solid fa-chart-line"></i></div>
             <div class="stat-number gradient-text" style="font-size: 2.5rem; font-weight: 800;" data-count="99" data-suffix=".8%">99.8%</div>
             <div class="stat-label text-muted text-sm text-uppercase">Accuracy Rate</div>
           </div>
@@ -298,35 +298,35 @@
       <div class="container">
         <div class="tech-grid">
           <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="100">
-            <span style="font-size: 2rem; color: #FF6F00;">🧮</span>
+            <span style="font-size: 2rem; color: #FF6F00;"><i class="fa-solid fa-chart-simple"></i></span>
             <span class="text-sm font-weight-500">TensorFlow</span>
           </div>
           <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="200">
-            <span style="font-size: 2rem; color: #EE4C2C;">🔥</span>
+            <span style="font-size: 2rem; color: #EE4C2C;"><i class="fa-solid fa-fire"></i></span>
             <span class="text-sm font-weight-500">PyTorch</span>
           </div>
           <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="300">
-            <span style="font-size: 2rem; color: #10A37F;">🟢</span>
+            <span style="font-size: 2rem; color: #10A37F;"><i class="fa-solid fa-circle"></i></span>
             <span class="text-sm font-weight-500">OpenAI</span>
           </div>
           <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="400">
-            <span style="font-size: 2rem; color: #4285F4;">🇬</span>
+            <span style="font-size: 2rem; color: #4285F4;"><i class="fa-brands fa-google"></i></span>
             <span class="text-sm font-weight-500">Google AI</span>
           </div>
           <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="500">
-            <span style="font-size: 2rem; color: #FF9900;">☁️</span>
+            <span style="font-size: 2rem; color: #FF9900;"><i class="fa-solid fa-cloud"></i></span>
             <span class="text-sm font-weight-500">AWS</span>
           </div>
           <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="600">
-            <span style="font-size: 2rem; color: #0078D4;">🟦</span>
+            <span style="font-size: 2rem; color: #0078D4;"><i class="fa-solid fa-circle"></i></span>
             <span class="text-sm font-weight-500">Azure</span>
           </div>
           <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="700">
-            <span style="font-size: 2rem; color: #3776AB;">🐍</span>
+            <span style="font-size: 2rem; color: #3776AB;"><i class="fa-brands fa-python"></i></span>
             <span class="text-sm font-weight-500">Python</span>
           </div>
           <div class="tech-item glass-card flex-center flex-column hover-scale" style="padding: 1.5rem; text-align: center; gap: 10px;" data-aos="zoom-in" data-aos-delay="800">
-            <span style="font-size: 2rem; color: #326CE5;">☸️</span>
+            <span style="font-size: 2rem; color: #326CE5;"><i class="fa-solid fa-gear"></i> </span>
             <span class="text-sm font-weight-500">Kubernetes</span>
           </div>
         </div>
@@ -344,17 +344,17 @@
         </div>
         <div class="awards-grid flex-center flex-wrap" style="flex: 1; min-width: 300px; gap: 3rem;">
           <div class="text-center">
-            <div style="font-size: 3rem; color: #FBBF24;">🏆</div>
+            <div style="font-size: 3rem; color: #FBBF24;"><i class="fa-solid fa-trophy"></i></div>
             <div class="font-weight-600 mt-2">Best AI Startup</div>
             <div class="text-muted text-sm">TechCrunch 2025</div>
           </div>
           <div class="text-center">
-            <div style="font-size: 3rem; color: #FBBF24;">🏅</div>
+            <div style="font-size: 3rem; color: #FBBF24;"><i class="fa-solid fa-award"></i></div>
             <div class="font-weight-600 mt-2">Innovation Award</div>
             <div class="text-muted text-sm">AI Summit 2026</div>
           </div>
           <div class="text-center">
-            <div style="font-size: 3rem; color: #FBBF24;">⭐</div>
+            <div style="font-size: 3rem; color: #FBBF24;"><i class="fa-solid fa-star"></i></div>
             <div class="font-weight-600 mt-2">Top 50 SaaS</div>
             <div class="text-muted text-sm">Forbes Cloud 100</div>
           </div>
@@ -369,32 +369,50 @@
         <h2 class="section-title mt-1 gradient-text">Comprehensive AI Solutions</h2>
       </div>
       <div class="container grid-3" style="gap: 1.5rem;">
-        <!-- Card 1 -->
-        <a href="services.html" class="service-card glass-card hover-lift" data-aos="fade-up" style="display: block; text-decoration: none;">
-          <div class="flex-between mb-3">
-            <span style="font-size: 2rem;">🧠</span>
-            <span style="color: var(--primary); font-size: 1.2rem;">→</span>
+        <!-- Card 1: Machine Learning -->
+        <a href="services.html" class="service-card glass-card hover-lift" data-aos="fade-up" style="display: block; text-decoration: none; padding: 0; overflow: hidden;">
+          <div style="height: 180px; overflow: hidden; position: relative;">
+            <img src="images/digital marketting.webp" alt="Machine Learning" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, rgba(10,14,39,0.85) 100%);"></div>
           </div>
-          <h3 class="card-title mb-2" style="color: white;">Machine Learning</h3>
-          <p class="text-muted text-sm">Custom algorithms that identify patterns and make data-driven decisions automatically.</p>
+          <div style="padding: 1.5rem;">
+            <div class="flex-between mb-2">
+              <span style="font-size: 1.5rem; color: var(--primary);"><i class="fa-solid fa-brain"></i></span>
+              <span style="color: var(--primary);"><i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+            <h3 class="card-title mb-2" style="color: white;">Machine Learning</h3>
+            <p class="text-muted text-sm">Custom algorithms that identify patterns and make data-driven decisions automatically.</p>
+          </div>
         </a>
-        <!-- Card 2 -->
-        <a href="services.html" class="service-card glass-card hover-lift" data-aos="fade-up" data-aos-delay="100" style="display: block; text-decoration: none;">
-          <div class="flex-between mb-3">
-            <span style="font-size: 2rem;">✨</span>
-            <span style="color: var(--primary); font-size: 1.2rem;">→</span>
+        <!-- Card 2: Generative AI -->
+        <a href="services.html" class="service-card glass-card hover-lift" data-aos="fade-up" data-aos-delay="100" style="display: block; text-decoration: none; padding: 0; overflow: hidden;">
+          <div style="height: 180px; overflow: hidden; position: relative;">
+            <img src="images/2.webp" alt="Generative AI" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, rgba(10,14,39,0.85) 100%);"></div>
           </div>
-          <h3 class="card-title mb-2" style="color: white;">Generative AI</h3>
-          <p class="text-muted text-sm">Create novel content, designs, and code using advanced LLMs and diffusion models.</p>
+          <div style="padding: 1.5rem;">
+            <div class="flex-between mb-2">
+              <span style="font-size: 1.5rem; color: var(--secondary);"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+              <span style="color: var(--primary);"><i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+            <h3 class="card-title mb-2" style="color: white;">Generative AI</h3>
+            <p class="text-muted text-sm">Create novel content, designs, and code using advanced LLMs and diffusion models.</p>
+          </div>
         </a>
-        <!-- Card 3 -->
-        <a href="services.html" class="service-card glass-card hover-lift" data-aos="fade-up" data-aos-delay="200" style="display: block; text-decoration: none;">
-          <div class="flex-between mb-3">
-            <span style="font-size: 2rem;">👁️</span>
-            <span style="color: var(--primary); font-size: 1.2rem;">→</span>
+        <!-- Card 3: Computer Vision -->
+        <a href="services.html" class="service-card glass-card hover-lift" data-aos="fade-up" data-aos-delay="200" style="display: block; text-decoration: none; padding: 0; overflow: hidden;">
+          <div style="height: 180px; overflow: hidden; position: relative;">
+            <img src="images/healthcare.webp" alt="Computer Vision" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, rgba(10,14,39,0.85) 100%);"></div>
           </div>
-          <h3 class="card-title mb-2" style="color: white;">Computer Vision</h3>
-          <p class="text-muted text-sm">Extract meaningful information from digital images, videos, and other visual inputs.</p>
+          <div style="padding: 1.5rem;">
+            <div class="flex-between mb-2">
+              <span style="font-size: 1.5rem; color: var(--accent);"><i class="fa-solid fa-eye"></i></span>
+              <span style="color: var(--primary);"><i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+            <h3 class="card-title mb-2" style="color: white;">Computer Vision</h3>
+            <p class="text-muted text-sm">Extract meaningful information from digital images, videos, and other visual inputs.</p>
+          </div>
         </a>
       </div>
       <div class="container text-center mt-5">
@@ -447,8 +465,8 @@
           <h3 class="mb-2">GlobalBank Security Automation</h3>
           <p class="text-muted mb-3">Implemented our computer vision and anomaly detection models to monitor 10,000+ branch cameras and transactions simultaneously.</p>
           <ul class="text-sm text-muted" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;">
-            <li><span style="color:var(--primary)">•</span> 99.8% threat detection accuracy</li>
-            <li><span style="color:var(--primary)">•</span> $4.2M saved in fraud prevention</li>
+            <li><span style="color:var(--primary)">&bull;</span> 99.8% threat detection accuracy</li>
+            <li><span style="color:var(--primary)">&bull;</span> $4.2M saved in fraud prevention</li>
           </ul>
           <a href="#" class="btn btn-outline btn-sm">Read Full Study</a>
         </div>
@@ -456,8 +474,8 @@
           <h3 class="mb-2">RetailMax Inventory Prediction</h3>
           <p class="text-muted mb-3">Deployed a predictive analytics suite across 500+ locations to optimize supply chain based on weather, trends, and local events.</p>
           <ul class="text-sm text-muted" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;">
-            <li><span style="color:var(--primary)">•</span> 45% reduction in stockouts</li>
-            <li><span style="color:var(--primary)">•</span> 20% decrease in warehousing costs</li>
+            <li><span style="color:var(--primary)">&bull;</span> 45% reduction in stockouts</li>
+            <li><span style="color:var(--primary)">&bull;</span> 20% decrease in warehousing costs</li>
           </ul>
           <a href="#" class="btn btn-outline btn-sm">Read Full Study</a>
         </div>
@@ -475,7 +493,9 @@
           <div class="testimonial-track flex" id="testimonialTrack" style="transition: transform 0.5s ease;">
             <!-- Slide 1 -->
             <div class="testimonial-card glass-card text-center" style="min-width: 100%; padding: 3rem;">
-              <div style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1rem;">★★★★★</div>
+              <div style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1rem;">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
               <p class="text-lg mb-4" style="font-style: italic;">"STACKLY AI's predictive analytics models have completely transformed our supply chain.<br/>
                  We've reduced inventory holding costs by 34% within the first six months of implementation."</p>
               <div class="flex-center flex-column">
@@ -486,7 +506,9 @@
             </div>
             <!-- Slide 2 -->
             <div class="testimonial-card glass-card text-center" style="min-width: 100%; padding: 3rem;">
-              <div style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1rem;">★★★★★</div>
+              <div style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1rem;">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
               <p class="text-lg mb-4" style="font-style: italic;">"The NLP chatbot they built for our customer service department handles 60% of tier-1 inquiries<br/> automatically, with a higher CSAT score than our previous human-only setup."</p>
               <div class="flex-center flex-column">
                 <div class="testimonial-avatar mb-2" style="width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem;">SJ</div>
@@ -497,12 +519,12 @@
           </div>
           <!-- Slider Nav -->
           <div class="flex-center mt-4" style="gap: 1rem;">
-            <button class="btn btn-icon btn-outline testimonial-prev" id="prevTestimonial" style="width:40px;height:40px;padding:0;border-radius:50%">←</button>
+            <button class="btn btn-icon btn-outline testimonial-prev" id="prevTestimonial" style="width:40px;height:40px;padding:0;border-radius:50%"><i class="fa-solid fa-arrow-left"></i></button>
             <div class="testimonial-dots flex" style="gap: 8px;">
               <span class="testimonial-dot active"></span>
               <span class="testimonial-dot"></span>
             </div>
-            <button class="btn btn-icon btn-outline testimonial-next" id="nextTestimonial" style="width:40px;height:40px;padding:0;border-radius:50%">→</button>
+            <button class="btn btn-icon btn-outline testimonial-next" id="nextTestimonial" style="width:40px;height:40px;padding:0;border-radius:50%"><i class="fa-solid fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
@@ -551,11 +573,11 @@
             <p class="text-muted text-sm mt-2">Perfect for startups and small projects</p>
           </div>
           <ul class="pricing-features mb-4 flex-1" style="list-style:none; padding:0; display:flex; flex-direction:column; gap:12px;">
-            <li><span style="color:var(--primary); margin-right:8px">✓</span> 10,000 API Calls</li>
-            <li><span style="color:var(--primary); margin-right:8px">✓</span> 5 Pre-trained Models</li>
-            <li><span style="color:var(--primary); margin-right:8px">✓</span> Basic Analytics</li>
-            <li><span style="color:var(--primary); margin-right:8px">✓</span> Email Support</li>
-            <li class="text-muted"><span style="margin-right:8px">✗</span> Custom Model Training</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> 10,000 API Calls</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> 5 Pre-trained Models</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Basic Analytics</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Email Support</li>
+            <li class="text-muted"><span style="margin-right:8px"><i class="fa-solid fa-xmark"></i></span> Custom Model Training</li>
           </ul>
           <a href="pricing.html" class="btn btn-outline" style="width: 100%; text-align: center;">Get Started</a>
         </div>
@@ -569,11 +591,11 @@
             <p class="text-muted text-sm mt-2">Ideal for growing businesses and teams</p>
           </div>
           <ul class="pricing-features mb-4 flex-1" style="list-style:none; padding:0; display:flex; flex-direction:column; gap:12px;">
-            <li><span style="color:var(--primary); margin-right:8px">✓</span> 100,000 API Calls</li>
-            <li><span style="color:var(--primary); margin-right:8px">✓</span> 25 Pre-trained Models</li>
-            <li><span style="color:var(--primary); margin-right:8px">✓</span> Advanced Analytics</li>
-            <li><span style="color:var(--primary); margin-right:8px">✓</span> Priority 24/7 Support</li>
-            <li><span style="color:var(--primary); margin-right:8px">✓</span> Custom Model Training</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> 100,000 API Calls</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> 25 Pre-trained Models</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Advanced Analytics</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Priority 24/7 Support</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Custom Model Training</li>
           </ul>
           <a href="pricing.html" class="btn btn-primary" style="width: 100%; text-align: center;">Start Free Trial</a>
         </div>
@@ -586,11 +608,11 @@
             <p class="text-muted text-sm mt-2">For large-scale mission-critical ops</p>
           </div>
           <ul class="pricing-features mb-4 flex-1" style="list-style:none; padding:0; display:flex; flex-direction:column; gap:12px;">
-            <li><span style="color:var(--primary); margin-right:8px">✓</span> Unlimited API Calls</li>
-            <li><span style="color:var(--primary); margin-right:8px">✓</span> Unlimited Models</li>
-            <li><span style="color:var(--primary); margin-right:8px">✓</span> Enterprise Analytics</li>
-            <li><span style="color:var(--primary); margin-right:8px">✓</span> Dedicated Success Manager</li>
-            <li><span style="color:var(--primary); margin-right:8px">✓</span> On-Premise Deployment</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Unlimited API Calls</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Unlimited Models</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Enterprise Analytics</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Dedicated Success Manager</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> On-Premise Deployment</li>
           </ul>
           <a href="contact.html" class="btn btn-outline" style="width: 100%; text-align: center;">Contact Sales</a>
         </div>
@@ -599,14 +621,24 @@
 
     <!-- Latest Blog Posts -->
     <section class="section bg-darker">
-      <div class="container flex-between mb-5">
+      <!-- Section Header + Tabs -->
+      <div class="container flex-between mb-4" style="flex-wrap: wrap; gap: 1rem;">
         <div>
           <span class="section-subtitle">Insights</span>
-          <h2 class="section-title mt-1 gradient-text">Latest AI News</h2>
+          <h2 class="section-title mt-1 gradient-text">Latest AI News &amp; Tutorials</h2>
         </div>
-        <a href="blog.html" class="btn btn-outline hidden-mobile">View All Articles</a>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button id="tabNews" onclick="switchTab('news')" style="padding: 8px 22px; border-radius: 30px; border: 2px solid var(--primary); background: var(--gradient-btn); color: white; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+            <i class="fa-solid fa-newspaper" style="margin-right: 6px;"></i>News
+          </button>
+          <button id="tabTutorials" onclick="switchTab('tutorials')" style="padding: 8px 22px; border-radius: 30px; border: 2px solid var(--glass-border); background: transparent; color: var(--text-muted); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+            <i class="fa-solid fa-graduation-cap" style="margin-right: 6px;"></i>Tutorials
+          </button>
+        </div>
       </div>
-      <div class="container blog-grid grid-3" style="gap: 2rem;">
+
+      <!-- NEWS TAB -->
+      <div id="panelNews" class="container blog-grid grid-3" style="gap: 2rem;">
         <!-- Post 1 -->
         <a href="blog.html" class="blog-card glass-card hover-lift" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up">
           <div class="blog-card-image" style="height: 200px; position: relative;">
@@ -615,8 +647,8 @@
           </div>
           <div class="blog-card-content" style="padding: 1.5rem;">
             <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
-              <span>📅 June 10, 2026</span>
-              <span>👤 Sarah Chen</span>
+              <span><i class="fa-solid fa-calendar-days"></i> June 10, 2026</span>
+              <span><i class="fa-solid fa-user"></i> Sarah Chen</span>
             </div>
             <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">The Future of Generative AI in Enterprise</h3>
             <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Discover how large language models are transitioning from novelties to core infrastructure in Fortune 500 companies.</p>
@@ -630,8 +662,8 @@
           </div>
           <div class="blog-card-content" style="padding: 1.5rem;">
             <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
-              <span>📅 June 5, 2026</span>
-              <span>👤 James Wilson</span>
+              <span><i class="fa-solid fa-calendar-days"></i> June 5, 2026</span>
+              <span><i class="fa-solid fa-user"></i> James Wilson</span>
             </div>
             <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">AutoML: Democratizing Machine Learning</h3>
             <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">How automated machine learning pipelines are allowing non-experts to build and deploy sophisticated models.</p>
@@ -645,8 +677,8 @@
           </div>
           <div class="blog-card-content" style="padding: 1.5rem;">
             <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
-              <span>📅 May 28, 2026</span>
-              <span>👤 Dr. Priya Patel</span>
+              <span><i class="fa-solid fa-calendar-days"></i> May 28, 2026</span>
+              <span><i class="fa-solid fa-user"></i> Dr. Priya Patel</span>
             </div>
             <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">AI Applications Transforming Healthcare</h3>
             <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">From predictive diagnostics to personalized treatment plans, see how computer vision is saving lives.</p>
@@ -660,8 +692,8 @@
           </div>
           <div class="blog-card-content" style="padding: 1.5rem;">
             <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
-              <span>📅 May 20, 2026</span>
-              <span>👤 Alex Norman</span>
+              <span><i class="fa-solid fa-calendar-days"></i> May 20, 2026</span>
+              <span><i class="fa-solid fa-user"></i> Alex Norman</span>
             </div>
             <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">Predictive Analytics for Retail</h3>
             <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Unlock customer insights and manage inventory effectively with data intelligence.</p>
@@ -675,17 +707,121 @@
           </div>
           <div class="blog-card-content" style="padding: 1.5rem;">
             <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
-              <span>📅 May 15, 2026</span>
-              <span>👤 Sam Roberts</span>
+              <span><i class="fa-solid fa-calendar-days"></i> May 15, 2026</span>
+              <span><i class="fa-solid fa-user"></i> Sam Roberts</span>
             </div>
             <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">The Rise of Autonomous AI Agents</h3>
             <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">How AI agents are automating complex multi-step workflows across the entire enterprise software stack.</p>
+          </div>
+        </a>
+        <!-- Post 6 -->
+        <a href="blog.html" class="blog-card glass-card hover-lift" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up" data-aos-delay="500">
+          <div class="blog-card-image" style="height: 200px; position: relative;">
+            <img src="images/3.webp" alt="AI Ethics" style="width: 100%; height: 100%; object-fit: cover;">
+            <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">Ethics</span>
+          </div>
+          <div class="blog-card-content" style="padding: 1.5rem;">
+            <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
+              <span><i class="fa-solid fa-calendar-days"></i> May 10, 2026</span>
+              <span><i class="fa-solid fa-user"></i> Elena Rostova</span>
+            </div>
+            <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">Navigating Ethical AI in Enterprise</h3>
+            <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Discover how companies are setting up governance frameworks to ensure data privacy, fairness, and transparency in machine learning systems.</p>
           </div>
         </a>
       </div>
       <div class="container text-center mt-4 visible-mobile" style="display: none;">
         <a href="blog.html" class="btn btn-outline">View All Articles</a>
       </div>
+
+      <!-- TUTORIALS TAB (hidden by default) -->
+      <div id="panelTutorials" class="container" style="display: none;">
+        <div class="grid-3" style="gap: 2rem;">
+
+          <!-- Tutorial 1 -->
+          <div class="glass-card hover-lift" style="padding: 0; overflow: hidden;" data-aos="fade-up">
+            <div style="height: 190px; position: relative; overflow: hidden;">
+              <img src="images/1.webp" alt="Build Your First Chatbot" style="width: 100%; height: 100%; object-fit: cover;">
+              <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center;">
+                <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--gradient-btn); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: white;">
+                  <i class="fa-solid fa-play" style="margin-left: 4px;"></i>
+                </div>
+              </div>
+              <span style="position: absolute; top: 12px; left: 12px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: white;">Beginner</span>
+              <span style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.7); padding: 3px 10px; border-radius: 12px; font-size: 0.8rem; color: white;"><i class="fa-solid fa-clock" style="margin-right: 4px;"></i>18 min</span>
+            </div>
+            <div style="padding: 1.5rem;">
+              <div style="display: flex; gap: 8px; margin-bottom: 0.75rem; flex-wrap: wrap;">
+                <span style="background: rgba(108,99,255,0.15); color: var(--primary); padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">AI Chatbots</span>
+                <span style="background: rgba(0,212,255,0.1); color: var(--secondary); padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">API</span>
+              </div>
+              <h3 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Build Your First AI Chatbot in 30 Minutes</h3>
+              <p class="text-muted text-sm" style="margin-bottom: 1rem; line-height: 1.6;">Step-by-step guide to deploying a context-aware chatbot using the STACKLY API — no ML experience needed.</p>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="images/Elena Rostova.webp" alt="Author" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                <span class="text-muted text-sm">Elena Rostova &bull; Jun 12, 2026</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tutorial 2 -->
+          <div class="glass-card hover-lift" style="padding: 0; overflow: hidden;" data-aos="fade-up" data-aos-delay="100">
+            <div style="height: 190px; position: relative; overflow: hidden;">
+              <img src="images/5.webp" alt="Predictive Analytics" style="width: 100%; height: 100%; object-fit: cover;">
+              <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center;">
+                <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--gradient-btn); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: white;">
+                  <i class="fa-solid fa-play" style="margin-left: 4px;"></i>
+                </div>
+              </div>
+              <span style="position: absolute; top: 12px; left: 12px; background: rgba(0,212,255,0.9); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: white;">Intermediate</span>
+              <span style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.7); padding: 3px 10px; border-radius: 12px; font-size: 0.8rem; color: white;"><i class="fa-solid fa-clock" style="margin-right: 4px;"></i>35 min</span>
+            </div>
+            <div style="padding: 1.5rem;">
+              <div style="display: flex; gap: 8px; margin-bottom: 0.75rem; flex-wrap: wrap;">
+                <span style="background: rgba(108,99,255,0.15); color: var(--primary); padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">Data Analytics</span>
+                <span style="background: rgba(0,212,255,0.1); color: var(--secondary); padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">Python</span>
+              </div>
+              <h3 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Predictive Analytics: From Raw Data to Insights</h3>
+              <p class="text-muted text-sm" style="margin-bottom: 1rem; line-height: 1.6;">Learn how to build a demand forecasting pipeline using our Analytics API with real retail datasets.</p>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="images/Dr. Marcus Webb.webp" alt="Author" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                <span class="text-muted text-sm">Marcus Webb &bull; Jun 5, 2026</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tutorial 3 -->
+          <div class="glass-card hover-lift" style="padding: 0; overflow: hidden;" data-aos="fade-up" data-aos-delay="200">
+            <div style="height: 190px; position: relative; overflow: hidden;">
+              <img src="images/healthcare.webp" alt="Computer Vision" style="width: 100%; height: 100%; object-fit: cover;">
+              <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center;">
+                <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--gradient-btn); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: white;">
+                  <i class="fa-solid fa-play" style="margin-left: 4px;"></i>
+                </div>
+              </div>
+              <span style="position: absolute; top: 12px; left: 12px; background: rgba(168,85,247,0.9); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: white;">Advanced</span>
+              <span style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.7); padding: 3px 10px; border-radius: 12px; font-size: 0.8rem; color: white;"><i class="fa-solid fa-clock" style="margin-right: 4px;"></i>52 min</span>
+            </div>
+            <div style="padding: 1.5rem;">
+              <div style="display: flex; gap: 8px; margin-bottom: 0.75rem; flex-wrap: wrap;">
+                <span style="background: rgba(108,99,255,0.15); color: var(--primary); padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">Computer Vision</span>
+                <span style="background: rgba(168,85,247,0.15); color: var(--accent); padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">Healthcare</span>
+              </div>
+              <h3 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Medical Image Classification with Vision AI</h3>
+              <p class="text-muted text-sm" style="margin-bottom: 1rem; line-height: 1.6;">Train a custom image classifier on X-ray datasets and deploy it via REST API for real-time diagnosis.</p>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="images/David Chen.webp" alt="Author" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                <span class="text-muted text-sm">David Chen &bull; May 28, 2026</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="text-center mt-4">
+          <a href="blog.html" class="btn btn-outline hover-lift"><i class="fa-solid fa-graduation-cap" style="margin-right: 8px;"></i>Browse All Tutorials</a>
+        </div>
+      </div>
+
     </section>
 
     <!-- FAQ Section -->
@@ -699,7 +835,7 @@
         <details class="glass-card mb-3 p-4 faq-item" style="cursor: pointer; outline: none; border: 1px solid var(--glass-border);">
           <summary style="font-weight: 600; font-size: 1.1rem; color: var(--text-bright); list-style: none; display: flex; justify-content: space-between; align-items: center;">
             <span>What AI tools are included in the AI Services suite?</span>
-            <span class="faq-icon" style="color: var(--primary);">▼</span>
+            <span class="faq-icon" style="color: var(--primary);">&#9660;</span>
           </summary>
           <p class="text-muted text-sm mt-3 mb-0">Our suite includes an AI Chatbot (conversational agent), Image Generator (text-to-image), Content Writer (copywriting generator), Code Assistant (syntax correction & autocomplete), Voice AI (voiceovers & transcripts), and Data Analytics (smart charts & forecasts).</p>
         </details>
@@ -707,7 +843,7 @@
         <details class="glass-card mb-3 p-4 faq-item" style="cursor: pointer; outline: none; border: 1px solid var(--glass-border);">
           <summary style="font-weight: 600; font-size: 1.1rem; color: var(--text-bright); list-style: none; display: flex; justify-content: space-between; align-items: center;">
             <span>How secure is my proprietary data?</span>
-            <span class="faq-icon" style="color: var(--primary);">▼</span>
+            <span class="faq-icon" style="color: var(--primary);">&#9660;</span>
           </summary>
           <p class="text-muted text-sm mt-3 mb-0">We use AES-256 encryption at rest and TLS 1.3 in transit. Your data is isolated in secure VPCs, and we never use your private outputs or training data to update our public foundation models.</p>
         </details>
@@ -715,7 +851,7 @@
         <details class="glass-card mb-3 p-4 faq-item" style="cursor: pointer; outline: none; border: 1px solid var(--glass-border);">
           <summary style="font-weight: 600; font-size: 1.1rem; color: var(--text-bright); list-style: none; display: flex; justify-content: space-between; align-items: center;">
             <span>Can I try Stackly AI tools for free?</span>
-            <span class="faq-icon" style="color: var(--primary);">▼</span>
+            <span class="faq-icon" style="color: var(--primary);">&#9660;</span>
           </summary>
           <p class="text-muted text-sm mt-3 mb-0">Yes! We offer a 14-day free trial containing 1,000 complimentary credits to test any of our AI features (Chat, Code, Image, Content, and Voice) with no credit card required.</p>
         </details>
@@ -723,7 +859,7 @@
         <details class="glass-card mb-3 p-4 faq-item" style="cursor: pointer; outline: none; border: 1px solid var(--glass-border);">
           <summary style="font-weight: 600; font-size: 1.1rem; color: var(--text-bright); list-style: none; display: flex; justify-content: space-between; align-items: center;">
             <span>What is the difference between User and Developer roles?</span>
-            <span class="faq-icon" style="color: var(--primary);">▼</span>
+            <span class="faq-icon" style="color: var(--primary);">&#9660;</span>
           </summary>
           <p class="text-muted text-sm mt-3 mb-0">Users access the interactive user dashboard for on-demand generation. Developers get API key consoles, documentation access, and webhook listeners to integrate Stackly engines into their own applications.</p>
         </details>
@@ -756,10 +892,10 @@
           </a>
           <p class="footer-description text-muted mt-3 mb-4">Empowering businesses with cutting-edge AI solutions. Transform your operations with intelligent automation and data-driven insights.</p>
           <div class="footer-social" style="display: flex; gap: 15px;">
-            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="Twitter" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">𝕏</a>
-            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">in</a>
-            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="GitHub" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">⌨</a>
-            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="YouTube" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">▶</a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="Twitter" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="GitHub" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);"><i class="fa-brands fa-github"></i></a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="YouTube" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
         <div class="footer-links-col">
@@ -787,14 +923,20 @@
         <div class="footer-contact-col">
           <h4 class="footer-title mb-3" style="color: white; position: relative; padding-bottom: 10px;">Contact Info<span style="position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--gradient-btn);"></span></h4>
           <ul class="footer-contact text-muted" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
-            <li><span style="margin-right: 10px;">📧</span> hello@stackly.ai</li>
-            <li><span style="margin-right: 10px;">📞</span> +1 (555) 123-4567</li>
-            <li><span style="margin-right: 10px;">📍</span> India, Tamilnadu office</li>
+            <li style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-envelope" style="color: var(--secondary); margin-right: 5px;"></i> hello@stackly.ai
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-phone" style="color: var(--secondary); margin-right: 5px;"></i> 9087654321
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
+              <span><i class="fa-solid fa-location-dot" style="color: var(--secondary); margin-right: 5px;"></i> 17/5W, ST 1, Kallikadu Angappa Nagar, Omalur, Salem, Tamil Nadu, India – 636455</span>
+            </li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom flex-between pt-4 border-top text-muted text-sm" style="border-color: var(--glass-border); flex-wrap: wrap; gap: 1rem;">
-        <p class="m-0">© 2026 STACKLY AI. All rights reserved.</p>
+        <p class="m-0">&copy; 2026 STACKLY AI. All rights reserved.</p>
         <div class="footer-bottom-links" style="display: flex; gap: 20px;">
           <a href="privacy.html" class="hover-text-primary">Privacy Policy</a>
           <a href="terms.html" class="hover-text-primary">Terms of Service</a>
@@ -806,34 +948,53 @@
 
   <!-- AI Chatbot Widget -->
   <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open AI Chat" style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); border: none; font-size: 24px; color: white; cursor: pointer; box-shadow: var(--shadow-glow); z-index: 1000; transition: var(--transition);">
-    💬
+    <i class="fa-solid fa-comments"></i>
   </button>
   <div class="chatbot-window hidden glass-card" id="chatbotWindow" style="position: fixed; bottom: 100px; right: 30px; width: 380px; max-width: calc(100vw - 40px); height: 500px; display: flex; flex-direction: column; padding: 0; overflow: hidden; z-index: 1000; transform-origin: bottom right; transition: all 0.3s ease;">
     <div class="chatbot-header" style="background: var(--gradient-btn); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; color: white;">
       <div class="chatbot-header-info flex" style="gap: 10px; align-items: center;">
-        <span class="chatbot-avatar" style="font-size: 24px;">🤖</span>
+        <span class="chatbot-avatar" style="font-size: 24px;"><i class="fa-solid fa-robot"></i></span>
         <div>
           <h4 style="margin: 0; font-size: 1rem;">STACKLY AI Assistant</h4>
-          <span class="chatbot-status" style="font-size: 0.8rem; opacity: 0.8;">● Online</span>
+          <span class="chatbot-status" style="font-size: 0.8rem; opacity: 0.8;">&bull; Online</span>
         </div>
       </div>
-      <button class="chatbot-close" id="chatbotClose" style="background: transparent; border: none; color: white; cursor: pointer; font-size: 1.2rem;">✕</button>
+      <button class="chatbot-close" id="chatbotClose" style="background: transparent; border: none; color: white; cursor: pointer; font-size: 1.2rem;"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="chatbot-messages" id="chatbotMessages" style="flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; background: rgba(10, 14, 39, 0.5);">
-      <!-- Messages will be injected by JS -->
     </div>
     <div class="chatbot-input" style="display: flex; padding: 15px; border-top: 1px solid var(--glass-border); background: var(--glass-bg);">
       <input type="text" id="chatbotInput" placeholder="Type a message..." autocomplete="off" style="flex: 1; background: transparent; border: none; color: white; outline: none;">
-      <button id="chatbotSend" class="btn btn-primary" style="padding: 8px 15px; border-radius: 8px;">➤</button>
+      <button id="chatbotSend" class="btn btn-primary" style="padding: 8px 15px; border-radius: 8px;"><i class="fa-solid fa-paper-plane"></i></button>
     </div>
   </div>
 
   <!-- Back to Top -->
   <button class="back-to-top hidden" id="backToTop" aria-label="Back to top" style="position: fixed; bottom: 30px; left: 30px; width: 50px; height: 50px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); color: white; font-size: 20px; cursor: pointer; z-index: 999; backdrop-filter: blur(10px); transition: var(--transition);">
-    ↑
+    <i class="fa-solid fa-arrow-up"></i>
   </button>
 
   <!-- JS -->
   <script src="js/main.js"></script>
+  <script>
+    /* Insights tab switcher */
+    function switchTab(tab) {
+      var newsPanel = document.getElementById('panelNews');
+      var tutPanel  = document.getElementById('panelTutorials');
+      var btnNews   = document.getElementById('tabNews');
+      var btnTut    = document.getElementById('tabTutorials');
+      if (tab === 'news') {
+        newsPanel.style.display = '';
+        tutPanel.style.display  = 'none';
+        btnNews.style.cssText  += ';background:var(--gradient-btn);color:white;border-color:var(--primary)';
+        btnTut.style.cssText   += ';background:transparent;color:var(--text-muted);border-color:var(--glass-border)';
+      } else {
+        newsPanel.style.display = 'none';
+        tutPanel.style.display  = '';
+        btnTut.style.cssText   += ';background:var(--gradient-btn);color:white;border-color:var(--primary)';
+        btnNews.style.cssText  += ';background:transparent;color:var(--text-muted);border-color:var(--glass-border)';
+      }
+    }
+  </script>
 </body>
 </html>

@@ -42,7 +42,7 @@
   text-align: center;
   font-size: 0.85rem;
   color: var(--primary);
-  margin-bottom: 0.3rem;
+  margin-bottom: 1.5rem; /* Increased from 0.3rem for spacing below the tagline */
   letter-spacing: 0.5px;
   font-weight: 600;
 }
@@ -51,7 +51,7 @@
   font-size: 1.8rem;
   font-weight: 800;
   color: var(--text-bright);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem; /* Reduced from 1.5rem for tight spacing to tagline */
   font-family: var(--font-heading);
   text-align: center;
 }

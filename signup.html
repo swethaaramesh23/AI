@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/auth.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -34,7 +35,7 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme" style="background: none; border: none; color: var(--text-bright); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px;">🌙</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme" style="background: none; border: none; color: var(--text-bright); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px;"><i class="fa-solid fa-moon"></i></button>
         <a href="login.html" class="btn btn-outline btn-sm">Login</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -62,8 +63,8 @@
   <main class="auth-body">
     <div class="auth-card-new" style="max-width:500px;" data-aos="fade-up">
 
-      <p class="auth-tagline">Join the AI revolution with STACKLY</p>
       <h1>Create Account</h1>
+      <p class="auth-tagline">Join the AI revolution with STACKLY</p>
 
       <!-- Alert -->
       <div class="auth-alert error" id="signupError"></div>
@@ -73,39 +74,39 @@
 
         <!-- Full Name -->
         <div class="auth-field">
-          <span class="field-icon">👤</span>
+          <span class="field-icon"><i class="fa-solid fa-user"></i></span>
           <input type="text" id="signupName" placeholder="Full Name" required autocomplete="name">
         </div>
 
         <!-- Email -->
         <div class="auth-field">
-          <span class="field-icon">✉️</span>
+          <span class="field-icon"><i class="fa-solid fa-envelope"></i></span>
           <input type="email" id="signupEmail" placeholder="Email Address" required autocomplete="email">
         </div>
 
         <!-- Phone -->
         <div class="auth-field">
-          <span class="field-icon">📞</span>
+          <span class="field-icon"><i class="fa-solid fa-phone"></i></span>
           <input type="tel" id="signupPhone" placeholder="Phone Number" autocomplete="tel">
         </div>
 
         <!-- Role -->
         <div class="auth-field">
-          <span class="field-icon">👤</span>
+          <span class="field-icon"><i class="fa-solid fa-user-tag"></i></span>
           <select id="signupRole" required>
             <option value="" disabled selected>Select Your Role</option>
             <option value="user">User</option>
             <option value="admin">Admin</option>
             <option value="developer">Developer</option>
           </select>
-          <span class="field-icon-right" style="pointer-events:none;">▼</span>
+          <span class="field-icon-right" style="pointer-events:none;"><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem;"></i></span>
         </div>
 
         <!-- Password -->
         <div class="auth-field">
-          <span class="field-icon">🔒</span>
+          <span class="field-icon"><i class="fa-solid fa-lock"></i></span>
           <input type="password" id="signupPassword" placeholder="Password" required autocomplete="new-password">
-          <span class="field-icon-right" id="toggleSignupPw">👁</span>
+          <span class="field-icon-right" id="toggleSignupPw" style="cursor: pointer;"><i class="fa-solid fa-eye"></i></span>
         </div>
 
         <!-- Password Strength -->
@@ -121,9 +122,9 @@
 
         <!-- Confirm Password -->
         <div class="auth-field">
-          <span class="field-icon">🔒</span>
+          <span class="field-icon"><i class="fa-solid fa-lock"></i></span>
           <input type="password" id="signupConfirm" placeholder="Confirm Password" required autocomplete="new-password">
-          <span class="field-icon-right" id="toggleConfirmPw">👁</span>
+          <span class="field-icon-right" id="toggleConfirmPw" style="cursor: pointer;"><i class="fa-solid fa-eye"></i></span>
         </div>
 
       
@@ -135,7 +136,7 @@
 
         <!-- Submit -->
         <button type="submit" class="auth-btn-main" id="signupBtn" style="background-color: #2e04e8; border-color: #2e04e8;">
-          <span id="signupBtnText">Create Account 👤</span>
+          <span id="signupBtnText">Create Account <i class="fa-solid fa-user-plus"></i></span>
           <span id="signupBtnLoader" style="display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite;"></span>
         </button>
 
@@ -160,7 +161,7 @@
       <p class="auth-footer-link" style="color: #2e04e8;">Already have an account? <a href="login.html" style="color: #2e04e8;">Login Here</a></p>
 
       <div class="auth-back-home">
-        <a href="index.html">← Back To Home</a>
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back To Home</a>
       </div>
 
     </div>
@@ -176,8 +177,13 @@
     document.getElementById(toggleId).addEventListener('click', () => {
       const pw = document.getElementById(inputId);
       const icon = document.getElementById(toggleId);
-      if (pw.type === 'password') { pw.type = 'text'; icon.textContent = '🙈'; }
-      else { pw.type = 'password'; icon.textContent = '👁'; }
+      if (pw.type === 'password') {
+        pw.type = 'text';
+        icon.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+      } else {
+        pw.type = 'password';
+        icon.innerHTML = '<i class="fa-solid fa-eye"></i>';
+      }
     });
   }
   makeToggle('toggleSignupPw', 'signupPassword');
@@ -201,4 +207,3 @@
 
 </body>
 </html>
-

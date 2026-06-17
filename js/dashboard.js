@@ -9,57 +9,55 @@
 const SIDEBAR_MENUS = {
   admin: [
     { label: 'MAIN', isHeader: true },
-    { label: 'Dashboard', icon: '📊', url: 'dashboard-admin.html' },
-    { label: 'User Management', icon: '👥', url: 'dashboard-users.html' },
-    { label: 'AI Services', icon: '🤖', url: 'dashboard-ai-tools.html' },
-    { label: 'Analytics', icon: '📈', url: 'dashboard-business.html' },
-    { label: 'Reports', icon: '📄', url: 'dashboard-reports.html' },
-    { label: 'API Keys', icon: '🔑', url: 'dash-dev-keys.html' },
-    { label: 'Documentation', icon: '📖', url: 'dash-dev-docs.html' },
-    { label: 'Webhooks', icon: '⚡', url: 'dash-dev-webhooks.html' },
+    { label: 'Dashboard', icon: 'fa-solid fa-chart-simple', url: 'dashboard-admin.html' },
+    { label: 'User Management', icon: 'fa-solid fa-users', url: 'dashboard-users.html' },
+    { label: 'AI Services', icon: 'fa-solid fa-robot', url: 'dashboard-developer.html' },
+    { label: 'Analytics', icon: 'fa-solid fa-chart-line', url: 'dashboard-business.html' },
+    { label: 'Reports', icon: 'fa-solid fa-file-lines', url: 'dashboard-reports.html' },
+    { label: 'API Keys', icon: 'fa-solid fa-key', url: 'dash-dev-keys.html' },
+    { label: 'Documentation', icon: 'fa-solid fa-book', url: 'dash-dev-docs.html' },
+    { label: 'Webhooks', icon: 'fa-solid fa-bolt', url: 'dash-dev-webhooks.html' },
     { label: 'ACCOUNT', isHeader: true },
-    { label: 'Settings', icon: '⚙️', url: 'dashboard-settings.html' },
-    { label: 'Profile', icon: '👤', url: 'dashboard-profile.html' },
-    { label: 'Notifications', icon: '🔔', url: 'dashboard-notifications.html' },
-    { label: 'Help & Support', icon: '❓', url: 'dashboard-help.html' }
+    { label: 'Settings', icon: 'fa-solid fa-gear', url: 'dashboard-settings.html' },
+    { label: 'Profile', icon: 'fa-solid fa-user', url: 'dashboard-profile.html' },
+    { label: 'Notifications', icon: 'fa-solid fa-bell', url: 'dashboard-notifications.html' },
+    { label: 'Help & Support', icon: 'fa-solid fa-circle-question', url: 'dashboard-help.html' }
   ],
   developer: [
     { label: 'MAIN', isHeader: true },
-    { label: 'API Console', icon: '🤖', url: 'dashboard-developer.html' },
-    { label: 'AI Tools', icon: '⚙️', url: 'dashboard-ai-tools.html' },
-    { label: 'API Keys', icon: '🔑', url: 'dash-dev-keys.html' },
-    { label: 'Documentation', icon: '📖', url: 'dash-dev-docs.html' },
-    { label: 'Webhooks', icon: '⚡', url: 'dash-dev-webhooks.html' },
+    { label: 'API Console', icon: 'fa-solid fa-robot', url: 'dashboard-developer.html' },
+    { label: 'API Keys', icon: 'fa-solid fa-key', url: 'dash-dev-keys.html' },
+    { label: 'Documentation', icon: 'fa-solid fa-book', url: 'dash-dev-docs.html' },
+    { label: 'Webhooks', icon: 'fa-solid fa-bolt', url: 'dash-dev-webhooks.html' },
     { label: 'ACCOUNT', isHeader: true },
-    { label: 'Settings', icon: '⚙️', url: 'dashboard-settings.html' },
-    { label: 'Profile', icon: '👤', url: 'dashboard-profile.html' },
-    { label: 'Notifications', icon: '🔔', url: 'dashboard-notifications.html' },
-    { label: 'Help & Support', icon: '❓', url: 'dashboard-help.html' }
+    { label: 'Settings', icon: 'fa-solid fa-gear', url: 'dashboard-settings.html' },
+    { label: 'Profile', icon: 'fa-solid fa-user', url: 'dashboard-profile.html' },
+    { label: 'Notifications', icon: 'fa-solid fa-bell', url: 'dashboard-notifications.html' },
+    { label: 'Help & Support', icon: 'fa-solid fa-circle-question', url: 'dashboard-help.html' }
   ],
   customer: [
     { label: 'MAIN', isHeader: true },
-    { label: 'My Dashboard', icon: '📊', url: 'dashboard-customer.html' },
-    { label: 'AI Tools', icon: '🤖', url: 'dashboard-ai-tools.html' },
-    { label: 'My Projects', icon: '🚀', url: 'dash-cust-projects.html' },
-    { label: 'Chat History', icon: '💬', url: 'dash-cust-chat.html' },
-    { label: 'Subscription', icon: '💳', url: 'dash-cust-sub.html' },
+    { label: 'My Dashboard', icon: 'fa-solid fa-chart-simple', url: 'dashboard-customer.html' },
+    { label: 'My Projects', icon: 'fa-solid fa-rocket', url: 'dash-cust-projects.html' },
+    { label: 'Chat History', icon: 'fa-solid fa-comments', url: 'dash-cust-chat.html' },
+    { label: 'Subscription', icon: 'fa-solid fa-credit-card', url: 'dash-cust-sub.html' },
     { label: 'ACCOUNT', isHeader: true },
-    { label: 'Settings', icon: '⚙️', url: 'dashboard-settings.html' },
-    { label: 'Profile', icon: '👤', url: 'dashboard-profile.html' },
-    { label: 'Notifications', icon: '🔔', url: 'dashboard-notifications.html' },
-    { label: 'Help & Support', icon: '❓', url: 'dashboard-help.html' }
+    { label: 'Settings', icon: 'fa-solid fa-gear', url: 'dashboard-settings.html' },
+    { label: 'Profile', icon: 'fa-solid fa-user', url: 'dashboard-profile.html' },
+    { label: 'Notifications', icon: 'fa-solid fa-bell', url: 'dashboard-notifications.html' },
+    { label: 'Help & Support', icon: 'fa-solid fa-circle-question', url: 'dashboard-help.html' }
   ],
   business: [
     { label: 'MAIN', isHeader: true },
-    { label: 'Analytics Overview', icon: '📈', url: 'dashboard-business.html' },
-    { label: 'Team Members', icon: '👥', url: 'dash-bus-team.html' },
-    { label: 'Business Reports', icon: '📄', url: 'dash-bus-reports.html' },
-    { label: 'Billing', icon: '💳', url: 'dash-bus-billing.html' },
+    { label: 'Analytics Overview', icon: 'fa-solid fa-chart-line', url: 'dashboard-business.html' },
+    { label: 'Team Members', icon: 'fa-solid fa-users', url: 'dash-bus-team.html' },
+    { label: 'Business Reports', icon: 'fa-solid fa-file-lines', url: 'dash-bus-reports.html' },
+    { label: 'Billing', icon: 'fa-solid fa-credit-card', url: 'dash-bus-billing.html' },
     { label: 'ACCOUNT', isHeader: true },
-    { label: 'Settings', icon: '⚙️', url: 'dashboard-settings.html' },
-    { label: 'Profile', icon: '👤', url: 'dashboard-profile.html' },
-    { label: 'Notifications', icon: '🔔', url: 'dashboard-notifications.html' },
-    { label: 'Help & Support', icon: '❓', url: 'dashboard-help.html' }
+    { label: 'Settings', icon: 'fa-solid fa-gear', url: 'dashboard-settings.html' },
+    { label: 'Profile', icon: 'fa-solid fa-user', url: 'dashboard-profile.html' },
+    { label: 'Notifications', icon: 'fa-solid fa-bell', url: 'dashboard-notifications.html' },
+    { label: 'Help & Support', icon: 'fa-solid fa-circle-question', url: 'dashboard-help.html' }
   ]
 };
 
@@ -69,18 +67,23 @@ function renderDashboardLayout() {
   const topbarEl = document.querySelector('.dash-topbar');
 
   // Detect current role and parameters from storage
-  let role = localStorage.getItem('stackly_user_role') || 'customer';
+  let role = localStorage.getItem('stackly_user_role');
   const path = window.location.pathname.split('/').pop() || 'index.html';
   
-  // Fallback checks to align sidebars dynamically if URL changes
-  if (path.includes('admin') || path === 'dashboard-users.html' || path === 'dashboard-reports.html') {
-    role = 'admin';
-  } else if (path.includes('dev-') || path === 'dashboard-developer.html') {
-    role = 'developer';
-  } else if (path.includes('bus-') || path === 'dashboard-business.html') {
-    role = 'business';
-  } else if (path.includes('cust-') || path === 'dashboard-customer.html') {
-    role = 'customer';
+  // If no role in localStorage, or if it's invalid, use the path fallback
+  if (!role || !['admin', 'developer', 'business', 'customer'].includes(role)) {
+    if (path.includes('admin') || path === 'dashboard-users.html' || path === 'dashboard-reports.html') {
+      role = 'admin';
+    } else if (path.includes('dev-') || path === 'dashboard-developer.html') {
+      role = 'developer';
+    } else if (path.includes('bus-') || path === 'dashboard-business.html') {
+      role = 'business';
+    } else if (path.includes('cust-') || path === 'dashboard-customer.html') {
+      role = 'customer';
+    } else {
+      role = 'customer';
+    }
+    localStorage.setItem('stackly_user_role', role);
   }
 
   const userName = localStorage.getItem('stackly_user_name') || 'User';
@@ -95,12 +98,12 @@ function renderDashboardLayout() {
     let sidebarHTML = `
       <div class="dash-sidebar-header">
         <a href="index.html" class="dash-sidebar-brand">
-          <img src="logo.webp" alt="STACKLY AI" style="height:28px; filter:brightness(10);">
           <span class="dash-sidebar-brand-text">STACKLY AI</span>
         </a>
         <button class="dash-collapse-btn" id="collapseBtn" title="Toggle Sidebar">
           <span class="collapse-icon">«</span>
         </button>
+        <button class="dash-sidebar-close-btn" id="sidebarCloseBtn" title="Close Menu">&times;</button>
       </div>
       <nav class="dash-nav">
     `;
@@ -113,7 +116,7 @@ function renderDashboardLayout() {
         const isActive = (item.url === path) ? 'active' : '';
         sidebarHTML += `
           <a href="${item.url}" class="dash-nav-item ${isActive}">
-            <span class="nav-icon">${item.icon}</span>
+            <span class="nav-icon"><i class="${item.icon}"></i></span>
             <span class="nav-text">${item.label}</span>
           </a>
         `;
@@ -124,7 +127,7 @@ function renderDashboardLayout() {
       </nav>
       <div class="dash-signout">
         <a href="#" id="sidebarSignoutBtn">
-          <span class="nav-icon">🚪</span>
+          <span class="nav-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
           <span class="nav-text">Sign Out</span>
         </a>
       </div>
@@ -140,8 +143,10 @@ function renderDashboardLayout() {
 
     let topbarHTML = `
       <div class="dash-topbar-left" style="display: flex; align-items: center; gap: 15px;">
-        <button class="dash-mobile-toggle" id="mobileToggle">☰</button>
-        <div>
+        <img src="lo.webp" alt="STACKLY AI" class="dash-topbar-logo">
+        <button class="dash-mobile-toggle" id="mobileToggle" title="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+        <span class="dash-mobile-title" style="display: none; font-weight: 700; font-size: 1.1rem;">Dashboard</span>
+        <div class="dash-desktop-title-container">
           <div class="dash-topbar-title">${pageTitle}</div>
           <div class="dash-topbar-subtitle">${pageSubtitle}</div>
         </div>
@@ -149,13 +154,13 @@ function renderDashboardLayout() {
       
       <!-- Center Search Bar -->
       <div class="dash-search-container">
-        <span class="search-icon">🔍</span>
+        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
         <input type="text" id="topbarSearchInput" placeholder="Search dashboard...">
       </div>
 
       <div class="dash-topbar-right">
         <button class="dash-logout-btn" id="topbarLogoutBtn" title="Sign Out">
-          🚪 <span class="hidden-mobile">Logout</span>
+          <i class="fa-solid fa-right-from-bracket"></i> <span class="hidden-mobile">Logout</span>
         </button>
 
         <div class="profile-dropdown-container">
@@ -165,11 +170,11 @@ function renderDashboardLayout() {
             <span style="font-size: 0.7rem; margin-left: 5px; opacity: 0.7;">▼</span>
           </div>
           <div class="profile-dropdown-menu" id="profileDropdownMenu">
-            <a href="dashboard-profile.html" class="profile-dropdown-item">👤 Profile</a>
-            <a href="dashboard-settings.html" class="profile-dropdown-item">⚙️ Settings</a>
-            <a href="dashboard-notifications.html" class="profile-dropdown-item">🔔 Notifications</a>
+            <a href="dashboard-profile.html" class="profile-dropdown-item"><i class="fa-solid fa-user"></i> Profile</a>
+            <a href="dashboard-settings.html" class="profile-dropdown-item"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="dashboard-notifications.html" class="profile-dropdown-item"><i class="fa-solid fa-bell"></i> Notifications</a>
             <div class="profile-dropdown-divider"></div>
-            <a href="#" class="profile-dropdown-item" id="dropdownLogoutBtn">🚪 Sign Out</a>
+            <a href="#" class="profile-dropdown-item" id="dropdownLogoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
           </div>
         </div>
       </div>
@@ -188,6 +193,11 @@ function initDashboardLayout() {
   const mobileToggle = document.getElementById('mobileToggle');
   const profileTrigger = document.getElementById('profileTrigger');
   const profileMenu = document.getElementById('profileDropdownMenu');
+
+  // ── Apply stored theme immediately so no flash ──
+  const storedTheme = localStorage.getItem('stackly_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', storedTheme);
+  document.body.setAttribute('data-theme', storedTheme);
 
   // Restore collapsed state
   const isCollapsed = localStorage.getItem('sidebar-collapsed') === 'true';
@@ -216,6 +226,15 @@ function initDashboardLayout() {
   // Overlay click to dismiss mobile menu
   if (overlay && sidebar) {
     overlay.addEventListener('click', () => {
+      sidebar.classList.remove('mobile-open');
+      overlay.classList.remove('show');
+    });
+  }
+
+  // Mobile sidebar close button trigger
+  const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+  if (sidebarCloseBtn && sidebar && overlay) {
+    sidebarCloseBtn.addEventListener('click', () => {
       sidebar.classList.remove('mobile-open');
       overlay.classList.remove('show');
     });
@@ -467,6 +486,72 @@ function initApiKeys() {
   }
 }
 
+// Dynamic AOS Animations Injection for Dashboard
+function initDashboardAos() {
+  // 1. Inject animations.css if it doesn't exist
+  if (!document.querySelector('link[href*="animations.css"]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'css/animations.css';
+    document.head.appendChild(link);
+  }
+
+  // 2. Add data-aos attributes to layout elements
+  // Stat cards
+  const stats = document.querySelectorAll('.dash-stat-card');
+  stats.forEach((card, index) => {
+    card.setAttribute('data-aos', 'fade-up');
+    card.setAttribute('data-aos-delay', (index * 80).toString());
+  });
+
+  // Chart cards
+  const charts = document.querySelectorAll('.dash-chart-card');
+  charts.forEach((card, index) => {
+    card.setAttribute('data-aos', 'fade-up');
+    card.setAttribute('data-aos-delay', ((index + 1) * 100).toString());
+  });
+
+  // Table cards
+  const tables = document.querySelectorAll('.dash-table-card');
+  tables.forEach((card, index) => {
+    card.setAttribute('data-aos', 'fade-up');
+    card.setAttribute('data-aos-delay', '150');
+  });
+
+  // Help/documentation/other main cards in dashboard content
+  const contentCards = document.querySelectorAll('.dash-content > div:not(.dash-stats-grid):not(.dash-charts-grid):not(.dash-table-card), .glass-card, .doc-card, .profile-card, .settings-card');
+  contentCards.forEach((card) => {
+    if (!card.hasAttribute('data-aos')) {
+      card.setAttribute('data-aos', 'fade-up');
+    }
+  });
+
+  // 3. Lightweight IntersectionObserver Scroll Reveal
+  const aosElements = document.querySelectorAll('[data-aos]');
+  if (!aosElements.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = parseInt(el.getAttribute('data-aos-delay'), 10) || 0;
+
+          setTimeout(() => {
+            el.classList.add('aos-animate');
+          }, delay);
+
+          // One-time reveal
+          observer.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
+  );
+
+  aosElements.forEach(el => observer.observe(el));
+}
+
 // Run layout population first, then run initializations
 document.addEventListener('DOMContentLoaded', () => {
   renderDashboardLayout();
@@ -475,4 +560,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initTableSearch();
   initTabs();
   initApiKeys();
+  initDashboardAos();
 });

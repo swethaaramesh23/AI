@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog & Insights - STACKLY AI</title>
+  <title>Blog &amp; Insights - STACKLY AI</title>
   <meta name="description" content="Stay updated with the latest trends, tutorials, and insights in the world of Artificial Intelligence.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,10 +12,11 @@
   
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-   <!-- Preloader -->
+    <!-- Preloader -->
   <div class="preloader" id="preloader">
     <div class="preloader-content" style="text-align: center; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center;">
       <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: 2px; font-family: var(--font-heading);">Think. Learn. Innovate.</h2>
@@ -40,7 +41,8 @@
         <li><a href="blog.html" class="active">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div class="nav-actions" style="display: flex; gap: 1rem;">
+      <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme" style="background: none; border: none; color: var(--text-bright); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px;"><i class="fa-solid fa-moon"></i></button>
         <a href="login.html" class="btn btn-outline btn-sm">Login</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -69,10 +71,10 @@
     <section class="blog-hero hero" style="min-height: 40vh; padding-top: 120px; display: flex; flex-direction: column; justify-content: center; text-align: center; background: linear-gradient(to bottom, rgba(10,14,39,1) 0%, rgba(6,9,24,1) 100%);">
       <div class="container page-enter">
         <span class="section-subtitle">OUR BLOG</span>
-        <h1 class="mt-2 mb-3 gradient-text" style="font-size: clamp(2.5rem, 5vw, 4rem);">Latest Insights & Articles</h1>
+        <h1 class="mt-2 mb-3 gradient-text" style="font-size: clamp(2.5rem, 5vw, 4rem);">Latest Insights &amp; Articles</h1>
         <p class="text-muted mx-auto mb-4" style="max-width: 700px; font-size: 1.2rem;">Expert perspectives on AI trends, deep learning tutorials, and industry use cases.</p>
         <div class="breadcrumb text-sm text-muted">
-          <a href="index.html" class="hover-text-primary">Home</a> <span style="margin: 0 10px;">></span> <span style="color: white;">Blog</span>
+          <a href="index.html" class="hover-text-primary">Home</a> <span style="margin: 0 10px;">&gt;</span> <span style="color: white;">Blog</span>
         </div>
       </div>
     </section>
@@ -93,15 +95,15 @@
           </div>
           <div class="blog-search" style="position: relative; min-width: 250px;">
             <input type="text" placeholder="Search articles..." class="blog-search-input" style="width: 100%; padding: 10px 40px 10px 15px; border-radius: 50px; background: var(--glass-bg); border: 1px solid var(--glass-border); color: white; outline: none;">
-            <span style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);">🔍</span>
+            <span style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"><i class="fa-solid fa-magnifying-glass"></i></span>
           </div>
         </div>
 
         <!-- Main Content Grid -->
-        <div class="grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start;">
+        <div class="blog-layout-grid">
           
           <!-- Blog Posts -->
-          <div class="blog-main grid-2" style="gap: 2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+          <div class="blog-main blog-posts-grid">
             
             <!-- Post 1 -->
             <a href="#" class="blog-card glass-card hover-lift" data-category="ai-trends" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up">
@@ -111,8 +113,8 @@
               </div>
               <div class="blog-card-content" style="padding: 1.5rem;">
                 <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
-                  <span>📅 June 10, 2026</span>
-                  <span>👤 Sarah Chen</span>
+                  <span><i class="fa-solid fa-calendar-days"></i> June 10, 2026</span>
+                  <span><i class="fa-solid fa-user"></i> Sarah Chen</span>
                 </div>
                 <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">The Future of Generative AI in Enterprise</h3>
                 <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Discover how large language models are transitioning from novelties to core infrastructure in Fortune 500 companies.</p>
@@ -127,8 +129,8 @@
               </div>
               <div class="blog-card-content" style="padding: 1.5rem;">
                 <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
-                  <span>📅 June 5, 2026</span>
-                  <span>👤 James Wilson</span>
+                  <span><i class="fa-solid fa-calendar-days"></i> June 5, 2026</span>
+                  <span><i class="fa-solid fa-user"></i> James Wilson</span>
                 </div>
                 <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">AutoML: Democratizing Machine Learning</h3>
                 <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">How automated machine learning pipelines are allowing non-experts to build and deploy sophisticated models.</p>
@@ -143,8 +145,8 @@
               </div>
               <div class="blog-card-content" style="padding: 1.5rem;">
                 <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
-                  <span>📅 May 28, 2026</span>
-                  <span>👤 Dr. Priya Patel</span>
+                  <span><i class="fa-solid fa-calendar-days"></i> May 28, 2026</span>
+                  <span><i class="fa-solid fa-user"></i> Dr. Priya Patel</span>
                 </div>
                 <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">AI Applications Transforming Healthcare</h3>
                 <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">From predictive diagnostics to personalized treatment plans, see how computer vision is saving lives.</p>
@@ -159,8 +161,8 @@
               </div>
               <div class="blog-card-content" style="padding: 1.5rem;">
                 <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
-                  <span>📅 May 20, 2026</span>
-                  <span>👤 Alex Kim</span>
+                  <span><i class="fa-solid fa-calendar-days"></i> May 20, 2026</span>
+                  <span><i class="fa-solid fa-user"></i> Alex Kim</span>
                 </div>
                 <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">Understanding Transformer Architectures</h3>
                 <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">A deep dive into the attention mechanism that powers modern language models like GPT and BERT.</p>
@@ -175,8 +177,8 @@
               </div>
               <div class="blog-card-content" style="padding: 1.5rem;">
                 <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
-                  <span>📅 May 15, 2026</span>
-                  <span>👤 Mike Rodriguez</span>
+                  <span><i class="fa-solid fa-calendar-days"></i> May 15, 2026</span>
+                  <span><i class="fa-solid fa-user"></i> Mike Rodriguez</span>
                 </div>
                 <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">Building Your First AI Chatbot</h3>
                 <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">A step-by-step guide to creating a custom conversational agent using Python and the STACKLY AI API.</p>
@@ -191,8 +193,8 @@
               </div>
               <div class="blog-card-content" style="padding: 1.5rem;">
                 <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
-                  <span>📅 May 10, 2026</span>
-                  <span>👤 Emily Zhang</span>
+                  <span><i class="fa-solid fa-calendar-days"></i> May 10, 2026</span>
+                  <span><i class="fa-solid fa-user"></i> Emily Zhang</span>
                 </div>
                 <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">The Rise of AI Agents in Business</h3>
                 <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Moving beyond passive chatbots to autonomous agents that can execute complex multi-step workflows.</p>
@@ -316,10 +318,10 @@
           </a>
           <p class="footer-description text-muted mt-3 mb-4">Empowering businesses with cutting-edge AI solutions. Transform your operations with intelligent automation and data-driven insights.</p>
           <div class="footer-social" style="display: flex; gap: 15px;">
-             <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="Twitter" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">𝕏</a>
-            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">in</a>
-            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="GitHub" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">⌨</a>
-            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="YouTube" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);">▶</a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="Twitter" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="LinkedIn" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="GitHub" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);"><i class="fa-brands fa-github"></i></a>
+            <a href="404.html" target="_blank" rel="noopener noreferrer" class="social-icon flex-center hover-glow" aria-label="YouTube" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
         <div class="footer-links-col">
@@ -347,14 +349,20 @@
         <div class="footer-contact-col">
           <h4 class="footer-title mb-3" style="color: white; position: relative; padding-bottom: 10px;">Contact Info<span style="position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--gradient-btn);"></span></h4>
           <ul class="footer-contact text-muted" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
-            <li><span style="margin-right: 10px;">📧</span> hello@stackly.ai</li>
-            <li><span style="margin-right: 10px;">📞</span> +1 (555) 123-4567</li>
-            <li><span style="margin-right: 10px;">📍</span> India, Tamilnadu office</li>
+            <li style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-envelope" style="color: var(--secondary); margin-right: 5px;"></i> hello@stackly.ai
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-phone" style="color: var(--secondary); margin-right: 5px;"></i> 9087654321
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
+              <span><i class="fa-solid fa-location-dot" style="color: var(--secondary); margin-right: 5px;"></i> 17/5W, ST 1, Kallikadu Angappa Nagar, Omalur, Salem, Tamil Nadu, India - 636455</span>
+            </li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom flex-between pt-4 border-top text-muted text-sm" style="border-color: var(--glass-border); flex-wrap: wrap; gap: 1rem;">
-        <p class="m-0">© 2026 STACKLY AI. All rights reserved.</p>
+        <p class="m-0">&copy; 2026 STACKLY AI. All rights reserved.</p>
         <div class="footer-bottom-links" style="display: flex; gap: 20px;">
           <a href="404.html" class="hover-text-primary">Privacy Policy</a>
           <a href="404.html" class="hover-text-primary">Terms of Service</a>
@@ -366,35 +374,33 @@
 
   <!-- AI Chatbot Widget -->
   <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open AI Chat" style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); border: none; font-size: 24px; color: white; cursor: pointer; box-shadow: var(--shadow-glow); z-index: 1000; transition: var(--transition);">
-    💬
+    <i class="fa-solid fa-comments"></i>
   </button>
   <div class="chatbot-window hidden glass-card" id="chatbotWindow" style="position: fixed; bottom: 100px; right: 30px; width: 380px; max-width: calc(100vw - 40px); height: 500px; display: flex; flex-direction: column; padding: 0; overflow: hidden; z-index: 1000; transform-origin: bottom right; transition: all 0.3s ease;">
     <div class="chatbot-header" style="background: var(--gradient-btn); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; color: white;">
       <div class="chatbot-header-info flex" style="gap: 10px; align-items: center;">
-        <span class="chatbot-avatar" style="font-size: 24px;">🤖</span>
+        <span class="chatbot-avatar" style="font-size: 24px;"><i class="fa-solid fa-robot"></i></span>
         <div>
           <h4 style="margin: 0; font-size: 1rem;">STACKLY AI Assistant</h4>
-          <span class="chatbot-status" style="font-size: 0.8rem; opacity: 0.8;">● Online</span>
+          <span class="chatbot-status" style="font-size: 0.8rem; opacity: 0.8;">&bull; Online</span>
         </div>
       </div>
-      <button class="chatbot-close" id="chatbotClose" style="background: transparent; border: none; color: white; cursor: pointer; font-size: 1.2rem;">✕</button>
+      <button class="chatbot-close" id="chatbotClose" style="background: transparent; border: none; color: white; cursor: pointer; font-size: 1.2rem;"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="chatbot-messages" id="chatbotMessages" style="flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; background: rgba(10, 14, 39, 0.5);">
-      <!-- Messages will be injected by JS -->
     </div>
     <div class="chatbot-input" style="display: flex; padding: 15px; border-top: 1px solid var(--glass-border); background: var(--glass-bg);">
       <input type="text" id="chatbotInput" placeholder="Type a message..." autocomplete="off" style="flex: 1; background: transparent; border: none; color: white; outline: none;">
-      <button id="chatbotSend" class="btn btn-primary" style="padding: 8px 15px; border-radius: 8px;">➤</button>
+      <button id="chatbotSend" class="btn btn-primary" style="padding: 8px 15px; border-radius: 8px;"><i class="fa-solid fa-paper-plane"></i></button>
     </div>
   </div>
 
   <!-- Back to Top -->
   <button class="back-to-top hidden" id="backToTop" aria-label="Back to top" style="position: fixed; bottom: 30px; left: 30px; width: 50px; height: 50px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); color: white; font-size: 20px; cursor: pointer; z-index: 999; backdrop-filter: blur(10px); transition: var(--transition);">
-    ↑
+    <i class="fa-solid fa-arrow-up"></i>
   </button>
 
   <!-- JS -->
   <script src="js/main.js"></script>
 </body>
 </html>
-
