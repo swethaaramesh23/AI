@@ -1537,6 +1537,7 @@ p {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
   color: var(--text-muted);
   font-size: 0.85rem;
   margin-bottom: 0.75rem;
