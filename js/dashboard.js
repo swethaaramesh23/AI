@@ -151,13 +151,6 @@ function renderDashboardLayout() {
           <div class="dash-topbar-subtitle">${pageSubtitle}</div>
         </div>
       </div>
-      
-      <!-- Center Search Bar -->
-      <div class="dash-search-container">
-        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-        <input type="text" id="topbarSearchInput" placeholder="Search dashboard...">
-      </div>
-
       <div class="dash-topbar-right">
         <button class="dash-logout-btn" id="topbarLogoutBtn" title="Sign Out">
           <i class="fa-solid fa-right-from-bracket"></i> <span class="hidden-mobile">Logout</span>
@@ -250,26 +243,6 @@ function initDashboardLayout() {
     document.addEventListener('click', (e) => {
       if (!profileTrigger.contains(e.target) && !profileMenu.contains(e.target)) {
         profileMenu.classList.remove('active');
-      }
-    });
-  }
-
-  // Search logic synchronization
-  const topbarSearch = document.getElementById('topbarSearchInput');
-  if (topbarSearch) {
-    topbarSearch.addEventListener('input', () => {
-      const pageSearch = document.querySelector('.table-search, #table-search');
-      if (pageSearch) {
-        pageSearch.value = topbarSearch.value;
-        pageSearch.dispatchEvent(new Event('input'));
-      } else {
-        const cards = document.querySelectorAll('.feature-card, .glass-card, .dash-stat-card, .dash-chart-card, .dash-table-card');
-        const query = topbarSearch.value.toLowerCase().trim();
-        cards.forEach(card => {
-          if (card.closest('.dash-sidebar') || card.closest('.dash-topbar')) return;
-          const text = card.textContent.toLowerCase();
-          card.style.display = (query === '' || text.includes(query)) ? '' : 'none';
-        });
       }
     });
   }

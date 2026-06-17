@@ -26,7 +26,7 @@
     </div>
   </div>
 
-  <!-- Navigation -->
+   <!-- Navigation -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
@@ -34,11 +34,11 @@
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html" class="active">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="solutions.html">Solutions</a></li>
         <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
@@ -68,7 +68,7 @@
 
   <main>
     <!-- Page Hero -->
-    <section class="blog-hero hero" style="min-height: 40vh; padding-top: 120px; display: flex; flex-direction: column; justify-content: center; text-align: center; background: linear-gradient(to bottom, rgba(10,14,39,1) 0%, rgba(6,9,24,1) 100%);">
+    <section class="blog-hero hero" style="min-height: 80vh; padding-top: 120px; display: flex; flex-direction: column; justify-content: center; text-align: center; background: linear-gradient(to bottom, rgba(10,14,39,1) 0%, rgba(6,9,24,1) 100%); background-size: cover; background-position: center;">
       <div class="container page-enter">
         <span class="section-subtitle">OUR BLOG</span>
         <h1 class="mt-2 mb-3 gradient-text" style="font-size: clamp(2.5rem, 5vw, 4rem);">Latest Insights &amp; Articles</h1>
@@ -106,12 +106,12 @@
           <div class="blog-main blog-posts-grid">
             
             <!-- Post 1 -->
-            <a href="#" class="blog-card glass-card hover-lift" data-category="ai-trends" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up">
+            <a href="#" class="blog-card glass-card hover-lift" data-category="ai-trends" style="padding: 0; display: flex; flex-direction: column; height: 100%; text-decoration: none;" data-aos="fade-up">
               <div class="blog-card-image" style="height: 200px; position: relative;">
                 <img src="images/12.webp" alt="AI Trends" style="width: 100%; height: 100%; object-fit: cover;">
                 <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">AI Trends</span>
               </div>
-              <div class="blog-card-content" style="padding: 1.5rem;">
+              <div class="blog-card-content" style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
                 <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
                   <span><i class="fa-solid fa-calendar-days"></i> June 10, 2026</span>
                   <span><i class="fa-solid fa-user"></i> Sarah Chen</span>
@@ -122,12 +122,12 @@
             </a>
             
             <!-- Post 2 -->
-            <a href="#" class="blog-card glass-card hover-lift" data-category="machine-learning" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="blog-card glass-card hover-lift" data-category="machine-learning" style="padding: 0; display: flex; flex-direction: column; height: 100%; text-decoration: none;" data-aos="fade-up" data-aos-delay="100">
               <div class="blog-card-image" style="height: 200px; position: relative;">
                 <img src="images/13.webp" alt="Machine Learning" style="width: 100%; height: 100%; object-fit: cover;">
                 <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">Machine Learning</span>
               </div>
-              <div class="blog-card-content" style="padding: 1.5rem;">
+              <div class="blog-card-content" style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
                 <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
                   <span><i class="fa-solid fa-calendar-days"></i> June 5, 2026</span>
                   <span><i class="fa-solid fa-user"></i> James Wilson</span>
@@ -138,12 +138,12 @@
             </a>
             
             <!-- Post 3 -->
-            <a href="#" class="blog-card glass-card hover-lift" data-category="industry" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up">
+            <a href="#" class="blog-card glass-card hover-lift" data-category="industry" style="padding: 0; display: flex; flex-direction: column; height: 100%; text-decoration: none;" data-aos="fade-up">
               <div class="blog-card-image" style="height: 200px; position: relative;">
                 <img src="images/7.webp" alt="Industry" style="width: 100%; height: 100%; object-fit: cover;">
                 <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">Industry</span>
               </div>
-              <div class="blog-card-content" style="padding: 1.5rem;">
+              <div class="blog-card-content" style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
                 <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
                   <span><i class="fa-solid fa-calendar-days"></i> May 28, 2026</span>
                   <span><i class="fa-solid fa-user"></i> Dr. Priya Patel</span>
@@ -154,12 +154,12 @@
             </a>
             
             <!-- Post 4 -->
-            <a href="#" class="blog-card glass-card hover-lift" data-category="deep-learning" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="blog-card glass-card hover-lift" data-category="deep-learning" style="padding: 0; display: flex; flex-direction: column; height: 100%; text-decoration: none;" data-aos="fade-up" data-aos-delay="100">
               <div class="blog-card-image" style="height: 200px; position: relative;">
                 <img src="images/4.webp" alt="Deep Learning" style="width: 100%; height: 100%; object-fit: cover;">
                 <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">Deep Learning</span>
               </div>
-              <div class="blog-card-content" style="padding: 1.5rem;">
+              <div class="blog-card-content" style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
                 <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
                   <span><i class="fa-solid fa-calendar-days"></i> May 20, 2026</span>
                   <span><i class="fa-solid fa-user"></i> Alex Kim</span>
@@ -170,12 +170,12 @@
             </a>
             
             <!-- Post 5 -->
-            <a href="#" class="blog-card glass-card hover-lift" data-category="tutorials" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up">
+            <a href="#" class="blog-card glass-card hover-lift" data-category="tutorials" style="padding: 0; display: flex; flex-direction: column; height: 100%; text-decoration: none;" data-aos="fade-up">
               <div class="blog-card-image" style="height: 200px; position: relative;">
                 <img src="images/8.webp" alt="Tutorials" style="width: 100%; height: 100%; object-fit: cover;">
                 <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">Tutorials</span>
               </div>
-              <div class="blog-card-content" style="padding: 1.5rem;">
+              <div class="blog-card-content" style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
                 <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
                   <span><i class="fa-solid fa-calendar-days"></i> May 15, 2026</span>
                   <span><i class="fa-solid fa-user"></i> Mike Rodriguez</span>
@@ -186,18 +186,66 @@
             </a>
             
             <!-- Post 6 -->
-            <a href="#" class="blog-card glass-card hover-lift" data-category="ai-trends" style="padding: 0; display: block; text-decoration: none;" data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="blog-card glass-card hover-lift" data-category="ai-trends" style="padding: 0; display: flex; flex-direction: column; height: 100%; text-decoration: none;" data-aos="fade-up" data-aos-delay="100">
               <div class="blog-card-image" style="height: 200px; position: relative;">
                 <img src="images/15.webp" alt="AI Trends" style="width: 100%; height: 100%; object-fit: cover;">
                 <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">AI Trends</span>
               </div>
-              <div class="blog-card-content" style="padding: 1.5rem;">
+              <div class="blog-card-content" style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
                 <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
                   <span><i class="fa-solid fa-calendar-days"></i> May 10, 2026</span>
                   <span><i class="fa-solid fa-user"></i> Emily Zhang</span>
                 </div>
                 <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">The Rise of AI Agents in Business</h3>
                 <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Moving beyond passive chatbots to autonomous agents that can execute complex multi-step workflows.</p>
+              </div>
+            </a>
+
+            <!-- Post 7 -->
+            <a href="#" class="blog-card glass-card hover-lift" data-category="tutorials" style="padding: 0; display: flex; flex-direction: column; height: 100%; text-decoration: none;" data-aos="fade-up">
+              <div class="blog-card-image" style="height: 200px; position: relative;">
+                <img src="images/6.webp" alt="Tutorials" style="width: 100%; height: 100%; object-fit: cover;">
+                <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">Tutorials</span>
+              </div>
+              <div class="blog-card-content" style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
+                <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
+                  <span><i class="fa-solid fa-calendar-days"></i> April 25, 2026</span>
+                  <span><i class="fa-solid fa-user"></i> David Lee</span>
+                </div>
+                <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">Fine-Tuning Open Source LLMs</h3>
+                <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Learn how to customize open-weight models like LLaMA-3 for your specific enterprise use cases efficiently.</p>
+              </div>
+            </a>
+            
+            <!-- Post 8 -->
+            <a href="#" class="blog-card glass-card hover-lift" data-category="industry" style="padding: 0; display: flex; flex-direction: column; height: 100%; text-decoration: none;" data-aos="fade-up" data-aos-delay="100">
+              <div class="blog-card-image" style="height: 200px; position: relative;">
+                <img src="images/3.webp" alt="Industry" style="width: 100%; height: 100%; object-fit: cover;">
+                <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">Industry</span>
+              </div>
+              <div class="blog-card-content" style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
+                <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
+                  <span><i class="fa-solid fa-calendar-days"></i> April 12, 2026</span>
+                  <span><i class="fa-solid fa-user"></i> Marcus Johnson</span>
+                </div>
+                <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">AI in Financial Services</h3>
+                <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">How banks and fintechs are leveraging generative AI for fraud detection, risk analysis, and customer support.</p>
+              </div>
+            </a>
+            
+            <!-- Post 9 -->
+            <a href="#" class="blog-card glass-card hover-lift" data-category="machine-learning" style="padding: 0; display: flex; flex-direction: column; height: 100%; text-decoration: none;" data-aos="fade-up">
+              <div class="blog-card-image" style="height: 200px; position: relative;">
+                <img src="images/5.webp" alt="Machine Learning" style="width: 100%; height: 100%; object-fit: cover;">
+                <span class="blog-card-category" style="position: absolute; top: 15px; left: 15px; background: var(--gradient-btn); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: white;">Machine Learning</span>
+              </div>
+              <div class="blog-card-content" style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
+                <div class="blog-card-meta flex mb-2 text-sm text-muted" style="gap: 15px;">
+                  <span><i class="fa-solid fa-calendar-days"></i> March 30, 2026</span>
+                  <span><i class="fa-solid fa-user"></i> Anna Ivanova</span>
+                </div>
+                <h3 class="blog-card-title mb-2" style="color: white; font-size: 1.25rem;">RAG: The Future of Enterprise Search</h3>
+                <p class="blog-card-excerpt text-muted text-sm m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">Retrieval-Augmented Generation is solving the hallucination problem and unlocking value from proprietary company data.</p>
               </div>
             </a>
 
@@ -209,88 +257,49 @@
                <button class="btn btn-outline blog-page-next" style="padding: 8px 16px;">Next</button>
              </div>
 
+             <!-- Categories -->
+             <div class="glass-card mt-5 mb-4" style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;" data-aos="fade-up">
+               <h4 class="mb-3 border-bottom pb-2" style="border-color: var(--glass-border);">Categories</h4>
+               <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+                 <li class="flex-between">
+                   <a href="#" class="text-muted hover-text-primary">AI Trends</a>
+                   <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">12</span>
+                 </li>
+                 <li class="flex-between">
+                   <a href="#" class="text-muted hover-text-primary">Machine Learning</a>
+                   <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">8</span>
+                 </li>
+                 <li class="flex-between">
+                   <a href="#" class="text-muted hover-text-primary">Deep Learning</a>
+                   <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">15</span>
+                 </li>
+                 <li class="flex-between">
+                   <a href="#" class="text-muted hover-text-primary">Industry News</a>
+                   <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">6</span>
+                 </li>
+                 <li class="flex-between">
+                   <a href="#" class="text-muted hover-text-primary">Tutorials</a>
+                   <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">10</span>
+                 </li>
+               </ul>
+             </div>
+
+             <!-- Tags -->
+             <div class="glass-card mb-5" style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;" data-aos="fade-up">
+               <h4 class="mb-3 border-bottom pb-2" style="border-color: var(--glass-border);">Tags</h4>
+               <div class="tag-cloud flex" style="flex-wrap: wrap; gap: 8px;">
+                 <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">GPT-4</a>
+                 <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Computer Vision</a>
+                 <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">NLP</a>
+                 <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Python</a>
+                 <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">TensorFlow</a>
+                 <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Ethics</a>
+                 <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Automation</a>
+                 <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Data Science</a>
+               </div>
+             </div>
+
           </div>
-
-          <!-- Sidebar -->
-          <aside class="blog-sidebar" style="position: sticky; top: 100px;">
-            
-            <!-- Popular Posts -->
-            <div class="glass-card mb-4" style="padding: 1.5rem;" data-aos="fade-left">
-              <h4 class="mb-3 border-bottom pb-2" style="border-color: var(--glass-border);">Popular Posts</h4>
-              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">
-                <li>
-                  <a href="#" class="hover-text-primary" style="display: flex; gap: 10px;">
-                    <img src="images/12.webp" alt="Thumb" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
-                    <div>
-                      <h5 class="m-0" style="font-size: 0.9rem; line-height: 1.3;">The Future of Generative AI in Enterprise</h5>
-                      <span class="text-xs text-muted">June 10, 2026</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="hover-text-primary" style="display: flex; gap: 10px;">
-                    <img src="images/4.webp" alt="Thumb" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
-                    <div>
-                      <h5 class="m-0" style="font-size: 0.9rem; line-height: 1.3;">Understanding Transformer Architectures</h5>
-                      <span class="text-xs text-muted">May 20, 2026</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="hover-text-primary" style="display: flex; gap: 10px;">
-                    <img src="images/7.webp" alt="Thumb" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
-                    <div>
-                      <h5 class="m-0" style="font-size: 0.9rem; line-height: 1.3;">AI Applications Transforming Healthcare</h5>
-                      <span class="text-xs text-muted">May 28, 2026</span>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Categories -->
-            <div class="glass-card mb-4" style="padding: 1.5rem;" data-aos="fade-left" data-aos-delay="100">
-              <h4 class="mb-3 border-bottom pb-2" style="border-color: var(--glass-border);">Categories</h4>
-              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px;">
-                <li class="flex-between">
-                  <a href="#" class="text-muted hover-text-primary">AI Trends</a>
-                  <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">12</span>
-                </li>
-                <li class="flex-between">
-                  <a href="#" class="text-muted hover-text-primary">Machine Learning</a>
-                  <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">8</span>
-                </li>
-                <li class="flex-between">
-                  <a href="#" class="text-muted hover-text-primary">Deep Learning</a>
-                  <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">15</span>
-                </li>
-                <li class="flex-between">
-                  <a href="#" class="text-muted hover-text-primary">Industry News</a>
-                  <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">6</span>
-                </li>
-                <li class="flex-between">
-                  <a href="#" class="text-muted hover-text-primary">Tutorials</a>
-                  <span class="badge" style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">10</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Tags -->
-            <div class="glass-card" style="padding: 1.5rem;" data-aos="fade-left" data-aos-delay="200">
-              <h4 class="mb-3 border-bottom pb-2" style="border-color: var(--glass-border);">Tags</h4>
-              <div class="tag-cloud flex" style="flex-wrap: wrap; gap: 8px;">
-                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">GPT-4</a>
-                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Computer Vision</a>
-                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">NLP</a>
-                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Python</a>
-                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">TensorFlow</a>
-                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Ethics</a>
-                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Automation</a>
-                <a href="#" class="btn btn-outline" style="padding: 4px 10px; font-size: 0.8rem;">Data Science</a>
-              </div>
-            </div>
-
-          </aside>
         </div>
       </div>
     </section>

@@ -1043,6 +1043,18 @@ img, video, iframe {
   color: #ffffff;
 }
 
+[data-theme="dark"] .dash-card h3,
+[data-theme="dark"] .dash-chart-card h3,
+[data-theme="dark"] .glass-card h3,
+[data-theme="dark"] .dash-table-card h3 {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .dash-card p,
+[data-theme="dark"] .dash-card .text-muted {
+  color: #94a3b8;
+}
+
 [data-theme="dark"] table th {
   background: #1e293b;
   color: #94a3b8;

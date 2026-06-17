@@ -246,7 +246,7 @@ p {
    4. Layout
    ============================================================ */
 .container {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -297,6 +297,10 @@ p {
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
 }
 
 /* ============================================================
@@ -2599,7 +2603,7 @@ p {
 /* Blog posts auto-fill grid */
 .blog-posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 2rem;
 }
 
