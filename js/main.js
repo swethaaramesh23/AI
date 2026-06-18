@@ -446,7 +446,7 @@ function initBlogFilter() {
   if (!blogCards.length) return;
 
   let currentPage = 1;
-  const postsPerPage = 2;
+  const postsPerPage = 99;
   let currentFilter = 'all';
   let searchQuery = '';
 
@@ -454,8 +454,10 @@ function initBlogFilter() {
     // 1. Filter by category and search
     const filteredCards = Array.from(blogCards).filter(card => {
       const category = card.getAttribute('data-category') || '';
-      const title = card.querySelector('.blog-card-title').textContent.toLowerCase();
-      const excerpt = card.querySelector('.blog-card-excerpt').textContent.toLowerCase();
+      const titleEl = card.querySelector('.blog-card-title');
+      const excerptEl = card.querySelector('.blog-card-excerpt');
+      const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+      const excerpt = excerptEl ? excerptEl.textContent.toLowerCase() : '';
       const matchesFilter = (currentFilter === 'all' || category === currentFilter);
       const matchesSearch = (!searchQuery || title.includes(searchQuery) || excerpt.includes(searchQuery));
       return matchesFilter && matchesSearch;
@@ -552,8 +554,10 @@ function initBlogFilter() {
     pageNext.addEventListener('click', () => {
       const filteredCards = Array.from(blogCards).filter(card => {
         const category = card.getAttribute('data-category') || '';
-        const title = card.querySelector('.blog-card-title').textContent.toLowerCase();
-        const excerpt = card.querySelector('.blog-card-excerpt').textContent.toLowerCase();
+        const titleEl = card.querySelector('.blog-card-title');
+      const excerptEl = card.querySelector('.blog-card-excerpt');
+      const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+      const excerpt = excerptEl ? excerptEl.textContent.toLowerCase() : '';
         const matchesFilter = (currentFilter === 'all' || category === currentFilter);
         const matchesSearch = (!searchQuery || title.includes(searchQuery) || excerpt.includes(searchQuery));
         return matchesFilter && matchesSearch;

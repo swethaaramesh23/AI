@@ -131,7 +131,7 @@
 
   <main>
     <!-- Page Hero -->
-    <section class="hero" style="min-height: 80vh; padding-top: 120px; display: flex; flex-direction: column; justify-content: center; text-align: center; background: linear-gradient(to bottom, rgba(10,14,39,1) 0%, rgba(6,9,24,1) 100%); background-size: cover; background-position: center;">
+    <section class="hero" >
       <div class="container page-enter">
         <span class="section-subtitle">PLANS & PRICING</span>
         <h1 class="mt-2 mb-3 gradient-text" style="font-size: clamp(2.5rem, 5vw, 4rem);">Simple, Transparent Pricing</h1>
@@ -163,7 +163,7 @@
             <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Standard SLA (99.0%)</li>
             <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Email Support (48h SLA)</li>
           </ul>
-          <a href="signup.html" class="btn btn-outline" style="width: 100%; text-align: center;">Get Started</a>
+          <a href="<a href="signup.html" class="btn btn-outline" style="width: 100%; text-align: center; margin-top: auto;">" class="btn btn-outline" style="width: 100%; text-align: center; margin-top: auto;">Get Started</a>
         </div>
         
         <!-- Professional -->
@@ -184,27 +184,26 @@
             <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> 99.9% Uptime SLA</li>
             <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Priority Support (12h SLA)</li>
           </ul>
-          <a href="signup.html" class="btn btn-primary" style="width: 100%; text-align: center;">Start Free Trial</a>
+          <a href="<a href="signup.html" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: auto;">" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: auto;">Start Free Trial</a>
         </div>
         
         <!-- Enterprise -->
         <div class="pricing-card glass-card flex-column" data-aos="fade-up" data-aos-delay="200">
           <div class="pricing-header border-bottom mb-4" style="padding-bottom: 1.5rem; border-color: var(--glass-border);">
-            <h3 class="mb-2">Enterprise</h3>
             <div class="price"><span style="font-size: 3rem; font-weight: 800; color: white;">Custom</span></div>
             <p class="text-muted text-sm mt-2">For large-scale mission-critical ops</p>
           </div>
           <ul class="pricing-features mb-4 flex-1" style="list-style:none; padding:0; display:flex; flex-direction:column; gap:12px;">
             <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Unlimited API Calls</li>
             <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Unlimited AI Models</li>
-            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Custom Model Training from Scratch</li>
+            <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Custom Model Training</li>
             <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Unlimited Team Members</li>
             <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Custom Integrations & White-labeling</li>
             <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> On-Premise Deployment Option</li>
             <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> 99.99% Uptime SLA</li>
             <li><span style="color:var(--primary); margin-right:8px"><i class="fa-solid fa-check"></i></span> Dedicated Success Manager (24/7)</li>
           </ul>
-          <a href="contact.html" class="btn btn-outline" style="width: 100%; text-align: center;">Contact Sales</a>
+          <a href="<a href="contact.html" class="btn btn-outline" style="width: 100%; text-align: center; margin-top: auto;">" class="btn btn-outline" style="width: 100%; text-align: center; margin-top: auto;">Contact Sales</a>
         </div>
       </div>
       
@@ -393,9 +392,9 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer bg-darker" style="padding: 5rem 0 2rem; border-top: 1px solid var(--glass-border);">
+  <footer class="footer bg-darker" style="padding: 2rem 0 2rem; border-top: 1px solid var(--glass-border);">
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-grid" style="display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 2rem; padding-bottom: 2rem;">
         <div class="footer-about">
           <a href="index.html" class="footer-logo mb-3" style="display: inline-block;">
             <img src="lo.webp" alt="STACKLY AI" class="footer-logo-img" style="height: 70px;">
@@ -408,76 +407,27 @@
             <a href="404.html" class="social-icon flex-center hover-glow" aria-label="YouTube" style="width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: var(--transition);"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
+        
         <div class="footer-links-col">
           <h4 class="footer-title mb-3" style="color: white; position: relative; padding-bottom: 10px;">Quick Links<span style="position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--gradient-btn);"></span></h4>
-          <ul class="footer-links" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
-            <li><a href="about.html" class="text-muted hover-text-primary">About Us</a></li>
-            <li><a href="services.html" class="text-muted hover-text-primary">Services</a></li>
-            <li><a href="solutions.html" class="text-muted hover-text-primary">Solutions</a></li>
-            <li><a href="pricing.html" class="text-muted hover-text-primary">Pricing</a></li>
-            <li><a href="blog.html" class="text-muted hover-text-primary">Blog</a></li>
-            <li><a href="contact.html" class="text-muted hover-text-primary">Contact</a></li>
+          <ul class="footer-links" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+            <li><a href="index.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;">Home</a></li>
+            <li><a href="about.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;">About Us</a></li>
+            <li><a href="services.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;">Services</a></li>
+            <li><a href="pricing.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;">Pricing</a></li>
+            <li><a href="contact.html" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;">Contact</a></li>
           </ul>
         </div>
-        <div class="footer-links-col">
-          <h4 class="footer-title mb-3" style="color: white; position: relative; padding-bottom: 10px;">Services<span style="position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--gradient-btn);"></span></h4>
-          <ul class="footer-links" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
-            <li><a href="services.html" class="text-muted hover-text-primary">Machine Learning</a></li>
-            <li><a href="services.html" class="text-muted hover-text-primary">Deep Learning</a></li>
-            <li><a href="services.html" class="text-muted hover-text-primary">Generative AI</a></li>
-            <li><a href="services.html" class="text-muted hover-text-primary">Computer Vision</a></li>
-            <li><a href="services.html" class="text-muted hover-text-primary">NLP</a></li>
-            <li><a href="services.html" class="text-muted hover-text-primary">AI Automation</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact-col">
-          <h4 class="footer-title mb-3" style="color: white; position: relative; padding-bottom: 10px;">Contact Info<span style="position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--gradient-btn);"></span></h4>
-          <ul class="footer-contact text-muted" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
-            <li style="display: flex; align-items: center; gap: 10px;">
-              <i class="fa-solid fa-envelope" style="color: var(--secondary); margin-right: 5px;"></i> hello@stackly.ai
-            </li>
-            <li style="display: flex; align-items: center; gap: 10px;">
-              <i class="fa-solid fa-phone" style="color: var(--secondary); margin-right: 5px;"></i> 9087654321
-            </li>
-            <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;">
-              <span><i class="fa-solid fa-location-dot" style="color: var(--secondary); margin-right: 5px;"></i> 17/5W, ST 1, Kallikadu Angappa Nagar, Omalur, Salem, Tamil Nadu, India - 636455</span>
-            </li>
-          </ul>
+        <div class="footer-map">
+          <h4 class="footer-title mb-3" style="color: white; position: relative; padding-bottom: 10px;">Our Location<span style="position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--gradient-btn);"></span></h4>
+          <iframe src="https://maps.google.com/maps?q=Kallikadu+Angappa+Nagar,+Omalur,+Salem,+Tamil+Nadu&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="200" style="border:0; border-radius: 12px; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
-      <div class="footer-bottom flex-between pt-4 border-top text-muted text-sm" style="border-color: var(--glass-border); flex-wrap: wrap; gap: 1rem;">
+      <div class="footer-bottom mt-2 text-center text-muted text-sm pt-4" style="border-top: 1px solid var(--glass-border);">
         <p class="m-0">&copy; 2026 STACKLY AI. All rights reserved.</p>
-        <div class="footer-bottom-links" style="display: flex; gap: 20px;">
-          <a href="404.html" class="hover-text-primary">Privacy Policy</a>
-          <a href="404.html" class="hover-text-primary">Terms of Service</a>
-          <a href="404.html" class="hover-text-primary">Cookie Policy</a>
-        </div>
       </div>
     </div>
   </footer>
-
-  <!-- AI Chatbot Widget -->
-  <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open AI Chat" style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-btn); border: none; font-size: 24px; color: white; cursor: pointer; box-shadow: var(--shadow-glow); z-index: 1000; transition: var(--transition);">
-    <i class="fa-solid fa-comments"></i>
-  </button>
-  <div class="chatbot-window hidden glass-card" id="chatbotWindow" style="position: fixed; bottom: 100px; right: 30px; width: 380px; max-width: calc(100vw - 40px); height: 500px; display: flex; flex-direction: column; padding: 0; overflow: hidden; z-index: 1000; transform-origin: bottom right; transition: all 0.3s ease;">
-    <div class="chatbot-header" style="background: var(--gradient-btn); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; color: white;">
-      <div class="chatbot-header-info flex" style="gap: 10px; align-items: center;">
-        <span class="chatbot-avatar" style="font-size: 24px;"><i class="fa-solid fa-robot"></i></span>
-        <div>
-          <h4 style="margin: 0; font-size: 1rem;">STACKLY AI Assistant</h4>
-          <span class="chatbot-status" style="font-size: 0.8rem; opacity: 0.8;">&bull; Online</span>
-        </div>
-      </div>
-      <button class="chatbot-close" id="chatbotClose" style="background: transparent; border: none; color: white; cursor: pointer; font-size: 1.2rem;"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <div class="chatbot-messages" id="chatbotMessages" style="flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; background: rgba(10, 14, 39, 0.5);">
-    </div>
-    <div class="chatbot-input" style="display: flex; padding: 15px; border-top: 1px solid var(--glass-border); background: var(--glass-bg);">
-      <input type="text" id="chatbotInput" placeholder="Type a message..." autocomplete="off" style="flex: 1; background: transparent; border: none; color: white; outline: none;">
-      <button id="chatbotSend" class="btn btn-primary" style="padding: 8px 15px; border-radius: 8px;"><i class="fa-solid fa-paper-plane"></i></button>
-    </div>
-  </div>
 
   <!-- Back to Top -->
   <button class="back-to-top hidden" id="backToTop" aria-label="Back to top" style="position: fixed; bottom: 30px; left: 30px; width: 50px; height: 50px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); color: white; font-size: 20px; cursor: pointer; z-index: 999; backdrop-filter: blur(10px); transition: var(--transition);">

@@ -259,7 +259,7 @@ body.dash-body {
    TOPBAR
    ============================================================ */
 .dash-topbar {
-  background: #fff;
+  background: transparent;
   border-bottom: 1px solid #e8edf5;
   padding: 0 2rem;
   height: 64px;
@@ -322,7 +322,7 @@ body.dash-body {
   padding: 8px 18px;
   border: 1.5px solid #e0e5ef;
   border-radius: 50px;
-  background: #fff;
+  background: transparent;
   color: #555;
   font-size: 0.87rem;
   font-weight: 600;
@@ -402,7 +402,7 @@ body.dash-body {
 }
 
 .dash-stat-card {
-  background: #fff;
+  background: transparent; border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 14px;
   padding: 1.4rem 1.5rem;
   box-shadow: 0 8px 30px rgba(0,0,0,0.04);
@@ -479,7 +479,7 @@ body.dash-body {
 }
 
 .dash-chart-card {
-  background: #fff;
+  background: transparent; border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 14px;
   padding: 1.4rem 1.5rem;
   box-shadow: 0 8px 30px rgba(0,0,0,0.04);
@@ -521,7 +521,7 @@ body.dash-body {
    DATA TABLE
    ============================================================ */
 .dash-table-card {
-  background: #fff;
+  background: transparent; border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 14px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.04);
   border: 1px solid #e8edf5;
@@ -601,7 +601,7 @@ body.dash-body {
   padding: 6px 14px;
   border: 1.5px solid #e0e5ef;
   border-radius: 8px;
-  background: #fff;
+  background: transparent;
   color: #555;
   font-size: 0.82rem;
   font-weight: 600;
@@ -763,12 +763,12 @@ body.dash-body {
   /* Fix for light theme header visibility while scrolling */
   body[data-theme="light"] .dash-topbar,
   [data-theme="light"] .dash-topbar {
-    background-color: #ffffff !important;
+    background-color: transparent !important;
     border-bottom: 1px solid #e2e8f0 !important;
   }
 
   body:not([data-theme="dark"]) .dash-topbar {
-    background-color: #ffffff !important;
+    background-color: transparent !important;
     border-bottom: 1px solid #e2e8f0 !important;
   }
 
@@ -921,7 +921,7 @@ img, video, iframe {
   cursor: pointer;
   padding: 4px 12px 4px 4px;
   border-radius: 50px;
-  background: #ffffff;
+  background: transparent;
   border: 1px solid #e0e5ef;
   transition: all 0.2s;
 }
@@ -949,7 +949,7 @@ img, video, iframe {
   top: 100%;
   right: 0;
   margin-top: 8px;
-  background: #ffffff;
+  background: transparent;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -1137,7 +1137,7 @@ img, video, iframe {
 
 /* Ensure topbar is always opaque & visible in light mode during scroll */
 body.dash-body .dash-topbar {
-  background: #ffffff;
+  background: transparent;
 }
 
 [data-theme="dark"] body.dash-body .dash-topbar,

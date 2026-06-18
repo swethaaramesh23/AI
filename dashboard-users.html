@@ -19,7 +19,7 @@
   <aside class="dash-sidebar" id="dashSidebar">
     <!-- Dynamically populated by js/dashboard.js -->
     <div class="dash-sidebar-header">
-      <a href="index.html" class="dash-sidebar-brand"><span class="dash-sidebar-brand-text">STACKLY AI</span></a>
+      <a href="index.html" class="dash-sidebar-brand"></a>
       <button class="dash-collapse-btn" id="collapseBtn"><span class="collapse-icon">&lt;&lt;</span></button>
     </div>
   </aside>
@@ -47,7 +47,21 @@
         </div>
       </div>
     </div>
+  
+<div class="dash-table-card mt-4" style="margin-top: 2rem;">
+  <div class="dash-table-header">
+    <h3>Pending Approvals</h3>
   </div>
+  <div class="dash-table-wrap">
+    <table class="dash-table">
+      <thead><tr><th>Name</th><th>Email</th><th>Requested Role</th><th>Actions</th></tr></thead>
+      <tbody>
+        <tr><td>Michael Scott</td><td>michael@dundermifflin.com</td><td>Business</td><td><button class="btn-sm-outline" style="background:#28a745;color:white;border:none;">Approve</button></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
 </div>
 
 </body>

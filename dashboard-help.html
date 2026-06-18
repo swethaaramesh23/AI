@@ -19,7 +19,7 @@
   <aside class="dash-sidebar" id="dashSidebar">
     <!-- Dynamically populated by js/dashboard.js -->
     <div class="dash-sidebar-header">
-      <a href="index.html" class="dash-sidebar-brand"><span class="dash-sidebar-brand-text">STACKLY AI</span></a>
+      <a href="index.html" class="dash-sidebar-brand"></a>
       <button class="dash-collapse-btn" id="collapseBtn"><span class="collapse-icon">&lt;&lt;</span></button>
     </div>
   </aside>
@@ -40,7 +40,22 @@
         </div>
       </div>
     </div>
-  </div>
+  
+<div class="dash-table-card mt-4" style="margin-top: 2rem; padding: 2rem;">
+  <h3>Quick Start Guide</h3>
+  <p>To authenticate your API requests, include your API key in the Authorization header as a Bearer token.</p>
+  <pre style="background: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; color: #a5d6ff;"><code>curl -X POST https://api.stackly.ai/v1/chat \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"message": "Hello"}'</code></pre>
+  <h3 class="mt-4">Available Endpoints</h3>
+  <ul>
+    <li><code>/v1/chat</code> - AI conversational endpoints</li>
+    <li><code>/v1/models</code> - Fine-tuning and model management</li>
+    <li><code>/v1/billing</code> - Usage and invoice retrieval</li>
+  </ul>
+</div>
+</div>
 </div>
 
 </body>

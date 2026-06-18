@@ -98,7 +98,7 @@ function renderDashboardLayout() {
     let sidebarHTML = `
       <div class="dash-sidebar-header">
         <a href="index.html" class="dash-sidebar-brand">
-          <span class="dash-sidebar-brand-text">STACKLY AI</span>
+          
         </a>
         <button class="dash-collapse-btn" id="collapseBtn" title="Toggle Sidebar">
           <span class="collapse-icon">«</span>
@@ -143,7 +143,7 @@ function renderDashboardLayout() {
 
     let topbarHTML = `
       <div class="dash-topbar-left" style="display: flex; align-items: center; gap: 15px;">
-        <img src="lo.webp" alt="STACKLY AI" class="dash-topbar-logo">
+        <a href="index.html" style="display: flex; align-items: center;"><img src="lo.webp" alt="STACKLY AI" class="dash-topbar-logo"></a>
         <button class="dash-mobile-toggle" id="mobileToggle" title="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
         <span class="dash-mobile-title" style="display: none; font-weight: 700; font-size: 1.1rem;">Dashboard</span>
         <div class="dash-desktop-title-container">
